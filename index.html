@@ -437,6 +437,76 @@ section { padding: 100px 48px; }
 /* ── ABOUT ── */
 .about { background: var(--bg2); }
 
+.about-grid-3 {
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 48px;
+}
+
+.tools-grid-sk {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.tool-card-sk {
+  background: #132233;
+  border: 1px solid rgba(79,195,247,0.12);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tool-icon-sk {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tool-name-sk {
+  font-size: 12px;
+  font-weight: 500;
+  color: #e8f0f8;
+}
+
+.tool-type-sk {
+  font-size: 10px;
+  color: #3a5a6a;
+  margin-top: 1px;
+}
+
+.expertise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exp-area-card {
+  background: #132233;
+  border: 1px solid rgba(79,195,247,0.12);
+  border-left: 2px solid #2a7aaa;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+}
+
+.exp-area-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #e8f0f8;
+  margin-bottom: 3px;
+}
+
+.exp-area-desc {
+  font-size: 11px;
+  color: #3a5a6a;
+  line-height: 1.5;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -490,13 +560,12 @@ section { padding: 100px 48px; }
   height: 100%;
   background: linear-gradient(90deg, var(--teal2), var(--accent));
   border-radius: 1px;
-  transform-origin: left;
-  animation: growBar 1s ease-out forwards;
+  width: 0% !important;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes growBar {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+.skill-fill.animated {
+  width: var(--target-width) !important;
 }
 
 /* ── EXPERIENCE ── */
@@ -829,6 +898,7 @@ footer {
   .hero-inner { grid-template-columns: auto 1fr; }
   .hero-right { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-grid-3 { grid-template-columns: 1fr !important; }
   .exp-item { grid-template-columns: 1fr; gap: 8px; }
   .proj-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -846,6 +916,7 @@ footer {
     <li><a href="#hakkimda">Hakkımda</a></li>
     <li><a href="#deneyim">Deneyim</a></li>
     <li><a href="#yayinlar">Yayınlar</a></li>
+    <li><a href="#gonullu" data-tr="Gönüllü" data-en="Volunteer" data-uz="Ko'ngillilik" data-zh="志愿" data-ru="Волонтёрство">Gönüllü</a></li>
     <li><a href="#projeler">Projeler</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:16px;">
@@ -913,9 +984,9 @@ footer {
           <div class="stat-desc" data-tr="Veri analizi & raporlama" data-en="Data analysis & reporting" data-uz="Ma'lumotlar tahlili va hisobot" data-zh="数据分析和报告" data-ru="Анализ данных и отчётность">Veri analizi & raporlama</div>
         </div>
         <div class="stat-block">
-          <div class="stat-num">500<sup>+</sup></div>
-          <div class="stat-lbl" data-tr="LinkedIn" data-en="LinkedIn" data-uz="LinkedIn" data-zh="LinkedIn" data-ru="LinkedIn">LinkedIn</div>
-          <div class="stat-desc" data-tr="Profesyonel bağlantı" data-en="Professional connections" data-uz="Professional aloqalar" data-zh="专业联系" data-ru="Профессиональные связи">Profesyonel bağlantı</div>
+          <div class="stat-num">1</div>
+          <div class="stat-lbl" data-tr="Akademik Dergi" data-en="Academic Journal" data-uz="Akademik Jurnal" data-zh="学术期刊" data-ru="Академический журнал">Akademik Dergi</div>
+          <div class="stat-desc" data-tr="Kurucu ortak — Arkhedemia" data-en="Co-founder — Arkhedemia" data-uz="Hammuassis — Arkhedemia" data-zh="联合创始人 — Arkhedemia" data-ru="Сооснователь — Arkhedemia">Kurucu ortak — Arkhedemia</div>
         </div>
       </div>
     </div>
@@ -925,59 +996,96 @@ footer {
 <!-- ABOUT -->
 <section class="about" id="hakkimda">
   <div class="section-inner">
-    <div class="section-label" data-tr="01 — Hakkımda" data-en="01 — About" data-uz="01 — Haqimda" data-zh="01 — 关于我" data-ru="01 — Обо мне" data-tr="01 — Hakkımda" data-en="01 — About" data-uz="01 — Haqimda" data-zh="01 — 关于我" data-ru="01 — Обо мне">01 — Hakkımda</div>
-    <div class="about-grid">
-      <div class="about-text" id="about-text">
+    <div class="section-label" data-tr="01 — Hakkımda" data-en="01 — About" data-uz="01 — Haqimda" data-zh="01 — 关于我" data-ru="01 — Обо мне">01 — Hakkımda</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+
+      <!-- Sol: Metin + Araçlar -->
+      <div style="display:flex; flex-direction:column; gap:32px;">
         <div class="lang-content" data-lang="tr">
-          <p><strong>Ekonometri</strong> alanında lisans (Gazi Üniversitesi) ve yüksek lisans (Sakarya Üniversitesi) eğitimimi tamamladım. Şu an Ankara Hacı Bayram Veli Üniversitesi'nde Yöneylem Araştırması yüksek lisansına devam ediyorum.</p>
-          <p>Kigılı'da <strong>Organizasyonel Gelişim Uzmanı</strong> olarak çalışıyor; performans yönetimi sistemleri, KPI mimarisi ve veri temelli karar destek altyapıları geliştiriyorum.</p>
-          <p>Öncesinde Sakarya Üniversitesi Araştırma Dekanlığı bünyesinde <strong>Uzman Veri Analisti</strong> olarak görev aldım. TÜBİTAK destekli projelerde istatistiksel analiz ve modelleme çalışmaları yürüttüm.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;"><strong style="color:#e8f0f8;">Ekonometri</strong> alanında lisans (Gazi Üniversitesi) ve yüksek lisans (Sakarya Üniversitesi) eğitimimi tamamladım. Şu an Ankara Hacı Bayram Veli Üniversitesi'nde Yöneylem Araştırması yüksek lisansına devam ediyorum.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">Kigılı'da <strong style="color:#e8f0f8;">Organizasyonel Gelişim Uzmanı</strong> olarak çalışıyor; performans yönetimi sistemleri, KPI mimarisi ve veri temelli karar destek altyapıları geliştiriyorum.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Öncesinde Sakarya Üniversitesi Araştırma Dekanlığı bünyesinde <strong style="color:#e8f0f8;">Uzman Veri Analisti</strong> olarak görev aldım. TÜBİTAK destekli projelerde istatistiksel analiz ve modelleme çalışmaları yürüttüm.</p>
         </div>
         <div class="lang-content" data-lang="en" style="display:none">
-          <p>I completed my undergraduate (<strong>Gazi University</strong>) and graduate (<strong>Sakarya University</strong>) education in <strong>Econometrics</strong>. Currently pursuing a Master's in Operations Research at Ankara Hacı Bayram Veli University.</p>
-          <p>At <strong>Kigılı</strong>, I work as an <strong>Organizational Development Specialist</strong>, designing performance management systems, KPI architecture, and data-driven decision support infrastructure.</p>
-          <p>Previously, I served as a <strong>Senior Data Analyst</strong> at Sakarya University's Research Dean's Office, conducting statistical analysis and modeling in <strong>TÜBİTAK</strong>-funded projects.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">I completed my undergraduate (<strong style="color:#e8f0f8;">Gazi University</strong>) and graduate (<strong style="color:#e8f0f8;">Sakarya University</strong>) education in <strong style="color:#e8f0f8;">Econometrics</strong>. Currently pursuing a Master's in Operations Research at Ankara Hacı Bayram Veli University.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">At <strong style="color:#e8f0f8;">Kigılı</strong>, I work as an <strong style="color:#e8f0f8;">Organizational Development Specialist</strong>, designing performance management systems, KPI architecture, and data-driven decision support infrastructure.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Previously, I served as a <strong style="color:#e8f0f8;">Senior Data Analyst</strong> at Sakarya University's Research Dean's Office, conducting statistical analysis and modeling in <strong style="color:#e8f0f8;">TÜBİTAK</strong>-funded projects.</p>
         </div>
         <div class="lang-content" data-lang="uz" style="display:none">
-          <p>Men <strong>Ekonometrika</strong> bo'yicha bakalavr (Gazi Universiteti) va magistratura (Sakarya Universiteti) ta'limini tugatdim. Hozirda Ankara Hoji Bayram Veli Universitetida magistraturada o'qimoqdaman.</p>
-          <p><strong>Kigılı</strong>da <strong>Tashkiliy Rivojlanish Mutaxassisi</strong> sifatida ishlayman; ishlash boshqaruvi tizimlari, KPI arxitekturasi va ma'lumotlarga asoslangan qaror qabul qilish infratuzilmasini ishlab chiqaman.</p>
-          <p>Ilgari Sakarya Universiteti Tadqiqot Dekanligi tarkibida <strong>Katta Ma'lumotlar Analitiki</strong> sifatida xizmat qildim. <strong>TÜBİTAK</strong> loyihalarida statistik tahlil va modellash ishlarini olib bordim.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">Men <strong style="color:#e8f0f8;">Ekonometrika</strong> bo'yicha bakalavr (Gazi Universiteti) va magistratura (Sakarya Universiteti) ta'limini tugatdim.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;"><strong style="color:#e8f0f8;">Kigılı</strong>da Tashkiliy Rivojlanish Mutaxassisi sifatida ishlayman; ishlash boshqaruvi tizimlari va KPI arxitekturasini ishlab chiqaman.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Ilgari Sakarya Universiteti Tadqiqot Dekanligi tarkibida <strong style="color:#e8f0f8;">Katta Ma'lumotlar Analitiki</strong> sifatida xizmat qildim.</p>
         </div>
         <div class="lang-content" data-lang="zh" style="display:none">
-          <p>我完成了<strong>计量经济学</strong>本科（加齐大学）和硕士（萨卡里亚大学）学业。目前在安卡拉哈吉拜拉姆维利大学攻读运筹学硕士学位。</p>
-          <p>在<strong>Kigılı</strong>担任<strong>组织发展专家</strong>，负责设计绩效管理系统、KPI架构和数据驱动的决策支持基础设施。</p>
-          <p>此前，我在萨卡里亚大学研究院担任<strong>高级数据分析师</strong>，参与<strong>TÜBİTAK</strong>资助项目的统计分析和建模工作。</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">我完成了<strong style="color:#e8f0f8;">计量经济学</strong>本科（加齐大学）和硕士（萨卡里亚大学）学业。目前攻读运筹学硕士学位。</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">在<strong style="color:#e8f0f8;">Kigılı</strong>担任<strong style="color:#e8f0f8;">组织发展专家</strong>，负责设计绩效管理系统和KPI架构。</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">此前担任<strong style="color:#e8f0f8;">高级数据分析师</strong>，参与<strong style="color:#e8f0f8;">TÜBİTAK</strong>资助项目的统计分析工作。</p>
         </div>
         <div class="lang-content" data-lang="ru" style="display:none">
-          <p>Я получил степень бакалавра и магистра по <strong>эконометрике</strong> в университетах Гази и Сакарья. В настоящее время обучаюсь в магистратуре в Университете Анкары Хаджи Байрам Вели.</p>
-          <p>В <strong>Kigılı</strong> работаю <strong>специалистом по организационному развитию</strong> — разрабатываю системы управления эффективностью, архитектуру KPI и инфраструктуру поддержки принятия решений.</p>
-          <p>Ранее работал <strong>старшим аналитиком данных</strong> в деканате Университета Сакарья, проводя статистический анализ в проектах <strong>TÜBİTAK</strong>.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">Я получил степень бакалавра и магистра по <strong style="color:#e8f0f8;">эконометрике</strong> в Университетах Гази и Сакарья. Сейчас обучаюсь в магистратуре.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">В <strong style="color:#e8f0f8;">Kigılı</strong> работаю <strong style="color:#e8f0f8;">специалистом по организационному развитию</strong> — разрабатываю системы KPI и управления эффективностью.</p>
+          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Ранее работал <strong style="color:#e8f0f8;">старшим аналитиком данных</strong> в Университете Сакарья.</p>
+        </div>
+
+        <!-- Araçlar -->
+        <div>
+          <div style="font-size:10px;letter-spacing:3px;color:#4fc3f7;font-family:monospace;margin-bottom:14px;" data-tr="Araçlar & Teknolojiler" data-en="Tools & Technologies" data-uz="Vositalar" data-zh="工具和技术" data-ru="Инструменты">Araçlar & Teknolojiler</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="8" width="3" height="8" rx="1" fill="#f3b235"/><rect x="7" y="5" width="3" height="11" rx="1" fill="#f3b235" opacity=".8"/><rect x="12" y="2" width="3" height="14" rx="1" fill="#f3b235" opacity=".6"/></svg>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Power BI</span>
+            </div>
+            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="7" fill="none" stroke="#4fc3f7" stroke-width="1.5"/><text x="9" y="13" text-anchor="middle" font-size="8" fill="#4fc3f7" font-weight="bold">Py</text></svg>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Python</span>
+            </div>
+            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><ellipse cx="9" cy="5" rx="6" ry="2.5" fill="none" stroke="#81c784" stroke-width="1.2"/><path d="M3 5v8c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V5" fill="none" stroke="#81c784" stroke-width="1.2"/></svg>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">SQL</span>
+            </div>
+            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="2" width="14" height="14" rx="2" fill="none" stroke="#81c784" stroke-width="1.2"/><line x1="2" y1="7" x2="16" y2="7" stroke="#81c784" stroke-width="1" opacity=".5"/><line x1="7" y1="2" x2="7" y2="16" stroke="#81c784" stroke-width="1" opacity=".5"/></svg>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Excel</span>
+            </div>
+            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="7" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity=".6"/><text x="9" y="13" text-anchor="middle" font-size="9" fill="#4fc3f7" font-weight="bold">R</text></svg>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">R</span>
+            </div>
+            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="3" y="3" width="5" height="5" rx="1" fill="#d264c8" opacity=".7"/><rect x="10" y="3" width="5" height="5" rx="1" fill="#d264c8" opacity=".4"/><rect x="3" y="10" width="5" height="5" rx="1" fill="#d264c8" opacity=".4"/><rect x="10" y="10" width="5" height="5" rx="1" fill="#d264c8" opacity=".7"/></svg>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Stata</span>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Sağ: Uzmanlık alanları -->
       <div>
-        <div class="skills-list">
-          <div class="skill-item">
-            <div class="skill-name"><span data-tr="Power BI & Veri Görselleştirme" data-en="Power BI & Data Visualization" data-uz="Power BI va Vizuallashtirish" data-zh="Power BI和数据可视化" data-ru="Power BI и визуализация">Power BI & Veri Görselleştirme</span><span>95%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        <div style="font-size:10px;letter-spacing:3px;color:#4fc3f7;font-family:monospace;margin-bottom:14px;" data-tr="Uzmanlık Alanları" data-en="Areas of Expertise" data-uz="Mutaxassislik Sohalari" data-zh="专业领域" data-ru="Области экспертизы">Uzmanlık Alanları</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Ekonometrik Modelleme" data-en="Econometric Modeling" data-uz="Ekonometrik Modellashtirish" data-zh="计量经济建模" data-ru="Эконометрическое моделирование">Ekonometrik Modelleme</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Panel veri, zaman serisi, regresyon, nedensellik ve eşbütünleşme analizleri" data-en="Panel data, time series, regression, causality and cointegration" data-uz="Panel ma'lumotlar, vaqt qatori, regressiya tahlillari" data-zh="面板数据、时间序列、回归、因果关系分析" data-ru="Панельные данные, временные ряды, регрессия, причинность">Panel veri, zaman serisi, regresyon, nedensellik ve eşbütünleşme analizleri</div>
           </div>
-          <div class="skill-item">
-            <div class="skill-name"><span data-tr="Ekonometrik Modelleme" data-en="Econometric Modeling" data-uz="Ekonometrik Modellashtirish" data-zh="计量经济建模" data-ru="Эконометрическое моделирование">Ekonometrik Modelleme</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Performans Yönetimi & KPI" data-en="Performance Management & KPI" data-uz="Ishlash Boshqaruvi va KPI" data-zh="绩效管理和KPI" data-ru="Управление эффективностью и KPI">Performans Yönetimi & KPI</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="KPI mimarisi, hedef-metrik hizalaması, yetkinlik bazlı skorlama" data-en="KPI architecture, goal-metric alignment, competency-based scoring" data-uz="KPI arxitekturasi, maqsad-metrik moslashtirish" data-zh="KPI架构、目标指标对齐、基于能力的评分" data-ru="Архитектура KPI, согласование целей и метрик">KPI mimarisi, hedef-metrik hizalaması, yetkinlik bazlı skorlama</div>
           </div>
-          <div class="skill-item">
-            <div class="skill-name"><span data-tr="Excel (İleri Düzey)" data-en="Excel (Advanced)" data-uz="Excel (Ilg'or daraja)" data-zh="Excel（高级）" data-ru="Excel (Продвинутый)">Excel (İleri Düzey)</span><span>92%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Veri Görselleştirme & Dashboard" data-en="Data Visualization & Dashboard" data-uz="Ma'lumotlarni Vizuallashtirish" data-zh="数据可视化和仪表板" data-ru="Визуализация данных и дашборды">Veri Görselleştirme & Dashboard</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Yönetim raporları, Power BI dashboardları, operasyonel paneller" data-en="Management reports, Power BI dashboards, operational panels" data-uz="Boshqaruv hisobotlari, Power BI panellari" data-zh="管理报告、Power BI仪表板、运营面板" data-ru="Управленческие отчёты, дашборды Power BI">Yönetim raporları, Power BI dashboardları, operasyonel paneller</div>
           </div>
-          <div class="skill-item">
-            <div class="skill-name"><span data-tr="Python & SQL" data-en="Python & SQL" data-uz="Python va SQL" data-zh="Python和SQL" data-ru="Python и SQL">Python & SQL</span><span>75%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="İş Analizi & Süreç Tasarımı" data-en="Business Analysis & Process Design" data-uz="Biznes Tahlili va Jarayon Dizayni" data-zh="业务分析和流程设计" data-ru="Бизнес-анализ и проектирование">İş Analizi & Süreç Tasarımı</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Gereksinim analizi, süreç haritalama, verimlilik optimizasyonu" data-en="Requirements analysis, process mapping, efficiency optimization" data-uz="Talablar tahlili, jarayon xaritalash" data-zh="需求分析、流程映射、效率优化" data-ru="Анализ требований, картирование процессов">Gereksinim analizi, süreç haritalama, verimlilik optimizasyonu</div>
           </div>
-          <div class="skill-item">
-            <div class="skill-name"><span data-tr="Performans Yönetimi & KPI" data-en="Performance Management & KPI" data-uz="Ishlash Boshqaruvi va KPI" data-zh="绩效管理和KPI" data-ru="Управление эффективностью и KPI">Performans Yönetimi & KPI</span><span>88%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Akademik Araştırma" data-en="Academic Research" data-uz="Akademik Tadqiqot" data-zh="学术研究" data-ru="Академические исследования">Akademik Araştırma</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="TÜBİTAK projeleri, SSRN/Elsevier yayınları, ampirik finansal analiz" data-en="TÜBİTAK projects, SSRN/Elsevier publications, empirical financial analysis" data-uz="TÜBİTAK loyihalari, SSRN/Elsevier nashrlari" data-zh="TÜBİTAK项目、SSRN/Elsevier出版物" data-ru="Проекты TÜBİTAK, публикации SSRN/Elsevier">TÜBİTAK projeleri, SSRN/Elsevier yayınları, ampirik finansal analiz</div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1116,12 +1224,51 @@ footer {
   </div>
 </section>
 
+<!-- VOLUNTEER -->
+<section id="gonullu">
+  <div class="section-inner">
+    <div class="section-label" data-tr="05 — Gönüllü Çalışmalar" data-en="05 — Volunteer Work" data-uz="05 — Ko'ngillilik" data-zh="05 — 志愿工作" data-ru="05 — Волонтёрство">05 — Gönüllü Çalışmalar</div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date" data-tr="Şub 2025 —" data-en="Feb 2025 —" data-uz="Fev 2025 —" data-zh="2025年2月 —" data-ru="Фев 2025 —">Şub 2025 —<br><span data-tr="Devam ediyor" data-en="Present" data-uz="Davom etmoqda" data-zh="至今" data-ru="По настоящее время">Devam ediyor</span></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-logo" style="background:#fff;">
+              <img src="logo-arkhedemia.png" alt="Arkhedemia" style="width:36px;height:36px;object-fit:contain;">
+            </div>
+            <div>
+              <div class="exp-title" data-tr="İş Geliştirme Kurucu Ortak" data-en="Business Development Co-founder" data-uz="Biznes Rivojlantirish Hammuassisi" data-zh="业务发展联合创始人" data-ru="Сооснователь по развитию бизнеса">İş Geliştirme Kurucu Ortak</div>
+              <div class="exp-company"><a href="https://sites.google.com/view/arkhedemia/ana-sayfa" target="_blank" style="color:#4fc3f7;text-decoration:none;letter-spacing:1.5px;font-size:12px;font-weight:500;">ARKHEDEMİA DERGİSİ ↗</a></div>
+            </div>
+          </div>
+          <div class="exp-desc" data-tr="Ekonomi, sosyal bilimler ve politika alanlarında hakemli akademik yayın yapan Arkhedemia Dergisi'nin kurucu ortağı olarak iş geliştirme ve büyüme stratejilerini yönetiyorum." data-en="As co-founder of Arkhedemia Journal, a peer-reviewed academic publication in economics, social sciences and policy, I manage business development and growth strategies." data-uz="Arkhedemia jurnalining hammuassisi sifatida biznes rivojlantirish va o'sish strategiyalarini boshqaraman." data-zh="作为Arkhedemia期刊的联合创始人，负责管理业务发展和增长战略。" data-ru="Как сооснователь журнала Arkhedemia, управляю стратегией развития бизнеса и роста.">Ekonomi, sosyal bilimler ve politika alanlarında hakemli akademik yayın yapan Arkhedemia Dergisi'nin kurucu ortağı olarak iş geliştirme ve büyüme stratejilerini yönetiyorum.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date" data-tr="Oca 2022 —" data-en="Jan 2022 —" data-uz="Yan 2022 —" data-zh="2022年1月 —" data-ru="Янв 2022 —">Oca 2022 —<br><span data-tr="Ağu 2022" data-en="Aug 2022" data-uz="Avg 2022" data-zh="2022年8月" data-ru="Авг 2022">Ağu 2022</span></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-logo" style="background:#0a0a0a;">
+              <img src="logo-vebet.png" alt="VEBET" style="width:36px;height:36px;object-fit:contain;">
+            </div>
+            <div>
+              <div class="exp-title" data-tr="Kurucu Başkan Yardımcısı" data-en="Founding Vice President" data-uz="Asoschi Vitse-prezident" data-zh="创始副主席" data-ru="Основатель и вице-президент">Kurucu Başkan Yardımcısı</div>
+              <div class="exp-company" style="letter-spacing:1.5px;font-size:12px;font-weight:500;color:#4fc3f7;" data-tr="VERİ BİLİMİ VE EKONOMETRİ TOPLULUĞU" data-en="DATA SCIENCE AND ECONOMETRICS SOCIETY" data-uz="MA'LUMOTLAR FANLARI VA EKONOMETRIKA JAMIYATI" data-zh="数据科学与计量经济学协会" data-ru="ОБЩЕСТВО НАУКИ О ДАННЫХ И ЭКОНОМЕТРИКИ">VERİ BİLİMİ VE EKONOMETRİ TOPLULUĞU</div>
+            </div>
+          </div>
+          <div class="exp-desc" data-tr="Gazi Üniversitesi bünyesinde kurulan Veri Bilimi ve Ekonometri Topluluğu'nun (VEBET) kurucu başkan yardımcısı olarak topluluğun yapılanması ve akademik etkinliklerinin organizasyonunda görev aldım." data-en="As founding vice president of the Data Science and Econometrics Society (VEBET) at Gazi University, I contributed to the society's establishment and organization of academic events." data-uz="Gazi Universitetidagi Ma'lumotlar Fanlari va Ekonometrika Jamiyatining (VEBET) asoschi vitse-prezidenti sifatida xizmat qildim." data-zh="作为加齐大学数据科学与计量经济学协会(VEBET)的创始副主席，参与协会建设和学术活动组织。" data-ru="Как основатель и вице-президент Общества науки о данных и эконометрики (VEBET) в Университете Гази, участвовал в создании организации и проведении академических мероприятий.">Gazi Üniversitesi bünyesinde kurulan Veri Bilimi ve Ekonometri Topluluğu'nun (VEBET) kurucu başkan yardımcısı olarak topluluğun yapılanması ve akademik etkinliklerinin organizasyonunda görev aldım.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="iletisim">
   <div class="section-inner">
     <div class="contact-grid">
       <div class="contact-text">
-        <div class="section-label" data-tr="05 — İletişim" data-en="05 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт" data-tr="05 — İletişim" data-en="05 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт">05 — İletişim</div>
+        <div class="section-label" data-tr="06 — İletişim" data-en="06 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт" data-tr="06 — İletişim" data-en="06 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт">06 — İletişim</div>
         <h2 class="section-title" data-tr="Birlikte çalışalım." data-en="Let's work together." data-uz="Birga ishlaylik." data-zh="让我们合作吧。" data-ru="Давайте работать вместе." data-tr="Birlikte çalışalım." data-en="Let's work together." data-uz="Birga ishlaylik." data-zh="让我们合作吧。" data-ru="Давайте работать вместе.">Birlikte çalışalım.</h2>
         <p data-tr="Veri analizi, ekonometrik modelleme veya organizasyonel gelişim konularında iş birliği için ulaşabilirsiniz." data-en="Feel free to reach out for collaboration on data analysis, econometric modeling, or organizational development.">Veri analizi, ekonometrik modelleme veya organizasyonel gelişim konularında iş birliği için ulaşabilirsiniz.</p>
         <a href="#" onclick="window.location='mail'+'to:dogruyol.sabri@gmail.com'; return false;" class="btn btn-filled" data-tr="E-posta Gönder" data-en="Send Email" data-uz="Xat yuborish" data-zh="发送邮件" data-ru="Написать письмо" data-tr="E-posta Gönder" data-en="Send Email" data-uz="Xat yuborish" data-zh="发送邮件" data-ru="Написать письмо">E-posta Gönder</a>
@@ -1195,6 +1342,23 @@ function setLang(lang) {
 window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('lang');
   if (saved && saved !== 'tr') setLang(saved);
+
+  // Skill bar animasyonu — scroll ile tetikle
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+            bar.classList.add('animated');
+          });
+        }, 200);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const skillsSection = document.querySelector('.skills-list');
+  if (skillsSection) observer.observe(skillsSection);
 });
 </script>
 </body>
