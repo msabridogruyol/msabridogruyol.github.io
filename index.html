@@ -40,6 +40,97 @@ body {
   font-size: 15px;
   line-height: 1.7;
   overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Light mode */
+body.light {
+  --bg: #f0f4f8;
+  --bg2: #e4ecf4;
+  --bg3: #d8e4f0;
+  --text: #0f1923;
+  --muted: #2a5a7a;
+  --faint: #6a9ab0;
+  --border: rgba(42,122,170,0.2);
+  --teal: #cce4f0;
+  --teal2: #7ab8d4;
+  --blue: #2a7aaa;
+  --accent: #1a6a9a;
+}
+
+/* Particle canvas */
+#particle-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Theme toggle button */
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.theme-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Mobile menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--muted);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 16px; z-index: 99; }
+  .nav-links.open { display: flex; }
+  .nav-links li { list-style: none; }
 }
 
 /* ── SCROLLBAR ── */
@@ -466,6 +557,26 @@ section { padding: 100px 48px; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+/* 3D tilt effect */
+.tool-card-sk {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  cursor: default;
+}
+
+.tool-card-sk:hover {
+  border-color: rgba(79,195,247,0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(79,195,247,0.15);
+}
+
+.tool-icon-sk {
+  transition: transform 0.15s ease;
+}
+
+.tool-card-sk:hover .tool-icon-sk {
+  transform: translateZ(8px) scale(1.15);
 }
 
 .tool-name-sk {
@@ -910,6 +1021,7 @@ footer {
 <body>
 
 <!-- NAV -->
+<canvas id="particle-canvas"></canvas>
 <nav>
   <a href="#" class="nav-logo">MSD<span>.</span></a>
   <ul class="nav-links">
@@ -932,6 +1044,9 @@ footer {
       <button class="lang-btn" onclick="setLang('ru')" id="btn-ru">RU</button>
     </div>
     <a href="#" onclick="window.location='mail'+'to:dogruyol.sabri@gmail.com'; return false;" class="nav-cta" data-tr="İletişim" data-en="Contact" data-uz="Aloqa" data-zh="联系" data-ru="Контакт">İletişim</a>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -995,7 +1110,7 @@ footer {
 
 <!-- ABOUT -->
 <section class="about" id="hakkimda">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label" data-tr="01 — Hakkımda" data-en="01 — About" data-uz="01 — Haqimda" data-zh="01 — 关于我" data-ru="01 — Обо мне">01 — Hakkımda</div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
 
@@ -1031,29 +1146,71 @@ footer {
         <div>
           <div style="font-size:10px;letter-spacing:3px;color:#4fc3f7;font-family:monospace;margin-bottom:14px;" data-tr="Araçlar & Teknolojiler" data-en="Tools & Technologies" data-uz="Vositalar" data-zh="工具和技术" data-ru="Инструменты">Araçlar & Teknolojiler</div>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
-            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
               <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="8" width="3" height="8" rx="1" fill="#f3b235"/><rect x="7" y="5" width="3" height="11" rx="1" fill="#f3b235" opacity=".8"/><rect x="12" y="2" width="3" height="14" rx="1" fill="#f3b235" opacity=".6"/></svg>
               <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Power BI</span>
             </div>
-            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
               <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="7" fill="none" stroke="#4fc3f7" stroke-width="1.5"/><text x="9" y="13" text-anchor="middle" font-size="8" fill="#4fc3f7" font-weight="bold">Py</text></svg>
               <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Python</span>
             </div>
-            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
               <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><ellipse cx="9" cy="5" rx="6" ry="2.5" fill="none" stroke="#81c784" stroke-width="1.2"/><path d="M3 5v8c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V5" fill="none" stroke="#81c784" stroke-width="1.2"/></svg>
               <span style="font-size:12px;font-weight:500;color:#e8f0f8;">SQL</span>
             </div>
-            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
               <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="2" width="14" height="14" rx="2" fill="none" stroke="#81c784" stroke-width="1.2"/><line x1="2" y1="7" x2="16" y2="7" stroke="#81c784" stroke-width="1" opacity=".5"/><line x1="7" y1="2" x2="7" y2="16" stroke="#81c784" stroke-width="1" opacity=".5"/></svg>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Excel</span>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Power Excel</span>
             </div>
-            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
               <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="7" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity=".6"/><text x="9" y="13" text-anchor="middle" font-size="9" fill="#4fc3f7" font-weight="bold">R</text></svg>
               <span style="font-size:12px;font-weight:500;color:#e8f0f8;">R</span>
             </div>
-            <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
               <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="3" y="3" width="5" height="5" rx="1" fill="#d264c8" opacity=".7"/><rect x="10" y="3" width="5" height="5" rx="1" fill="#d264c8" opacity=".4"/><rect x="3" y="10" width="5" height="5" rx="1" fill="#d264c8" opacity=".4"/><rect x="10" y="10" width="5" height="5" rx="1" fill="#d264c8" opacity=".7"/></svg>
               <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Stata</span>
+            </div>
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <div class="tool-icon-sk" style="background:rgba(230,120,50,0.12);">
+                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="2" width="6" height="4" rx="1" fill="#e67832" opacity=".8"/><rect x="10" y="2" width="6" height="4" rx="1" fill="#e67832" opacity=".5"/><rect x="2" y="8" width="6" height="4" rx="1" fill="#e67832" opacity=".5"/><rect x="10" y="8" width="6" height="4" rx="1" fill="#e67832" opacity=".8"/></svg>
+              </div>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">MATLAB</span>
+            </div>
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <div class="tool-icon-sk" style="background:rgba(79,195,247,0.1);">
+                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><polyline points="2,14 6,8 9,11 12,5 16,14" fill="none" stroke="#4fc3f7" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">ÇKVV</span>
+            </div>
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <div class="tool-icon-sk" style="background:rgba(240,100,40,0.12);">
+                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><text x="1" y="13" font-size="8" fill="#f06428" font-weight="bold">&lt;/&gt;</text></svg>
+              </div>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">HTML</span>
+            </div>
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <div class="tool-icon-sk" style="background:rgba(79,150,247,0.12);">
+                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="3" y="2" width="12" height="14" rx="2" fill="none" stroke="#4f96f7" stroke-width="1.3"/><line x1="6" y1="6" x2="12" y2="6" stroke="#4f96f7" stroke-width="1" opacity=".7"/><line x1="6" y1="9" x2="12" y2="9" stroke="#4f96f7" stroke-width="1" opacity=".7"/><line x1="6" y1="12" x2="10" y2="12" stroke="#4f96f7" stroke-width="1" opacity=".7"/></svg>
+              </div>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">CSS</span>
+            </div>
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <div class="tool-icon-sk" style="background:rgba(129,199,132,0.1);">
+                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><polyline points="2,12 5,7 8,10 11,4 14,8 17,5" fill="none" stroke="#81c784" stroke-width="1.5" stroke-linejoin="round"/><line x1="2" y1="15" x2="17" y2="15" stroke="#81c784" stroke-width="1" opacity=".4"/></svg>
+              </div>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Zaman Serisi</span>
+            </div>
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <div class="tool-icon-sk" style="background:rgba(79,195,247,0.08);">
+                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="2" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/><rect x="10" y="2" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/><rect x="2" y="10" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/><rect x="10" y="10" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/></svg>
+              </div>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Panel Veri</span>
+            </div>
+            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
+              <div class="tool-icon-sk" style="background:rgba(243,178,53,0.1);">
+                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="6" fill="none" stroke="#f3b235" stroke-width="1.3"/><line x1="9" y1="3" x2="9" y2="9" stroke="#f3b235" stroke-width="1.3"/><line x1="9" y1="9" x2="14" y2="9" stroke="#f3b235" stroke-width="1.3"/></svg>
+              </div>
+              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">İstatistik</span>
             </div>
           </div>
         </div>
@@ -1080,6 +1237,18 @@ footer {
             <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Gereksinim analizi, süreç haritalama, verimlilik optimizasyonu" data-en="Requirements analysis, process mapping, efficiency optimization" data-uz="Talablar tahlili, jarayon xaritalash" data-zh="需求分析、流程映射、效率优化" data-ru="Анализ требований, картирование процессов">Gereksinim analizi, süreç haritalama, verimlilik optimizasyonu</div>
           </div>
           <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Zaman Serisi Analizi" data-en="Time Series Analysis" data-uz="Vaqt Qatori Tahlili" data-zh="时间序列分析" data-ru="Анализ временных рядов">Zaman Serisi Analizi</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="ARIMA, VAR, GARCH modelleri, durağanlık testleri, öngörü analizi" data-en="ARIMA, VAR, GARCH models, stationarity tests, forecasting analysis" data-uz="ARIMA, VAR, GARCH modellari, statsionarlik testlari" data-zh="ARIMA、VAR、GARCH模型、平稳性检验、预测分析" data-ru="Модели ARIMA, VAR, GARCH, тесты стационарности, прогнозный анализ">ARIMA, VAR, GARCH modelleri, durağanlık testleri, öngörü analizi</div>
+          </div>
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Panel Veri Analizi" data-en="Panel Data Analysis" data-uz="Panel Ma'lumotlar Tahlili" data-zh="面板数据分析" data-ru="Анализ панельных данных">Panel Veri Analizi</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Sabit etkiler, rassal etkiler, dinamik panel modeller, Hausman testi" data-en="Fixed effects, random effects, dynamic panel models, Hausman test" data-uz="Qat'iy ta'sirlar, tasodifiy ta'sirlar, dinamik panel modellari" data-zh="固定效应、随机效应、动态面板模型、豪斯曼检验" data-ru="Фиксированные эффекты, случайные эффекты, динамические панельные модели">Sabit etkiler, rassal etkiler, dinamik panel modeller, Hausman testi</div>
+          </div>
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
+            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="İstatistiksel Analiz" data-en="Statistical Analysis" data-uz="Statistik Tahlil" data-zh="统计分析" data-ru="Статистический анализ">İstatistiksel Analiz</div>
+            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Tanımlayıcı istatistik, hipotez testleri, güven aralıkları, korelasyon analizleri" data-en="Descriptive statistics, hypothesis testing, confidence intervals, correlation analyses" data-uz="Tavsifiy statistika, gipoteza testlari, korrelyatsiya tahlillari" data-zh="描述性统计、假设检验、置信区间、相关分析" data-ru="Описательная статистика, проверка гипотез, доверительные интервалы, корреляционный анализ">Tanımlayıcı istatistik, hipotez testleri, güven aralıkları, korelasyon analizleri</div>
+          </div>
+          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
             <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Akademik Araştırma" data-en="Academic Research" data-uz="Akademik Tadqiqot" data-zh="学术研究" data-ru="Академические исследования">Akademik Araştırma</div>
             <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="TÜBİTAK projeleri, SSRN/Elsevier yayınları, ampirik finansal analiz" data-en="TÜBİTAK projects, SSRN/Elsevier publications, empirical financial analysis" data-uz="TÜBİTAK loyihalari, SSRN/Elsevier nashrlari" data-zh="TÜBİTAK项目、SSRN/Elsevier出版物" data-ru="Проекты TÜBİTAK, публикации SSRN/Elsevier">TÜBİTAK projeleri, SSRN/Elsevier yayınları, ampirik finansal analiz</div>
           </div>
@@ -1092,7 +1261,7 @@ footer {
 
 <!-- EXPERIENCE -->
 <section id="deneyim">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label" data-tr="02 — Deneyim" data-en="02 — Experience" data-uz="02 — Tajriba" data-zh="02 — 经历" data-ru="02 — Опыт" data-tr="02 — Deneyim" data-en="02 — Experience" data-uz="02 — Tajriba" data-zh="02 — 经历" data-ru="02 — Опыт">02 — Deneyim</div>
     <div class="exp-list">
       <div class="exp-item">
@@ -1140,7 +1309,7 @@ footer {
 
 <!-- PUBLICATIONS -->
 <section class="pubs" id="yayinlar">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label" data-tr="03 — Akademik Yayınlar" data-en="03 — Academic Publications" data-tr="03 — Akademik Yayınlar" data-en="03 — Publications" data-uz="03 — Akademik Nashrlar" data-zh="03 — 学术出版物" data-ru="03 — Публикации">03 — Akademik Yayınlar</div>
     <div style="margin-bottom: 28px;">
       <a href="https://scholar.google.com/citations?user=fi-3L8cAAAAJ" target="_blank" class="btn btn-outline" style="font-size:11px; letter-spacing:2px;" data-tr="Google Scholar'da Görüntüle ↗" data-en="View on Google Scholar ↗" data-uz="Google Scholar'da ko'rish ↗" data-zh="在Google Scholar查看 ↗" data-ru="Открыть в Google Scholar ↗" data-tr="Google Scholar'da Görüntüle ↗" data-en="View on Google Scholar ↗" data-uz="Google Scholar'da ko'rish ↗" data-zh="在Google Scholar查看 ↗" data-ru="Открыть в Google Scholar ↗">Google Scholar'da Görüntüle ↗</a>
@@ -1177,7 +1346,7 @@ footer {
 
 <!-- PROJECTS -->
 <section id="projeler">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label" data-tr="04 — Projeler" data-en="04 — Projects" data-uz="04 — Loyihalar" data-zh="04 — 项目" data-ru="04 — Проекты" data-tr="04 — Projeler" data-en="04 — Projects" data-uz="04 — Loyihalar" data-zh="04 — 项目" data-ru="04 — Проекты">04 — Projeler</div>
     <div class="proj-grid">
       <a class="proj-card" href="veri-koprüsü.html" style="text-decoration:none;">
@@ -1220,13 +1389,14 @@ footer {
           <span class="proj-tag">KPI</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- VOLUNTEER -->
 <section id="gonullu">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="section-label" data-tr="05 — Gönüllü Çalışmalar" data-en="05 — Volunteer Work" data-uz="05 — Ko'ngillilik" data-zh="05 — 志愿工作" data-ru="05 — Волонтёрство">05 — Gönüllü Çalışmalar</div>
     <div class="exp-list">
       <div class="exp-item">
@@ -1259,13 +1429,28 @@ footer {
           <div class="exp-desc" data-tr="Gazi Üniversitesi bünyesinde kurulan Veri Bilimi ve Ekonometri Topluluğu'nun (VEBET) kurucu başkan yardımcısı olarak topluluğun yapılanması ve akademik etkinliklerinin organizasyonunda görev aldım." data-en="As founding vice president of the Data Science and Econometrics Society (VEBET) at Gazi University, I contributed to the society's establishment and organization of academic events." data-uz="Gazi Universitetidagi Ma'lumotlar Fanlari va Ekonometrika Jamiyatining (VEBET) asoschi vitse-prezidenti sifatida xizmat qildim." data-zh="作为加齐大学数据科学与计量经济学协会(VEBET)的创始副主席，参与协会建设和学术活动组织。" data-ru="Как основатель и вице-президент Общества науки о данных и эконометрики (VEBET) в Университете Гази, участвовал в создании организации и проведении академических мероприятий.">Gazi Üniversitesi bünyesinde kurulan Veri Bilimi ve Ekonometri Topluluğu'nun (VEBET) kurucu başkan yardımcısı olarak topluluğun yapılanması ve akademik etkinliklerinin organizasyonunda görev aldım.</div>
         </div>
       </div>
+      <div class="exp-item">
+        <div class="exp-date" data-tr="Gönüllü" data-en="Volunteer" data-uz="Ko'ngillilik" data-zh="志愿" data-ru="Волонтёр">Gönüllü</div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-logo" style="background:#fff;">
+              <img src="logo-boldav.png" alt="Bol-Dav" style="width:36px;height:36px;object-fit:contain;">
+            </div>
+            <div>
+              <div class="exp-title" data-tr="Gönüllü" data-en="Volunteer" data-uz="Ko'ngillilik" data-zh="志愿者" data-ru="Волонтёр">Gönüllü</div>
+              <div class="exp-company"><a href="http://www.boldav.org.tr/" target="_blank" style="color:#4fc3f7;text-decoration:none;letter-spacing:1.5px;font-size:12px;font-weight:500;">BOLVADİNLİLER DAYANIŞMA VAKFI ↗</a></div>
+            </div>
+          </div>
+          <div class="exp-desc" data-tr="Bolvadinliler Dayanışma Vakfı (Bol-Dav) ile ortaklaşa Afyonkarahisar iline ait demografik, ekonomik ve sosyal verileri Power BI ile görselleştiren interaktif veri portalı geliştirildi. Açık veri kaynaklarından derlenen veriler harita ve grafik formatında sunuldu." data-en="In collaboration with Bolvadinliler Solidarity Foundation (Bol-Dav), developed an interactive Power BI data portal visualizing demographic, economic and social data of Afyonkarahisar province using open data sources." data-uz="Bol-Dav bilan hamkorlikda Afyonkarahisar viloyati uchun Power BI ma'lumotlar portali ishlab chiqildi." data-zh="与Bol-Dav基金会合作，开发了阿菲永卡拉希萨尔省Power BI数据门户，通过地图和图表展示人口、经济和社会数据。" data-ru="В сотрудничестве с фондом Bol-Dav разработан интерактивный портал данных Power BI по провинции Афьонкарахисар с визуализацией демографических, экономических и социальных данных.">Bolvadinliler Dayanışma Vakfı (Bol-Dav) ile ortaklaşa Afyonkarahisar iline ait demografik, ekonomik ve sosyal verileri Power BI ile görselleştiren interaktif veri portalı geliştirildi. Açık veri kaynaklarından derlenen veriler harita ve grafik formatında sunuldu.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="iletisim">
-  <div class="section-inner">
+  <div class="section-inner reveal">
     <div class="contact-grid">
       <div class="contact-text">
         <div class="section-label" data-tr="06 — İletişim" data-en="06 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт" data-tr="06 — İletişim" data-en="06 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт">06 — İletişim</div>
@@ -1319,6 +1504,129 @@ footer {
 </footer>
 
 <script>
+// ── PARTICLES ──────────────────────────────────────────────
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  const N = 60, MAX_DIST = 120;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function Particle() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.r = Math.random() * 2 + 1;
+  }
+
+  function init() {
+    resize();
+    particles = Array.from({length: N}, () => new Particle());
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    const col = document.body.classList.contains('light') ? '42,122,170' : '79,195,247';
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${col},0.6)`;
+      ctx.fill();
+    });
+    for (let i = 0; i < N; i++) {
+      for (let j = i + 1; j < N; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < MAX_DIST) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(${col},${0.15 * (1 - d/MAX_DIST)})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  init();
+  draw();
+})();
+
+// ── THEME TOGGLE ───────────────────────────────────────────
+const themeBtn = document.getElementById('theme-btn');
+function applyTheme(t) {
+  document.body.classList.toggle('light', t === 'light');
+  if (themeBtn) themeBtn.textContent = t === 'light' ? '☽' : '☀';
+  localStorage.setItem('theme', t);
+}
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    applyTheme(document.body.classList.contains('light') ? 'dark' : 'light');
+  });
+}
+const savedTheme = localStorage.getItem('theme') || 'dark';
+applyTheme(savedTheme);
+
+// ── HAMBURGER MENU ─────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+}
+
+// ── SCROLL REVEAL ──────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── 3D TILT ───────────────────────────────────────────────
+function initTilt() {
+  document.querySelectorAll('.tool-card-sk').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      const rotY = (x / r.width) * 18;
+      const rotX = -(y / r.height) * 18;
+      card.style.transform = `perspective(300px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.06)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(300px) rotateX(0) rotateY(0) scale(1)';
+    });
+  });
+}
+window.addEventListener('DOMContentLoaded', initTilt);
+
+// ── LANGUAGE ───────────────────────────────────────────────
 function setLang(lang) {
   // lang-content blokları göster/gizle
   document.querySelectorAll('.lang-content').forEach(el => {
