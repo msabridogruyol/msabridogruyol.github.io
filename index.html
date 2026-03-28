@@ -1083,4 +1083,36 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<
+<<footer>
+  <div class="footer-copy" data-tr="© 2025 Mustafa Sabri Doğruyol" data-en="© 2025 Mustafa Sabri Doğruyol" data-uz="© 2025 Mustafa Sabri Doğruyol" data-zh="© 2025 Mustafa Sabri Doğruyol" data-ru="© 2025 Mustafa Sabri Doğruyol">© 2025 Mustafa Sabri Doğruyol</div>
+  <div class="footer-links">
+    <a href="#hakkimda" data-tr="Hakkımda" data-en="About" data-uz="Haqimda" data-zh="关于我" data-ru="Обо мне">Hakkımda</a>
+    <a href="#deneyim" data-tr="Deneyim" data-en="Experience" data-uz="Tajriba" data-zh="经历" data-ru="Опыт">Deneyim</a>
+    <a href="#yayinlar" data-tr="Yayınlar" data-en="Publications" data-uz="Nashrlar" data-zh="出版物" data-ru="Публикации">Yayınlar</a>
+    <a href="#projeler" data-tr="Projeler" data-en="Projects" data-uz="Loyihalar" data-zh="项目" data-ru="Проекты">Projeler</a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-tr]').forEach(el => {
+    if (lang === 'tr') el.textContent = el.dataset.tr;
+    else if (lang === 'en') el.textContent = el.dataset.en;
+    else if (lang === 'uz') el.textContent = el.dataset.uz || el.dataset.en;
+    else if (lang === 'zh') el.textContent = el.dataset.zh || el.dataset.en;
+    else if (lang === 'ru') el.textContent = el.dataset.ru || el.dataset.en;
+  });
+  ['tr','en','uz','zh','ru'].forEach(l => {
+    const btn = document.getElementById('btn-' + l);
+    if (btn) btn.classList.toggle('active', l === lang);
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem('lang', lang);
+}
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('lang');
+  if (saved && saved !== 'tr') setLang(saved);
+});
+</script>
+</body>
+</html>
