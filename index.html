@@ -50,13 +50,46 @@ body.light {
   --bg3: #d8e4f0;
   --text: #0f1923;
   --muted: #2a5a7a;
-  --faint: #6a9ab0;
+  --faint: #5a8aa0;
   --border: rgba(42,122,170,0.2);
   --teal: #cce4f0;
   --teal2: #7ab8d4;
   --blue: #2a7aaa;
   --accent: #1a6a9a;
 }
+
+body.light .tool-card-sk { background: #ffffff !important; border-color: rgba(42,122,170,0.2) !important; }
+body.light .stats-card { background: #d8e4f0 !important; }
+body.light .stat-block { background: #e4ecf4 !important; }
+body.light .stat-block:hover { background: #d8e4f0 !important; }
+body.light .pub-card { background: #ffffff !important; }
+body.light .pub-card:hover { background: #e4ecf4 !important; }
+body.light .proj-card { background: #f0f4f8 !important; }
+body.light .proj-card:hover { background: #e4ecf4 !important; }
+body.light .contact-link { background: #e4ecf4 !important; }
+body.light .contact-link:hover { background: #d8e4f0 !important; }
+body.light .exp-logo { border-color: rgba(42,122,170,0.2) !important; }
+body.light .hero { background: #e8f0f8 !important; }
+body.light .about { background: #e4ecf4 !important; }
+body.light .pubs, body.light .contact { background: #e4ecf4 !important; }
+body.light .stat-num { color: #0f1923 !important; }
+body.light .pub-title, body.light .proj-title { color: #0f1923 !important; }
+body.light .exp-title { color: #0f1923 !important; }
+body.light .pub-source, body.light .proj-desc { color: #3a6a8a !important; }
+body.light .exp-desc { color: #3a6a8a !important; }
+body.light .stat-lbl, body.light .stat-desc { color: #3a6a8a !important; }
+body.light .proj-tag { color: #2a5a7a !important; border-color: rgba(42,122,170,0.3) !important; }
+body.light .exp-area-title { color: #0f1923 !important; }
+body.light .exp-area-desc { color: #3a6a8a !important; }
+body.light .tool-name-sk { color: #0f1923 !important; }
+body.light .tool-type-sk { color: #5a8aa0 !important; }
+body.light [style*="color:#e8f0f8"] { color: #0f1923 !important; }
+body.light [style*="color:#7ab8d4"] { color: #2a5a7a !important; }
+body.light [style*="color:#3a5a6a"] { color: #4a7a9a !important; }
+body.light [style*="background:#132233"] { background: #ffffff !important; }
+body.light [style*="background:#0f1923"] { background: #f0f4f8 !important; }
+body.light [style*="background:#0f1d2b"] { background: #e4ecf4 !important; }
+body.light footer { background: #e4ecf4; border-color: rgba(42,122,170,0.15); }
 
 /* Particle canvas */
 #particle-canvas {
@@ -66,6 +99,11 @@ body.light {
   pointer-events: none;
   z-index: 0;
   opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+body.light #particle-canvas {
+  opacity: 0.7;
 }
 
 /* Scroll reveal */
