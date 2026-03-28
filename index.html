@@ -531,6 +531,53 @@ section { padding: 100px 48px; }
   line-height: 1.2;
 }
 
+.exp-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.exp-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.exp-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.exp-logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.exp-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
 .exp-company {
   font-size: 12px;
   letter-spacing: 1.5px;
@@ -813,7 +860,7 @@ footer {
       <span style="color:var(--faint);font-size:11px;">|</span>
       <button class="lang-btn" onclick="setLang('ru')" id="btn-ru">RU</button>
     </div>
-    <a href="mailto:dogruyol.sabri@gmail.com" class="nav-cta" data-tr="İletişim" data-en="Contact" data-uz="Aloqa" data-zh="联系" data-ru="Контакт">İletişim</a>
+    <a href="#" onclick="window.location='mail'+'to:dogruyol.sabri@gmail.com'; return false;" class="nav-cta" data-tr="İletişim" data-en="Contact" data-uz="Aloqa" data-zh="联系" data-ru="Контакт">İletişim</a>
   </div>
 </nav>
 
@@ -835,16 +882,16 @@ footer {
         Karmaşık veriyi anlamlı içgörüye dönüştürüyor, iş problemlerini ekonometrik modeller ve veri odaklı karar destek sistemleriyle çözüyorum.
       </p>
       <div class="hero-pills">
-        <span class="pill">Power BI</span>
-        <span class="pill">Python</span>
-        <span class="pill">SQL</span>
-        <span class="pill">Ekonometri</span>
-        <span class="pill">Org. Gelişim</span>
+        <span class="pill" data-tr="Power BI" data-en="Power BI" data-uz="Power BI" data-zh="Power BI" data-ru="Power BI">Power BI</span>
+        <span class="pill" data-tr="Python" data-en="Python" data-uz="Python" data-zh="Python" data-ru="Python">Python</span>
+        <span class="pill" data-tr="SQL" data-en="SQL" data-uz="SQL" data-zh="SQL" data-ru="SQL">SQL</span>
+        <span class="pill" data-tr="Ekonometri" data-en="Econometrics" data-uz="Ekonometrika" data-zh="计量经济学" data-ru="Эконометрика">Ekonometri</span>
+        <span class="pill" data-tr="Org. Gelişim" data-en="Org. Development" data-uz="Tashkiliy Rivojlanish" data-zh="组织发展" data-ru="Орг. развитие">Org. Gelişim</span>
       </div>
       <div class="hero-actions">
-        <a href="#yayinlar" class="btn btn-filled" data-tr="Yayınlarım" data-en="Publications" data-uz="Nashrlarim" data-zh="我的出版物" data-ru="Публикации" data-tr="Yayınlarım" data-en="Publications" data-uz="Nashrlarim" data-zh="我的出版物" data-ru="Публикации">Yayınlarım</a>
-        <a href="cv.pdf" class="btn btn-outline" download data-tr="CV İndir" data-en="Download CV" data-uz="CV Yuklab olish" data-zh="下载简历" data-ru="Скачать CV" data-tr="CV İndir" data-en="Download CV" data-uz="CV Yuklab olish" data-zh="下载简历" data-ru="Скачать CV">CV İndir</a>
-        <a href="mailto:dogruyol.sabri@gmail.com" class="btn btn-outline">İletişim</a>
+        <a href="#yayinlar" class="btn btn-filled" data-tr="Yayınlarım" data-en="Publications" data-uz="Nashrlarim" data-zh="我的出版物" data-ru="Публикации">Yayınlarım</a>
+        <a href="cv.pdf" class="btn btn-outline" download data-tr="CV İndir" data-en="Download CV" data-uz="CV Yuklab olish" data-zh="下载简历" data-ru="Скачать CV">CV İndir</a>
+        <a href="#" onclick="window.location='mail'+'to:dogruyol.sabri@gmail.com'; return false;" class="btn btn-outline" data-tr="İletişim" data-en="Contact" data-uz="Aloqa" data-zh="联系" data-ru="Контакт">İletişim</a>
       </div>
     </div>
 
@@ -881,15 +928,31 @@ footer {
     <div class="section-label" data-tr="01 — Hakkımda" data-en="01 — About" data-uz="01 — Haqimda" data-zh="01 — 关于我" data-ru="01 — Обо мне" data-tr="01 — Hakkımda" data-en="01 — About" data-uz="01 — Haqimda" data-zh="01 — 关于我" data-ru="01 — Обо мне">01 — Hakkımda</div>
     <div class="about-grid">
       <div class="about-text" id="about-text">
-        <p>
-          <strong>Ekonometri</strong> alanında lisans (Gazi Üniversitesi) ve yüksek lisans (Sakarya Üniversitesi) eğitimimi tamamladım. Şu an Ankara Hacı Bayram Veli Üniversitesi'nde Yöneylem Araştırması yüksek lisansına devam ediyorum.
-        </p>
-        <p>
-          Kigılı'da <strong data-tr="Organizasyonel Gelişim Uzmanı" data-en="Organizational Development Specialist" data-uz="Tashkiliy Rivojlanish Mutaxassisi" data-zh="组织发展专家" data-ru="Специалист по организационному развитию">Organizasyonel Gelişim Uzmanı</strong> olarak çalışıyor; performans yönetimi sistemleri, KPI mimarisi ve veri temelli karar destek altyapıları geliştiriyorum.
-        </p>
-        <p>
-          Öncesinde Sakarya Üniversitesi Araştırma Dekanlığı bünyesinde <strong data-tr="Uzman Veri Analisti" data-en="Senior Data Analyst" data-uz="Katta Ma'lumotlar Analitiki" data-zh="高级数据分析师" data-ru="Старший аналитик данных">Uzman Veri Analisti</strong> olarak görev aldım. TÜBİTAK destekli projelerde istatistiksel analiz ve modelleme çalışmaları yürüttüm.
-        </p>
+        <div class="lang-content" data-lang="tr">
+          <p><strong>Ekonometri</strong> alanında lisans (Gazi Üniversitesi) ve yüksek lisans (Sakarya Üniversitesi) eğitimimi tamamladım. Şu an Ankara Hacı Bayram Veli Üniversitesi'nde Yöneylem Araştırması yüksek lisansına devam ediyorum.</p>
+          <p>Kigılı'da <strong>Organizasyonel Gelişim Uzmanı</strong> olarak çalışıyor; performans yönetimi sistemleri, KPI mimarisi ve veri temelli karar destek altyapıları geliştiriyorum.</p>
+          <p>Öncesinde Sakarya Üniversitesi Araştırma Dekanlığı bünyesinde <strong>Uzman Veri Analisti</strong> olarak görev aldım. TÜBİTAK destekli projelerde istatistiksel analiz ve modelleme çalışmaları yürüttüm.</p>
+        </div>
+        <div class="lang-content" data-lang="en" style="display:none">
+          <p>I completed my undergraduate (<strong>Gazi University</strong>) and graduate (<strong>Sakarya University</strong>) education in <strong>Econometrics</strong>. Currently pursuing a Master's in Operations Research at Ankara Hacı Bayram Veli University.</p>
+          <p>At <strong>Kigılı</strong>, I work as an <strong>Organizational Development Specialist</strong>, designing performance management systems, KPI architecture, and data-driven decision support infrastructure.</p>
+          <p>Previously, I served as a <strong>Senior Data Analyst</strong> at Sakarya University's Research Dean's Office, conducting statistical analysis and modeling in <strong>TÜBİTAK</strong>-funded projects.</p>
+        </div>
+        <div class="lang-content" data-lang="uz" style="display:none">
+          <p>Men <strong>Ekonometrika</strong> bo'yicha bakalavr (Gazi Universiteti) va magistratura (Sakarya Universiteti) ta'limini tugatdim. Hozirda Ankara Hoji Bayram Veli Universitetida magistraturada o'qimoqdaman.</p>
+          <p><strong>Kigılı</strong>da <strong>Tashkiliy Rivojlanish Mutaxassisi</strong> sifatida ishlayman; ishlash boshqaruvi tizimlari, KPI arxitekturasi va ma'lumotlarga asoslangan qaror qabul qilish infratuzilmasini ishlab chiqaman.</p>
+          <p>Ilgari Sakarya Universiteti Tadqiqot Dekanligi tarkibida <strong>Katta Ma'lumotlar Analitiki</strong> sifatida xizmat qildim. <strong>TÜBİTAK</strong> loyihalarida statistik tahlil va modellash ishlarini olib bordim.</p>
+        </div>
+        <div class="lang-content" data-lang="zh" style="display:none">
+          <p>我完成了<strong>计量经济学</strong>本科（加齐大学）和硕士（萨卡里亚大学）学业。目前在安卡拉哈吉拜拉姆维利大学攻读运筹学硕士学位。</p>
+          <p>在<strong>Kigılı</strong>担任<strong>组织发展专家</strong>，负责设计绩效管理系统、KPI架构和数据驱动的决策支持基础设施。</p>
+          <p>此前，我在萨卡里亚大学研究院担任<strong>高级数据分析师</strong>，参与<strong>TÜBİTAK</strong>资助项目的统计分析和建模工作。</p>
+        </div>
+        <div class="lang-content" data-lang="ru" style="display:none">
+          <p>Я получил степень бакалавра и магистра по <strong>эконометрике</strong> в университетах Гази и Сакарья. В настоящее время обучаюсь в магистратуре в Университете Анкары Хаджи Байрам Вели.</p>
+          <p>В <strong>Kigılı</strong> работаю <strong>специалистом по организационному развитию</strong> — разрабатываю системы управления эффективностью, архитектуру KPI и инфраструктуру поддержки принятия решений.</p>
+          <p>Ранее работал <strong>старшим аналитиком данных</strong> в деканате Университета Сакарья, проводя статистический анализ в проектах <strong>TÜBİTAK</strong>.</p>
+        </div>
       </div>
       <div>
         <div class="skills-list">
@@ -927,24 +990,42 @@ footer {
       <div class="exp-item">
         <div class="exp-date" data-tr="Eyl 2025 —" data-en="Sep 2025 —" data-uz="Sep 2025 —" data-zh="2025年9月 —" data-ru="Сен 2025 —">Eyl 2025 —<br data-tr="Devam ediyor" data-en="Present" data-uz="Davom etmoqda" data-zh="至今" data-ru="По настоящее время">Devam ediyor</div>
         <div class="exp-content">
+          <div class="exp-logo"><img src="logo-kigili.png" alt="Kigılı"></div>
+          <div class="exp-header">
+            <div class="exp-logo"><img src="logo-kigili.png" alt="Kigılı"></div>
+            <div>
           <div class="exp-title" data-tr="Organizasyonel Gelişim Uzmanı" data-en="Organizational Development Specialist" data-uz="Tashkiliy Rivojlanish Mutaxassisi" data-zh="组织发展专家" data-ru="Специалист по организационному развитию">Organizasyonel Gelişim Uzmanı</div>
           <div class="exp-company" data-tr="Kigılı · İstanbul" data-en="Kigılı · Istanbul" data-uz="Kigılı · Istanbul" data-zh="Kigılı · 伊斯坦布尔" data-ru="Kigılı · Стамбул">Kigılı · İstanbul</div>
+            </div>
+          </div>
           <div class="exp-desc" data-tr="Performans yönetimi sistemlerinin tasarımı ve yönetimi, KPI mimarisi ve hedef-metrik hizalaması, Power BI ile kurumsal raporlama altyapısının geliştirilmesi." data-en="Design and management of performance management systems, KPI architecture and goal-metric alignment, development of corporate reporting infrastructure with Power BI." data-uz="Ishlash boshqaruvi tizimlarini loyihalash, KPI arxitekturasi, Power BI yordamida korporativ hisobot infratuzilmasini rivojlantirish." data-zh="绩效管理系统的设计与管理，KPI架构，使用Power BI开发企业报告基础设施。" data-ru="Проектирование систем управления эффективностью, архитектура KPI, разработка корпоративной отчётности в Power BI.">Performans yönetimi sistemlerinin tasarımı ve yönetimi, KPI mimarisi ve hedef-metrik hizalaması, Power BI ile kurumsal raporlama altyapısının geliştirilmesi, yetkinlik bazlı değerlendirme ve skorlama modellerinin kurulması.</div>
         </div>
       </div>
       <div class="exp-item">
         <div class="exp-date" data-tr="Kas 2022 —" data-en="Nov 2022 —" data-uz="Nov 2022 —" data-zh="2022年11月 —" data-ru="Ноя 2022 —">Kas 2022 —<br data-tr="Ağu 2025" data-en="Aug 2025" data-uz="Avg 2025" data-zh="2025年8月" data-ru="Авг 2025">Ağu 2025</div>
         <div class="exp-content">
+          <div class="exp-logo"><img src="logo-sautek.png" alt="SAUTEK"></div>
+          <div class="exp-header">
+            <div class="exp-logo"><img src="logo-sautek.png" alt="SAUTEK"></div>
+            <div>
           <div class="exp-title" data-tr="Uzman Veri Analisti" data-en="Senior Data Analyst" data-uz="Katta Ma'lumotlar Analitiki" data-zh="高级数据分析师" data-ru="Старший аналитик данных">Uzman Veri Analisti</div>
           <div class="exp-company" data-tr="SAUTEK · Sakarya Üniversitesi" data-en="SAUTEK · Sakarya University" data-uz="SAUTEK · Sakarya Universiteti" data-zh="SAUTEK · 萨卡里亚大学" data-ru="SAUTEK · Университет Сакарья">SAUTEK · Sakarya Üniversitesi</div>
+            </div>
+          </div>
           <div class="exp-desc" data-tr="Kurumsal veri yönetimi ve analitik raporlama süreçleri, TÜBİTAK projelerinde istatistiksel analiz ve ekonometrik modelleme, panel veri ve zaman serisi analizleri." data-en="Corporate data management and analytical reporting, statistical analysis and econometric modeling in TÜBİTAK projects, panel data and time series analyses." data-uz="Korporativ ma'lumotlarni boshqarish, TÜBİTAK loyihalarida statistik tahlil va ekonometrik modellashtirish." data-zh="企业数据管理和分析报告，TÜBİTAK项目中的统计分析和计量经济建模。" data-ru="Управление корпоративными данными, статистический анализ и эконометрическое моделирование в проектах TÜBİTAK.">Kurumsal veri yönetimi ve analitik raporlama süreçlerinin yürütülmesi, TÜBİTAK projelerinde istatistiksel analiz ve ekonometrik modelleme, panel veri ve zaman serisi analizleri, otomatik raporlama altyapısının tasarımı.</div>
         </div>
       </div>
       <div class="exp-item">
         <div class="exp-date" data-tr="Ağu 2019 —" data-en="Aug 2019 —" data-uz="Avg 2019 —" data-zh="2019年8月 —" data-ru="Авг 2019 —">Ağu 2019 —<br data-tr="Haz 2021" data-en="Jun 2021" data-uz="Iyn 2021" data-zh="2021年6月" data-ru="Июн 2021">Haz 2021</div>
         <div class="exp-content">
+          <div class="exp-logo"><img src="logo-kuveytturk.png" alt="Kuveyt Türk"></div>
+          <div class="exp-header">
+            <div class="exp-logo"><img src="logo-kuveytturk.png" alt="Kuveyt Türk"></div>
+            <div>
           <div class="exp-title" data-tr="Müşteri Temsilcisi Yetkilisi" data-en="Customer Relations Officer" data-uz="Mijozlar bilan Munosabatlar Xodimi" data-zh="客户关系专员" data-ru="Специалист по работе с клиентами">Müşteri Temsilcisi Yetkilisi</div>
           <div class="exp-company" data-tr="Kuveyt Türk Katılım Bankası · Ankara" data-en="Kuveyt Türk Participation Bank · Ankara" data-uz="Kuveyt Türk Ishtirok Banki · Ankara" data-zh="科威特土耳其参与银行 · 安卡拉" data-ru="Участный банк Кувейт Тюрк · Анкара">Kuveyt Türk Katılım Bankası · Ankara</div>
+            </div>
+          </div>
           <div class="exp-desc" data-tr="Bireysel ve kurumsal müşterilere bankacılık hizmetleri sunumu, portföy yönetimi ve müşteri ilişkileri." data-en="Providing banking services to individual and corporate clients, portfolio management and customer relations." data-uz="Jismoniy va yuridik shaxslarga bank xizmatlarini ko'rsatish, portfel boshqaruvi." data-zh="为个人和企业客户提供银行服务，投资组合管理。" data-ru="Предоставление банковских услуг физическим и юридическим лицам, управление портфелем.">Bireysel ve kurumsal müşterilere bankacılık hizmetleri sunumu, portföy yönetimi ve müşteri ilişkileri.</div>
         </div>
       </div>
@@ -1046,14 +1127,14 @@ footer {
         <div class="section-label" data-tr="05 — İletişim" data-en="05 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт" data-tr="05 — İletişim" data-en="05 — Contact" data-uz="05 — Aloqa" data-zh="05 — 联系" data-ru="05 — Контакт">05 — İletişim</div>
         <h2 class="section-title" data-tr="Birlikte çalışalım." data-en="Let's work together." data-uz="Birga ishlaylik." data-zh="让我们合作吧。" data-ru="Давайте работать вместе." data-tr="Birlikte çalışalım." data-en="Let's work together." data-uz="Birga ishlaylik." data-zh="让我们合作吧。" data-ru="Давайте работать вместе.">Birlikte çalışalım.</h2>
         <p data-tr="Veri analizi, ekonometrik modelleme veya organizasyonel gelişim konularında iş birliği için ulaşabilirsiniz." data-en="Feel free to reach out for collaboration on data analysis, econometric modeling, or organizational development.">Veri analizi, ekonometrik modelleme veya organizasyonel gelişim konularında iş birliği için ulaşabilirsiniz.</p>
-        <a href="/cdn-cgi/l/email-protection#61050e061314180e0d4f120003130821060c00080d4f020e0c" class="btn btn-filled" data-tr="E-posta Gönder" data-en="Send Email" data-uz="Xat yuborish" data-zh="发送邮件" data-ru="Написать письмо" data-tr="E-posta Gönder" data-en="Send Email" data-uz="Xat yuborish" data-zh="发送邮件" data-ru="Написать письмо">E-posta Gönder</a>
+        <a href="#" onclick="window.location='mail'+'to:dogruyol.sabri@gmail.com'; return false;" class="btn btn-filled" data-tr="E-posta Gönder" data-en="Send Email" data-uz="Xat yuborish" data-zh="发送邮件" data-ru="Написать письмо" data-tr="E-posta Gönder" data-en="Send Email" data-uz="Xat yuborish" data-zh="发送邮件" data-ru="Написать письмо">E-posta Gönder</a>
       </div>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#f2969d9580878b9d9edc819390809bb2959f939b9edc919d9f" class="contact-link">
+        <a href="#" onclick="window.location='mail'+'to:dogruyol.sabri@gmail.com'; return false;" class="contact-link">
           <div class="contact-link-icon">@</div>
           <div class="contact-link-info">
             <div class="contact-link-label" data-tr="E-posta" data-en="Email" data-uz="Elektron pochta" data-zh="电子邮件" data-ru="Эл. почта">E-posta</div>
-            <div class="contact-link-val"><span class="__cf_email__" data-cfemail="96f2f9f1e4e3eff9fab8e5f7f4e4ffd6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></div>
+            <div class="contact-link-val">dogruyol.sabri@gmail.com</div>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/msabridogruyol99" target="_blank" class="contact-link">
@@ -1095,12 +1176,17 @@ footer {
 
 <script>
 function setLang(lang) {
+  // lang-content blokları göster/gizle
+  document.querySelectorAll('.lang-content').forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
+  // data-tr elementleri (textContent ile güncelle)
   document.querySelectorAll('[data-tr]').forEach(el => {
-    if (lang === 'tr') el.textContent = el.dataset.tr;
-    else if (lang === 'en') el.textContent = el.dataset.en;
-    else if (lang === 'uz') el.textContent = el.dataset.uz || el.dataset.en;
-    else if (lang === 'zh') el.textContent = el.dataset.zh || el.dataset.en;
-    else if (lang === 'ru') el.textContent = el.dataset.ru || el.dataset.en;
+    const val = el.dataset[lang] || el.dataset.en;
+    if (!val) return;
+    if (el.children.length === 0) {
+      el.textContent = val;
+    }
   });
   ['tr','en','uz','zh','ru'].forEach(l => {
     const btn = document.getElementById('btn-' + l);
