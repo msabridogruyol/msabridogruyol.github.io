@@ -154,10 +154,31 @@ nav {
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 56px;
   align-items: center;
 }
+
+.hero-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 6px rgba(79,195,247,0.06);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(15%);
+  transition: filter 0.3s;
+}
+
+.hero-photo:hover img { filter: grayscale(0%); }
 
 .hero-left { display: flex; flex-direction: column; gap: 28px; }
 
@@ -713,6 +734,8 @@ footer {
   section { padding: 70px 20px; }
   .hero { padding: 100px 20px 60px; }
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-photo { width: 120px; height: 120px; }
+  .hero-inner { grid-template-columns: auto 1fr; }
   .hero-right { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .exp-item { grid-template-columns: 1fr; gap: 8px; }
@@ -734,7 +757,7 @@ footer {
     <li><a href="#yayinlar">Yayınlar</a></li>
     <li><a href="#projeler">Projeler</a></li>
   </ul>
-  <a href="mailto:dogruyol.sabri@gmail.com" class="nav-cta">İletişim</a>
+  <a href="/cdn-cgi/l/email-protection#ddb9b2baafa8a4b2b1f3aebcbfafb49dbab0bcb4b1f3beb2b0" class="nav-cta">İletişim</a>
 </nav>
 
 <!-- HERO -->
@@ -744,6 +767,7 @@ footer {
   <div class="hero-glow2"></div>
 
   <div class="hero-inner">
+    <div class="hero-photo"><img src="profil_daire.png" alt="Mustafa Sabri Doğruyol"></div>
     <div class="hero-left">
       <div class="hero-eyebrow">Veri Analisti · Ekonometrist</div>
       <h1 class="hero-name">
@@ -762,7 +786,7 @@ footer {
       </div>
       <div class="hero-actions">
         <a href="#yayinlar" class="btn btn-filled">Yayınlarım</a>
-        <a href="mailto:dogruyol.sabri@gmail.com" class="btn btn-outline">İletişim</a>
+        <a href="/cdn-cgi/l/email-protection#a3c7ccc4d1d6dacccf8dd0c2c1d1cae3c4cec2cacf8dc0ccce" class="btn btn-outline">İletişim</a>
       </div>
     </div>
 
@@ -961,14 +985,14 @@ footer {
         <div class="section-label">05 — İletişim</div>
         <h2 class="section-title">Birlikte çalışalım.</h2>
         <p>Veri analizi, ekonometrik modelleme veya organizasyonel gelişim konularında iş birliği için ulaşabilirsiniz.</p>
-        <a href="mailto:dogruyol.sabri@gmail.com" class="btn btn-filled">E-posta Gönder</a>
+        <a href="/cdn-cgi/l/email-protection#61050e061314180e0d4f120003130821060c00080d4f020e0c" class="btn btn-filled">E-posta Gönder</a>
       </div>
       <div class="contact-links">
-        <a href="mailto:dogruyol.sabri@gmail.com" class="contact-link">
+        <a href="/cdn-cgi/l/email-protection#f2969d9580878b9d9edc819390809bb2959f939b9edc919d9f" class="contact-link">
           <div class="contact-link-icon">@</div>
           <div class="contact-link-info">
             <div class="contact-link-label">E-posta</div>
-            <div class="contact-link-val">dogruyol.sabri@gmail.com</div>
+            <div class="contact-link-val"><span class="__cf_email__" data-cfemail="96f2f9f1e4e3eff9fab8e5f7f4e4ffd6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></div>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/msabridogruyol99" target="_blank" class="contact-link">
@@ -991,15 +1015,4 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-copy">© 2025 Mustafa Sabri Doğruyol</div>
-  <div class="footer-links">
-    <a href="#hakkimda">Hakkımda</a>
-    <a href="#deneyim">Deneyim</a>
-    <a href="#yayinlar">Yayınlar</a>
-    <a href="#projeler">Projeler</a>
-  </div>
-</footer>
-
-</body>
-</html>
+<
