@@ -2,2055 +2,239 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mustafa Sabri Doğruyol — Veri Analisti & Ekonometrist</title>
-<meta name="description" content="Mustafa Sabri Doğruyol — Veri Analisti ve Ekonometrist. Kigılı Organizasyonel Gelişim/Veri Analitiği Uzmanı, TÜBİTAK araştırmacısı, akademik yayın sahibi. Power BI, Python, SQL, ekonometrik modelleme uzmanlığı.">
-<meta name="keywords" content="Mustafa Sabri Doğruyol, veri analisti, ekonometrist, Power BI, Python, organizasyonel gelişim, Kigılı, TÜBİTAK">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mustafa Sabri Doğruyol | Veri Analisti ve Ekonometrist</title>
+<meta name="description" content="Mustafa Sabri Doğruyol: veri analisti ve ekonometrist. Kigılı'da İK ve veri analitiği, akademik yayınlar, Arkhedemia Dergisi ve Arkhebook uygulaması.">
 <meta name="author" content="Mustafa Sabri Doğruyol">
-<meta property="og:title" content="Mustafa Sabri Doğruyol — Veri Analisti & Ekonometrist">
-<meta property="og:description" content="Veri Analisti ve Ekonometrist. TÜBİTAK araştırmacısı, akademik yayın sahibi.">
-<meta property="og:url" content="https://msabridogruyol.com">
-<meta property="og:type" content="website">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="canonical" href="https://msabridogruyol.com/">
+<meta property="og:title" content="Mustafa Sabri Doğruyol | Veri Analisti ve Ekonometrist">
+<meta property="og:description" content="Ekonometrik modelleme, İK analitiği, Power BI. Yayınlar, projeler, Arkhedemia ve Arkhebook.">
+<meta property="og:url" content="https://msabridogruyol.com/">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://msabridogruyol.com/img/profil.webp">
+<meta name="theme-color" content="#F2F3F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1128" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg:       #0b1520;
-  --bg2:      #0f1d2b;
-  --bg3:      #132233;
-  --teal:     #0e4d5c;
-  --teal2:    #1a6a7a;
-  --blue:     #2a7aaa;
-  --accent:   #4fc3f7;
-  --green:    #81c784;
-  --text:     #e8f0f8;
-  --muted:    #7ab8d4;
-  --faint:    #3a5a6a;
-  --border:   rgba(79,195,247,0.15);
-  --serif:    'Cormorant Garamond', serif;
-  --sans:     'DM Sans', sans-serif;
-  --mono:     'DM Mono', monospace;
-}
-
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.7;
-  overflow-x: hidden;
-  transition: background 0.3s, color 0.3s;
-}
-
-/* Light mode */
-body.light {
-  --bg: #f0f4f8;
-  --bg2: #e4ecf4;
-  --bg3: #d8e4f0;
-  --text: #0f1923;
-  --muted: #2a5a7a;
-  --faint: #5a8aa0;
-  --border: rgba(42,122,170,0.2);
-  --teal: #cce4f0;
-  --teal2: #7ab8d4;
-  --blue: #2a7aaa;
-  --accent: #1a6a9a;
-}
-
-body.light .tool-card-sk { background: #ffffff !important; border-color: rgba(42,122,170,0.2) !important; }
-body.light .stats-card { background: #d8e4f0 !important; }
-body.light .stat-block { background: #e4ecf4 !important; }
-body.light .stat-block:hover { background: #d8e4f0 !important; }
-body.light .pub-card { background: #ffffff !important; }
-body.light .pub-card:hover { background: #e4ecf4 !important; }
-body.light .proj-card { background: #f0f4f8 !important; }
-body.light .proj-card:hover { background: #e4ecf4 !important; }
-body.light .contact-link { background: #e4ecf4 !important; }
-body.light .contact-link:hover { background: #d8e4f0 !important; }
-body.light .exp-logo { border-color: rgba(42,122,170,0.2) !important; }
-body.light .hero { background: #e8f0f8 !important; }
-body.light .about { background: #e4ecf4 !important; }
-body.light .pubs, body.light .contact { background: #e4ecf4 !important; }
-body.light .stat-num { color: #0f1923 !important; }
-body.light .pub-title, body.light .proj-title { color: #0f1923 !important; }
-body.light .exp-title { color: #0f1923 !important; }
-body.light .pub-source, body.light .proj-desc { color: #3a6a8a !important; }
-body.light .exp-desc { color: #3a6a8a !important; }
-body.light .stat-lbl, body.light .stat-desc { color: #3a6a8a !important; }
-body.light .proj-tag { color: #2a5a7a !important; border-color: rgba(42,122,170,0.3) !important; }
-body.light .exp-area-title { color: #0f1923 !important; }
-body.light .exp-area-desc { color: #3a6a8a !important; }
-body.light .tool-name-sk { color: #0f1923 !important; }
-body.light .tool-type-sk { color: #5a8aa0 !important; }
-body.light [style*="color:#e8f0f8"] { color: #0f1923 !important; }
-body.light [style*="color:#7ab8d4"] { color: #2a5a7a !important; }
-body.light [style*="color:#3a5a6a"] { color: #4a7a9a !important; }
-body.light [style*="background:#132233"] { background: #ffffff !important; }
-body.light [style*="background:#0f1923"] { background: #f0f4f8 !important; }
-body.light [style*="background:#0f1d2b"] { background: #e4ecf4 !important; }
-body.light footer { background: #e4ecf4; border-color: rgba(42,122,170,0.15); }
-
-/* Particle canvas */
-#particle-canvas {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.4;
-  transition: opacity 0.3s;
-}
-
-body.light #particle-canvas {
-  opacity: 0.7;
-}
-
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Theme toggle button */
-.theme-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  transition: all 0.2s;
-  flex-shrink: 0;
-}
-
-.theme-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* Mobile menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-  background: none;
-  border: none;
-}
-
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--muted);
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 16px; z-index: 99; }
-  .nav-links.open { display: flex; }
-  .nav-links li { list-style: none; }
-
-  /* Hero */
-  .hero { padding: 100px 20px 60px; }
-  .hero-inner { grid-template-columns: 1fr !important; gap: 40px; }
-  .hero-photo { width: 100px; height: 100px; margin: 0 auto; }
-  .hero-name { font-size: 42px; }
-  .hero-actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
-  .hero-actions .btn { flex: 1; min-width: 110px; padding: 10px 14px; font-size: 11px; text-align: center; justify-content: center; }
-  .hero-right { display: none; }
-  .hero-pills { gap: 6px; }
-
-  /* Sections */
-  section { padding: 60px 20px; }
-  .section-inner { padding: 0; }
-
-  /* About */
-  .about-grid, [style*="grid-template-columns:1fr 1fr"], [style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-  [style*="display:grid"][style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-
-  /* Experience */
-  .exp-item { grid-template-columns: 1fr !important; gap: 8px; }
-  .exp-date { font-size: 11px; }
-
-  /* Publications */
-  .pub-grid { grid-template-columns: 1fr !important; }
-
-  /* Projects */
-  .proj-grid { grid-template-columns: 1fr !important; }
-  .proj-card[style*="grid-column:span 2"] { grid-column: span 1 !important; }
-
-  /* Contact */
-  .contact-grid { grid-template-columns: 1fr !important; gap: 40px; }
-
-  /* Footer */
-  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
-
-  /* Nav */
-  nav { padding: 0 16px; }
-  .nav-cta { display: none; }
-  .lang-toggle { display: none; }
-  .theme-btn { width: 28px; height: 28px; font-size: 12px; }
-}
-
-@media (max-width: 480px) {
-  .hero-name { font-size: 34px; }
-  .hero-actions .btn { flex: 1 1 calc(50% - 8px); }
-  .stats-card { grid-template-columns: 1fr 1fr; }
-  .stat-num { font-size: 36px; }
-  .tools-grid-sk { grid-template-columns: 1fr 1fr; }
-}
-
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--teal2); border-radius: 2px; }
-
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 0 48px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(11,21,32,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: 0.5px;
-}
-
-.nav-logo span { color: var(--accent); }
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-  font-weight: 500;
-}
-
-.nav-links a:hover { color: var(--accent); }
-
-.nav-cta {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--border);
-  padding: 8px 20px;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-weight: 500;
-}
-
-.nav-cta:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-.lang-toggle { display:flex; align-items:center; gap:8px; }
-
-.lang-btn {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--faint);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px 2px;
-  transition: color 0.2s;
-  font-weight: 500;
-}
-
-.lang-btn:hover { color: var(--muted); }
-.lang-btn.active { color: var(--accent); }
-
-.lang-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.lang-btn {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--faint);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px 2px;
-  transition: color 0.2s;
-  font-weight: 500;
-}
-
-.lang-btn:hover { color: var(--muted); }
-.lang-btn.active { color: var(--accent); }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 120px 48px 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(79,195,247,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79,195,247,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
-}
-
-.hero-glow {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(14,77,92,0.3) 0%, transparent 65%);
-  top: -100px;
-  right: -100px;
-  pointer-events: none;
-}
-
-.hero-glow2 {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(42,122,170,0.15) 0%, transparent 65%);
-  bottom: -50px;
-  left: 200px;
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-}
-
-.hero-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-  box-shadow: 0 0 0 6px rgba(79,195,247,0.06);
-}
-
-.hero-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: grayscale(15%);
-  transition: filter 0.3s;
-}
-
-.hero-photo:hover img { filter: grayscale(0%); }
-
-.hero-left { display: flex; flex-direction: column; gap: 28px; }
-
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.2s forwards;
-}
-
-.hero-eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--accent);
-}
-
-.hero-name {
-  font-family: var(--serif);
-  font-size: clamp(42px, 5.5vw, 80px);
-  font-weight: 700;
-  line-height: 1.0;
-  color: var(--text);
-  letter-spacing: -1px;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.35s forwards;
-}
-
-.hero-name em {
-  font-style: normal;
-  color: var(--accent);
-  display: block;
-}
-
-.hero-desc {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 480px;
-  font-weight: 300;
-  border-left: 2px solid var(--teal2);
-  padding-left: 20px;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.5s forwards;
-}
-
-.hero-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.65s forwards;
-}
-
-.pill {
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  padding: 5px 14px;
-  border-radius: 2px;
-  background: rgba(42,122,170,0.06);
-  font-weight: 500;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.6s 0.8s forwards;
-}
-
-.btn {
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 14px 28px;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-family: var(--sans);
-  cursor: pointer;
-  border: none;
-}
-
-.btn-filled {
-  background: var(--blue);
-  color: var(--text);
-}
-
-.btn-filled:hover { background: var(--accent); color: var(--bg); }
-
-.btn-outline {
-  background: transparent;
-  color: var(--muted);
-  border: 1px solid var(--border);
-}
-
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-/* Hero right — stats card */
-.hero-right {
-  opacity: 0;
-  animation: fadeIn 0.8s 0.9s forwards;
-}
-
-.stats-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
-  overflow: hidden;
-}
-
-.stat-block {
-  background: var(--bg2);
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.stat-block:hover { background: var(--bg3); }
-
-.stat-num {
-  font-family: var(--serif);
-  font-size: 48px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1;
-}
-
-.stat-num sup {
-  font-size: 24px;
-  color: var(--accent);
-  vertical-align: super;
-}
-
-.stat-lbl {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--faint);
-  font-weight: 500;
-}
-
-.stat-desc {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 4px;
-  font-weight: 300;
-}
-
-/* ── SECTION COMMON ── */
-section { padding: 100px 48px; }
-
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.section-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  letter-spacing: 2px;
-  margin-bottom: 48px;
-}
-
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-  max-width: 200px;
-}
-
-.section-title {
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.1;
-  margin-bottom: 16px;
-  letter-spacing: -0.5px;
-}
-
-.section-sub {
-  font-size: 15px;
-  color: var(--muted);
-  font-weight: 300;
-  max-width: 560px;
-  margin-bottom: 56px;
-  line-height: 1.8;
-}
-
-/* ── ABOUT ── */
-.about { background: var(--bg2); }
-
-.about-grid-3 {
-  grid-template-columns: 1fr 1fr 1fr !important;
-  gap: 48px;
-}
-
-.tools-grid-sk {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.tool-card-sk {
-  background: #132233;
-  border: 1px solid rgba(79,195,247,0.12);
-  border-radius: 8px;
-  padding: 12px 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.tool-icon-sk {
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-/* 3D tilt effect */
-.tool-card-sk {
-  transform-style: preserve-3d;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-  cursor: default;
-}
-
-.tool-card-sk:hover {
-  border-color: rgba(79,195,247,0.4);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(79,195,247,0.15);
-}
-
-.tool-icon-sk {
-  transition: transform 0.15s ease;
-}
-
-.tool-card-sk:hover .tool-icon-sk {
-  transform: translateZ(8px) scale(1.15);
-}
-
-.tool-name-sk {
-  font-size: 12px;
-  font-weight: 500;
-  color: #e8f0f8;
-}
-
-.tool-type-sk {
-  font-size: 10px;
-  color: #3a5a6a;
-  margin-top: 1px;
-}
-
-.expertise-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.exp-area-card {
-  background: #132233;
-  border: 1px solid rgba(79,195,247,0.12);
-  border-left: 2px solid #2a7aaa;
-  border-radius: 0 8px 8px 0;
-  padding: 12px 16px;
-}
-
-.exp-area-title {
-  font-size: 12px;
-  font-weight: 500;
-  color: #e8f0f8;
-  margin-bottom: 3px;
-}
-
-.exp-area-desc {
-  font-size: 11px;
-  color: #3a5a6a;
-  line-height: 1.5;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.about-text p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.9;
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-
-.about-text p strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.skill-name {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.skill-bar {
-  height: 2px;
-  background: var(--border);
-  border-radius: 1px;
-  overflow: hidden;
-}
-
-.skill-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--teal2), var(--accent));
-  border-radius: 1px;
-  width: 0% !important;
-  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.skill-fill.animated {
-  width: var(--target-width) !important;
-}
-
-/* ── EXPERIENCE ── */
-.exp-list { display: flex; flex-direction: column; gap: 2px; }
-
-.exp-item {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 40px;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--border);
-  align-items: start;
-}
-
-.exp-item:first-child { border-top: 1px solid var(--border); }
-
-.exp-date {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--faint);
-  letter-spacing: 1px;
-  padding-top: 4px;
-}
-
-.exp-content { display: flex; flex-direction: column; gap: 8px; }
-
-.exp-title {
-  font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.2;
-}
-
-.exp-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--bg3);
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.exp-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 4px;
-}
-
-.exp-logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
-  margin-right: 16px;
-}
-
-.exp-logo img {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-}
-
-.exp-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.exp-company {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 500;
-}
-
-.exp-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.8;
-  font-weight: 300;
-  margin-top: 4px;
-}
-
-/* ── PUBLICATIONS ── */
-.pubs { background: var(--bg2); }
-
-.pub-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.pub-card {
-  background: var(--bg2);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: background 0.2s;
-  cursor: default;
-}
-
-.pub-card:hover { background: var(--bg3); }
-
-.pub-tag {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-
-.pub-title {
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.4;
-}
-
-.pub-source {
-  font-size: 12px;
-  color: var(--faint);
-  font-weight: 300;
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-}
-
-/* ── PROJECTS ── */
-.proj-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.proj-card {
-  background: var(--bg);
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: background 0.2s;
-}
-
-.proj-card:hover { background: var(--bg3); }
-
-.proj-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--faint);
-  letter-spacing: 2px;
-}
-
-.proj-title {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.3;
-}
-
-.proj-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.8;
-  font-weight: 300;
-}
-
-.proj-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-}
-
-.proj-tag {
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--faint);
-  border: 1px solid var(--border);
-  padding: 3px 10px;
-  border-radius: 2px;
-}
-
-/* ── CONTACT ── */
-.contact { background: var(--bg2); }
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.contact-text .section-title { margin-bottom: 20px; }
-
-.contact-text p {
-  font-size: 15px;
-  color: var(--muted);
-  font-weight: 300;
-  line-height: 1.8;
-  margin-bottom: 32px;
-}
-
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 24px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.contact-link:hover {
-  border-color: var(--accent);
-  background: rgba(79,195,247,0.04);
-}
-
-.contact-link-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--teal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  color: var(--accent);
-  font-family: var(--mono);
-  flex-shrink: 0;
-}
-
-.contact-link-info { display: flex; flex-direction: column; gap: 2px; }
-
-.contact-link-label {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--faint);
-  font-weight: 500;
-}
-
-.contact-link-val {
-  font-size: 14px;
-  color: var(--text);
-  font-weight: 400;
-}
-
-/* ── FOOTER ── */
-footer {
-  padding: 32px 48px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-copy {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--faint);
-  letter-spacing: 1px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-links a {
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--faint);
-  text-decoration: none;
-  transition: color 0.2s;
-  font-weight: 500;
-}
-
-.footer-links a:hover { color: var(--accent); }
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* ── MOBILE ── */
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  section { padding: 70px 20px; }
-  .hero { padding: 100px 20px 60px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero-photo { width: 120px; height: 120px; }
-  .hero-inner { grid-template-columns: auto 1fr; }
-  .hero-right { display: none; }
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .about-grid-3 { grid-template-columns: 1fr !important; }
-  .exp-item { grid-template-columns: 1fr; gap: 8px; }
-  .proj-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-  footer { flex-direction: column; gap: 16px; text-align: center; }
-  .hero-name { font-size: 42px; }
-}
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>
+  // Tema, ilk boyamadan önce uygulanır (yanıp sönmeyi önler)
+  (function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mustafa Sabri Doğruyol",
+  "jobTitle": "Organizasyonel Gelişim ve Veri Analitiği Uzmanı",
+  "worksFor": { "@type": "Organization", "name": "Kigılı" },
+  "alumniOf": ["Gazi Üniversitesi", "Sakarya Üniversitesi"],
+  "url": "https://msabridogruyol.com/",
+  "sameAs": [
+    "https://www.linkedin.com/in/msabridogruyol99",
+    "https://github.com/msabridogruyol",
+    "https://scholar.google.com/citations?user=fi-3L8cAAAAJ",
+    "https://orcid.org/0000-0002-9382-1689"
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
 
-<!-- NAV -->
-<canvas id="particle-canvas"></canvas>
-<nav>
-  <a href="#" class="nav-logo">MSD<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#hakkimda">Hakkımda</a></li>
-    <li><a href="#deneyim">Deneyim</a></li>
-    <li><a href="#yayinlar">Yayınlar</a></li>
-    <li><a href="#gonullu" data-tr="Gönüllü" data-en="Volunteer" data-uz="Ko'ngillilik" data-zh="志愿" data-ru="Волонтёрство">Gönüllü</a></li>
-    <li><a href="#projeler">Projeler</a></li>
-    <li><a href="#iletisim" data-tr="İletişim" data-en="Contact" data-uz="Aloqa" data-zh="联系" data-ru="Контакт">İletişim</a></li>
-  </ul>
-  <div style="display:flex;align-items:center;gap:16px;">
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('tr')" id="btn-tr">TR</button>
-      <span style="color:var(--faint);font-size:11px;">|</span>
-      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
-      <span style="color:var(--faint);font-size:11px;">|</span>
-      <button class="lang-btn" onclick="setLang('uz')" id="btn-uz">UZ</button>
-      <span style="color:var(--faint);font-size:11px;">|</span>
-      <button class="lang-btn" onclick="setLang('zh')" id="btn-zh">中文</button>
-      <span style="color:var(--faint);font-size:11px;">|</span>
-      <button class="lang-btn" onclick="setLang('ru')" id="btn-ru">RU</button>
+<header class="bar">
+  <div class="bar__in">
+    <a class="mark" href="#top" aria-label="Ana sayfa"><span class="mark__dot" aria-hidden="true">MS</span><span class="mark__name">M. Sabri Doğruyol</span></a>
+    <nav class="nav" id="nav" aria-label="Bölümler">
+      <a href="#hakkimda" data-i18n="nav_about">Hakkımda</a>
+      <a href="#deneyim" data-i18n="nav_exp">Deneyim</a>
+      <a href="#girisimler" data-i18n="nav_ventures">Arkhedemia &amp; Arkhebook</a>
+      <a href="#yayinlar" data-i18n="nav_pubs">Yayınlar</a>
+      <a href="#projeler" data-i18n="nav_projects">Projeler</a>
+      <a href="#iletisim" data-i18n="nav_contact">İletişim</a>
+    </nav>
+    <div class="bar__tools">
+      <button class="tool" id="lang" type="button" aria-label="Switch to English">EN</button>
+      <button class="tool" id="theme" type="button" aria-label="Temayı değiştir">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="bar__cta" href="cv.pdf" download data-i18n="cta_cv_short">CV'yi indir</a>
+      <button class="tool menu" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü">
+        <span></span><span></span>
+      </button>
     </div>
-    <button class="theme-btn" id="theme-btn" title="Tema değiştir">☀</button>
-    <a href="#" onclick="window.location='mail'+'to:info@msabridogruyol.com'; return false;" class="nav-cta" data-tr="İletişim" data-en="Contact" data-uz="Aloqa" data-zh="联系" data-ru="Контакт">İletişim</a>
-    <button class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
-
-  <div class="hero-inner">
-    <div class="hero-photo"><img src="profil_daire.png" alt="Mustafa Sabri Doğruyol"></div>
-    <div class="hero-left">
-      <div class="hero-eyebrow" data-tr="Veri Analisti · Ekonometrist" data-en="Data Analyst · Econometrician" data-uz="Ma'lumotlar Analitiki · Ekonometrist" data-zh="数据分析师 · 计量经济学家" data-ru="Аналитик данных · Эконометрист" data-tr="Veri Analisti · Ekonometrist" data-en="Data Analyst · Econometrician" data-uz="Ma'lumotlar Analitiki · Ekonometrist" data-zh="数据分析师 · 计量经济学家" data-ru="Аналитик данных · Эконометрист">Veri Analisti · Ekonometrist</div>
-      <h1 class="hero-name">
-        Mustafa Sabri<br>
-        <em>Doğruyol</em>
-      </h1>
-      <p class="hero-desc" data-tr="Karmaşık veriyi anlamlı içgörüye dönüştürüyor, iş problemlerini ekonometrik modeller ve veri odaklı karar destek sistemleriyle çözüyorum." data-en="I transform complex data into meaningful insights, solving business problems through econometric models and data-driven decision support systems." data-uz="Murakkab ma'lumotlarni mazmunli xulosalarga aylantiraman." data-zh="我将复杂数据转化为有意义的洞察。" data-ru="Я преобразую сложные данные в значимые выводы.">
-        Karmaşık veriyi anlamlı içgörüye dönüştürüyor, iş problemlerini ekonometrik modeller ve veri odaklı karar destek sistemleriyle çözüyorum.
-      </p>
-      <div class="hero-pills">
-        <span class="pill" data-tr="Power BI" data-en="Power BI" data-uz="Power BI" data-zh="Power BI" data-ru="Power BI">Power BI</span>
-        <span class="pill" data-tr="Python" data-en="Python" data-uz="Python" data-zh="Python" data-ru="Python">Python</span>
-        <span class="pill" data-tr="SQL" data-en="SQL" data-uz="SQL" data-zh="SQL" data-ru="SQL">SQL</span>
-        <span class="pill" data-tr="Ekonometri" data-en="Econometrics" data-uz="Ekonometrika" data-zh="计量经济学" data-ru="Эконометрика">Ekonometri</span>
-        <span class="pill" data-tr="Org. Gelişim" data-en="Org. Development" data-uz="Tashkiliy Rivojlanish" data-zh="组织发展" data-ru="Орг. развитие">Org. Gelişim</span>
+<main id="main">
+  <!-- Son yayın bandı -->
+  <div class="wrap band">
+    <div class="band__in">
+      <div class="band__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6.5 4.5 9.3 4.7 12 6.5v13c-2.7-1.8-5.5-2-8-1z"/><path d="M20 5.5c-2.5-1-5.3-.8-8 1v13c2.7-1.8 5.5-2 8-1z"/></svg>
       </div>
-      <div class="hero-actions">
-        <a href="#yayinlar" class="btn btn-filled" data-tr="Yayınlarım" data-en="Publications" data-uz="Nashrlarim" data-zh="我的出版物" data-ru="Публикации">Yayınlarım</a>
-        <a href="cv.pdf" class="btn btn-outline" download data-tr="CV İndir" data-en="Download CV" data-uz="CV Yuklab olish" data-zh="下载简历" data-ru="Скачать CV">CV İndir</a>
-        <a href="#" onclick="window.location='mail'+'to:info@msabridogruyol.com'; return false;" class="btn btn-outline" data-tr="İletişim" data-en="Contact" data-uz="Aloqa" data-zh="联系" data-ru="Контакт">İletişim</a>
+      <div class="band__txt">
+        <p class="band__kicker"><span data-i18n="band_kicker">Son yayın</span><small id="band-venue"></small></p>
+        <p class="band__title" id="band-title"></p>
       </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="stats-card">
-        <div class="stat-block">
-          <div class="stat-num">6<sup>+</sup></div>
-          <div class="stat-lbl" data-tr="Akademik Yayın" data-en="Academic Publications" data-uz="Akademik Nashrlar" data-zh="学术出版物" data-ru="Академические публикации">Akademik Yayın</div>
-          <div class="stat-desc" data-tr="SSRN, Elsevier, Arkhedemia" data-en="SSRN, Elsevier, Arkhedemia" data-uz="SSRN, Elsevier, Arkhedemia" data-zh="SSRN, Elsevier, Arkhedemia" data-ru="SSRN, Elsevier, Arkhedemia">SSRN, Elsevier, Arkhedemia</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">2</div>
-          <div class="stat-lbl" data-tr="TÜBİTAK Projesi" data-en="TÜBİTAK Projects" data-uz="TÜBİTAK Loyihalari" data-zh="TÜBİTAK项目" data-ru="Проекты TÜBİTAK">TÜBİTAK Projesi</div>
-          <div class="stat-desc" data-tr="1001 ve 3005 programları" data-en="1001 and 3005 programs" data-uz="1001 va 3005 dasturlari" data-zh="1001和3005计划" data-ru="Программы 1001 и 3005">1001 ve 3005 programları</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">3<sup>+</sup></div>
-          <div class="stat-lbl" data-tr="Yıl Deneyim" data-en="Years Experience" data-uz="Yillik Tajriba" data-zh="年经验" data-ru="Лет опыта">Yıl Deneyim</div>
-          <div class="stat-desc" data-tr="Veri analizi & raporlama" data-en="Data analysis & reporting" data-uz="Ma'lumotlar tahlili va hisobot" data-zh="数据分析和报告" data-ru="Анализ данных и отчётность">Veri analizi & raporlama</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">6</div>
-<div class="stat-lbl"
-     data-tr="Projeler"
-     data-en="Projects"
-     data-uz="Loyihalar"
-     data-zh="项目"
-     data-ru="Проекты">
-  Projeler
-</div>
-<div class="stat-desc"
-     data-tr="Power BI, Streamlit ve ekonometrik analiz projeleri"
-     data-en="Power BI, Streamlit, and econometric analysis projects"
-     data-uz="Power BI, Streamlit va ekonometrik tahlil loyihalari"
-     data-zh="Power BI、Streamlit 和计量经济分析项目"
-     data-ru="Проекты по Power BI, Streamlit и эконометрическому анализу">
-  Power BI, Streamlit ve ekonometrik analiz projeleri
-</div>
-        </div>
+      <div class="band__acts">
+        <a class="ghost" href="#yayinlar" data-i18n="band_all">Tüm yayınlar</a>
+        <a class="btn btn--sm" id="band-link" target="_blank" rel="noopener" data-i18n="band_read">Makaleyi oku</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ABOUT -->
-<section class="about" id="hakkimda">
-  <div class="section-inner reveal">
-    <div class="section-label" data-tr="01 — Hakkımda" data-en="01 — About" data-uz="01 — Haqimda" data-zh="01 — 关于我" data-ru="01 — Обо мне">01 — Hakkımda</div>
-    <div class="about-two-col" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div class="hero__text">
+        <p class="status" data-bind="hero.status"></p>
+        <h1 class="hero__name"><span>Mustafa Sabri</span><span>Doğruyol</span></h1>
+        <div class="hero__who">
+          <img class="hero__photo" src="img/profil.webp" width="58" height="58" alt="Mustafa Sabri Doğruyol">
+          <p class="hero__role" data-bind="hero.role"></p>
+        </div>
+        <p class="hero__lead" data-bind="hero.lead"></p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#yayinlar" data-i18n="cta_pubs">Yayınlarım</a>
+          <a class="btn" href="#projeler" data-i18n="cta_projects">Projelerim</a>
+        </div>
+      </div>
 
-      <!-- Sol: Metin + Araçlar -->
-      <div style="display:flex; flex-direction:column; gap:32px;">
-        <div class="lang-content" data-lang="tr">
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;"><strong style="color:#e8f0f8;">Ekonometri</strong> alanında lisans (Gazi Üniversitesi) ve yüksek lisans (Sakarya Üniversitesi) eğitimimi tamamladım.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">Kigılı'da <strong style="color:#e8f0f8;">Organizasyonel Gelişim/Veri Analitiği Uzmanı</strong> olarak çalışıyor; performans yönetimi sistemleri, KPI mimarisi ve veri temelli karar destek altyapıları geliştiriyorum.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Öncesinde Sakarya Üniversitesi Araştırma Dekanlığı bünyesinde <strong style="color:#e8f0f8;">Uzman Veri Analisti</strong> olarak görev aldım. TÜBİTAK destekli projelerde istatistiksel analiz ve modelleme çalışmaları yürüttüm.</p>
-        </div>
-        <div class="lang-content" data-lang="en" style="display:none">
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">I completed my undergraduate (<strong style="color:#e8f0f8;">Gazi University</strong>) and graduate (<strong style="color:#e8f0f8;">Sakarya University</strong>) education in <strong style="color:#e8f0f8;">Econometrics</strong>.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">At <strong style="color:#e8f0f8;">Kigılı</strong>, I work as an <strong style="color:#e8f0f8;">Organizational Development Specialist</strong>, designing performance management systems, KPI architecture, and data-driven decision support infrastructure.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Previously, I served as a <strong style="color:#e8f0f8;">Senior Data Analyst</strong> at Sakarya University's Research Dean's Office, conducting statistical analysis and modeling in <strong style="color:#e8f0f8;">TÜBİTAK</strong>-funded projects.</p>
-        </div>
-        <div class="lang-content" data-lang="uz" style="display:none">
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">Men <strong style="color:#e8f0f8;">Ekonometrika</strong> bo'yicha bakalavr (Gazi Universiteti) va magistratura (Sakarya Universiteti) ta'limini tugatdim.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;"><strong style="color:#e8f0f8;">Kigılı</strong>da Tashkiliy Rivojlanish Mutaxassisi sifatida ishlayman; ishlash boshqaruvi tizimlari va KPI arxitekturasini ishlab chiqaman.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Ilgari Sakarya Universiteti Tadqiqot Dekanligi tarkibida <strong style="color:#e8f0f8;">Katta Ma'lumotlar Analitiki</strong> sifatida xizmat qildim.</p>
-        </div>
-        <div class="lang-content" data-lang="zh" style="display:none">
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">我完成了<strong style="color:#e8f0f8;">计量经济学</strong>本科（加齐大学）和硕士（萨卡里亚大学）学业。目前攻读运筹学硕士学位。</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">在<strong style="color:#e8f0f8;">Kigılı</strong>担任<strong style="color:#e8f0f8;">组织发展专家</strong>，负责设计绩效管理系统和KPI架构。</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">此前担任<strong style="color:#e8f0f8;">高级数据分析师</strong>，参与<strong style="color:#e8f0f8;">TÜBİTAK</strong>资助项目的统计分析工作。</p>
-        </div>
-        <div class="lang-content" data-lang="ru" style="display:none">
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">Я получил степень бакалавра и магистра по <strong style="color:#e8f0f8;">эконометрике</strong> в Университетах Гази и Сакарья. Сейчас обучаюсь в магистратуре.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;margin-bottom:16px;">В <strong style="color:#e8f0f8;">Kigılı</strong> работаю <strong style="color:#e8f0f8;">специалистом по организационному развитию</strong> — разрабатываю системы KPI и управления эффективностью.</p>
-          <p style="font-size:15px;color:#7ab8d4;line-height:1.9;font-weight:300;">Ранее работал <strong style="color:#e8f0f8;">старшим аналитиком данных</strong> в Университете Сакарья.</p>
-        </div>
+      <div class="plot-stage">
+        <figure class="plot" aria-labelledby="plot-cap">
+          <div class="plot__head" aria-hidden="true">OLS</div>
+          <svg id="plot" viewBox="0 0 560 420" role="img" aria-label="Rastgele örnek veriye uydurulmuş doğrusal regresyon grafiği"></svg>
+          <figcaption id="plot-cap" class="plot__cap">
+            <span class="plot__eq" id="plot-eq"></span>
+            <span class="plot__note" data-i18n="plot_note">Her yüklemede yeni bir örneklem; doğru, en küçük kareler ile tarayıcıda hesaplanır.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <!-- Araçlar -->
+  <!-- Uzmanlık şeridi -->
+  <div class="areas" id="areas" role="list" aria-label="Uzmanlık alanları"></div>
+
+  <!-- ABOUT -->
+  <section class="sec" id="hakkimda" aria-labelledby="h-about">
+    <div class="wrap">
+      <div class="sec__head"><h2 id="h-about" class="h2" data-i18n="h_about">Hakkımda</h2></div>
+      <div class="cols">
+        <div class="panel prose" id="about-text"></div>
+        <div class="panels">
+          <div class="panel">
+            <h3 class="h3" data-i18n="h_tools">Araçlar</h3>
+            <dl class="tools" id="tools"></dl>
+          </div>
+          <div class="panel">
+            <h3 class="h3" data-i18n="h_edu">Eğitim</h3>
+            <ol class="edu" id="edu"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="sec" id="deneyim" aria-labelledby="h-exp">
+    <div class="wrap">
+      <div class="sec__head"><h2 id="h-exp" class="h2" data-i18n="h_exp">Deneyim</h2></div>
+      <div class="cols">
+        <div class="panel"><ol class="timeline" id="exp"></ol></div>
+        <div class="panels">
+          <div class="panel">
+            <h3 class="h3" data-i18n="h_corporate">Kigılı'da kurduğum sistemlerden bazıları</h3>
+            <ul class="ticks" id="corporate"></ul>
+          </div>
+          <div class="panel">
+            <h3 class="h3" data-i18n="h_community">Topluluk ve gönüllülük</h3>
+            <ul class="community" id="community"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURES -->
+  <section class="sec" id="girisimler" aria-labelledby="h-ventures">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 id="h-ventures" class="h2" data-i18n="h_ventures">Arkhedemia ve Arkhebook</h2>
+        <p class="sec__sub" data-i18n="sub_ventures">Kurucu ortağı olduğum dergi ve onun için geliştirdiğim okuma uygulaması.</p>
+      </div>
+      <div class="ventures" id="ventures"></div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="sec" id="yayinlar" aria-labelledby="h-pubs">
+    <div class="wrap">
+      <div class="sec__head sec__head--row">
         <div>
-          <div style="font-size:10px;letter-spacing:3px;color:#4fc3f7;font-family:monospace;margin-bottom:14px;" data-tr="Araçlar & Teknolojiler" data-en="Tools & Technologies" data-uz="Vositalar" data-zh="工具和技术" data-ru="Инструменты">Araçlar & Teknolojiler</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="8" width="3" height="8" rx="1" fill="#f3b235"/><rect x="7" y="5" width="3" height="11" rx="1" fill="#f3b235" opacity=".8"/><rect x="12" y="2" width="3" height="14" rx="1" fill="#f3b235" opacity=".6"/></svg>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Power BI</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="7" fill="none" stroke="#4fc3f7" stroke-width="1.5"/><text x="9" y="13" text-anchor="middle" font-size="8" fill="#4fc3f7" font-weight="bold">Py</text></svg>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Python</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><ellipse cx="9" cy="5" rx="6" ry="2.5" fill="none" stroke="#81c784" stroke-width="1.2"/><path d="M3 5v8c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V5" fill="none" stroke="#81c784" stroke-width="1.2"/></svg>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">SQL</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="2" width="14" height="14" rx="2" fill="none" stroke="#81c784" stroke-width="1.2"/><line x1="2" y1="7" x2="16" y2="7" stroke="#81c784" stroke-width="1" opacity=".5"/><line x1="7" y1="2" x2="7" y2="16" stroke="#81c784" stroke-width="1" opacity=".5"/></svg>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Power Excel</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="7" fill="none" stroke="#4fc3f7" stroke-width="1.5" opacity=".6"/><text x="9" y="13" text-anchor="middle" font-size="9" fill="#4fc3f7" font-weight="bold">R</text></svg>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">R</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="3" y="3" width="5" height="5" rx="1" fill="#d264c8" opacity=".7"/><rect x="10" y="3" width="5" height="5" rx="1" fill="#d264c8" opacity=".4"/><rect x="3" y="10" width="5" height="5" rx="1" fill="#d264c8" opacity=".4"/><rect x="10" y="10" width="5" height="5" rx="1" fill="#d264c8" opacity=".7"/></svg>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Stata</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(230,120,50,0.12);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="2" width="6" height="4" rx="1" fill="#e67832" opacity=".8"/><rect x="10" y="2" width="6" height="4" rx="1" fill="#e67832" opacity=".5"/><rect x="2" y="8" width="6" height="4" rx="1" fill="#e67832" opacity=".5"/><rect x="10" y="8" width="6" height="4" rx="1" fill="#e67832" opacity=".8"/></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">MATLAB</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(129,199,132,0.12);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><text x="1" y="13" font-size="8" fill="#81c784" font-weight="bold">VBA</text></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">VBA</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(0,176,240,0.12);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><ellipse cx="9" cy="9" rx="7" ry="7" fill="none" stroke="#00b0f0" stroke-width="1.3"/><text x="9" y="13" text-anchor="middle" font-size="7" fill="#00b0f0" font-weight="bold">Qlik</text></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Qlik</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(79,195,247,0.1);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><polyline points="2,14 6,8 9,11 12,5 16,14" fill="none" stroke="#4fc3f7" stroke-width="1.5" stroke-linejoin="round"/></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">ÇKKV</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(240,100,40,0.12);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><text x="1" y="13" font-size="8" fill="#f06428" font-weight="bold">&lt;/&gt;</text></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">HTML</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(79,150,247,0.12);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="3" y="2" width="12" height="14" rx="2" fill="none" stroke="#4f96f7" stroke-width="1.3"/><line x1="6" y1="6" x2="12" y2="6" stroke="#4f96f7" stroke-width="1" opacity=".7"/><line x1="6" y1="9" x2="12" y2="9" stroke="#4f96f7" stroke-width="1" opacity=".7"/><line x1="6" y1="12" x2="10" y2="12" stroke="#4f96f7" stroke-width="1" opacity=".7"/></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">CSS</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(0,114,206,0.12);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><text x="1" y="13" font-size="7" fill="#0072ce" font-weight="bold">SPSS</text></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">SPSS</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(129,199,132,0.1);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><text x="1" y="13" font-size="7" fill="#81c784" font-weight="bold">gretl</text></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Gretl</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(243,178,53,0.1);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><text x="1" y="13" font-size="6" fill="#f3b235" font-weight="bold">GAUSS</text></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">GAUSS</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(129,199,132,0.1);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><polyline points="2,12 5,7 8,10 11,4 14,8 17,5" fill="none" stroke="#81c784" stroke-width="1.5" stroke-linejoin="round"/><line x1="2" y1="15" x2="17" y2="15" stroke="#81c784" stroke-width="1" opacity=".4"/></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Zaman Serisi</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(79,195,247,0.08);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><rect x="2" y="2" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/><rect x="10" y="2" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/><rect x="2" y="10" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/><rect x="10" y="10" width="6" height="6" rx="1" fill="none" stroke="#4fc3f7" stroke-width="1.2"/></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">Panel Veri</span>
-            </div>
-            <div class="tool-card-sk" style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:8px;">
-              <div class="tool-icon-sk" style="background:rgba(243,178,53,0.1);">
-                <svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><circle cx="9" cy="9" r="6" fill="none" stroke="#f3b235" stroke-width="1.3"/><line x1="9" y1="3" x2="9" y2="9" stroke="#f3b235" stroke-width="1.3"/><line x1="9" y1="9" x2="14" y2="9" stroke="#f3b235" stroke-width="1.3"/></svg>
-              </div>
-              <span style="font-size:12px;font-weight:500;color:#e8f0f8;">İstatistik</span>
-            </div>
-          </div>
+          <h2 id="h-pubs" class="h2" data-i18n="h_pubs">Yayınlar</h2>
+          <p class="sec__sub" id="pub-count"></p>
         </div>
+        <div class="filters" role="group" aria-label="Yayın türü" id="pub-filters"></div>
       </div>
-
-      <!-- Sağ: Uzmanlık alanları -->
-      <div>
-        <div style="font-size:10px;letter-spacing:3px;color:#4fc3f7;font-family:monospace;margin-bottom:14px;" data-tr="Uzmanlık Alanları" data-en="Areas of Expertise" data-uz="Mutaxassislik Sohalari" data-zh="专业领域" data-ru="Области экспертизы">Uzmanlık Alanları</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Ekonometrik Modelleme" data-en="Econometric Modeling" data-uz="Ekonometrik Modellashtirish" data-zh="计量经济建模" data-ru="Эконометрическое моделирование">Ekonometrik Modelleme</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Panel veri, zaman serisi, regresyon, nedensellik ve eşbütünleşme analizleri" data-en="Panel data, time series, regression, causality and cointegration" data-uz="Panel ma'lumotlar, vaqt qatori, regressiya tahlillari" data-zh="面板数据、时间序列、回归、因果关系分析" data-ru="Панельные данные, временные ряды, регрессия, причинность">Panel veri, zaman serisi, regresyon, nedensellik ve eşbütünleşme analizleri</div>
-          </div>
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Performans Yönetimi & KPI" data-en="Performance Management & KPI" data-uz="Ishlash Boshqaruvi va KPI" data-zh="绩效管理和KPI" data-ru="Управление эффективностью и KPI">Performans Yönetimi & KPI</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="KPI mimarisi, hedef-metrik hizalaması, yetkinlik bazlı skorlama" data-en="KPI architecture, goal-metric alignment, competency-based scoring" data-uz="KPI arxitekturasi, maqsad-metrik moslashtirish" data-zh="KPI架构、目标指标对齐、基于能力的评分" data-ru="Архитектура KPI, согласование целей и метрик">KPI mimarisi, hedef-metrik hizalaması, yetkinlik bazlı skorlama</div>
-          </div>
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Veri Görselleştirme & Dashboard" data-en="Data Visualization & Dashboard" data-uz="Ma'lumotlarni Vizuallashtirish" data-zh="数据可视化和仪表板" data-ru="Визуализация данных и дашборды">Veri Görselleştirme & Dashboard</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Yönetim raporları, Power BI dashboardları, operasyonel paneller" data-en="Management reports, Power BI dashboards, operational panels" data-uz="Boshqaruv hisobotlari, Power BI panellari" data-zh="管理报告、Power BI仪表板、运营面板" data-ru="Управленческие отчёты, дашборды Power BI">Yönetim raporları, Power BI dashboardları, operasyonel paneller</div>
-          </div>
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="İş Analizi & Süreç Tasarımı" data-en="Business Analysis & Process Design" data-uz="Biznes Tahlili va Jarayon Dizayni" data-zh="业务分析和流程设计" data-ru="Бизнес-анализ и проектирование">İş Analizi & Süreç Tasarımı</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Gereksinim analizi, süreç haritalama, verimlilik optimizasyonu" data-en="Requirements analysis, process mapping, efficiency optimization" data-uz="Talablar tahlili, jarayon xaritalash" data-zh="需求分析、流程映射、效率优化" data-ru="Анализ требований, картирование процессов">Gereksinim analizi, süreç haritalama, verimlilik optimizasyonu</div>
-          </div>
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Zaman Serisi Analizi" data-en="Time Series Analysis" data-uz="Vaqt Qatori Tahlili" data-zh="时间序列分析" data-ru="Анализ временных рядов">Zaman Serisi Analizi</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="ARIMA, VAR, GARCH modelleri, durağanlık testleri, öngörü analizi" data-en="ARIMA, VAR, GARCH models, stationarity tests, forecasting analysis" data-uz="ARIMA, VAR, GARCH modellari, statsionarlik testlari" data-zh="ARIMA、VAR、GARCH模型、平稳性检验、预测分析" data-ru="Модели ARIMA, VAR, GARCH, тесты стационарности, прогнозный анализ">ARIMA, VAR, GARCH modelleri, durağanlık testleri, öngörü analizi</div>
-          </div>
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Panel Veri Analizi" data-en="Panel Data Analysis" data-uz="Panel Ma'lumotlar Tahlili" data-zh="面板数据分析" data-ru="Анализ панельных данных">Panel Veri Analizi</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Sabit etkiler, rassal etkiler, dinamik panel modeller, Hausman testi" data-en="Fixed effects, random effects, dynamic panel models, Hausman test" data-uz="Qat'iy ta'sirlar, tasodifiy ta'sirlar, dinamik panel modellari" data-zh="固定效应、随机效应、动态面板模型、豪斯曼检验" data-ru="Фиксированные эффекты, случайные эффекты, динамические панельные модели">Sabit etkiler, rassal etkiler, dinamik panel modeller, Hausman testi</div>
-          </div>
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="İstatistiksel Analiz" data-en="Statistical Analysis" data-uz="Statistik Tahlil" data-zh="统计分析" data-ru="Статистический анализ">İstatistiksel Analiz</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="Tanımlayıcı istatistik, hipotez testleri, güven aralıkları, korelasyon analizleri" data-en="Descriptive statistics, hypothesis testing, confidence intervals, correlation analyses" data-uz="Tavsifiy statistika, gipoteza testlari, korrelyatsiya tahlillari" data-zh="描述性统计、假设检验、置信区间、相关分析" data-ru="Описательная статистика, проверка гипотез, доверительные интервалы, корреляционный анализ">Tanımlayıcı istatistik, hipotez testleri, güven aralıkları, korelasyon analizleri</div>
-          </div>
-          <div style="background:#132233;border:1px solid rgba(79,195,247,0.12);border-left:2px solid #2a7aaa;border-radius:0 8px 8px 0;padding:14px 16px;">
-            <div style="font-size:13px;font-weight:500;color:#e8f0f8;margin-bottom:4px;" data-tr="Akademik Araştırma" data-en="Academic Research" data-uz="Akademik Tadqiqot" data-zh="学术研究" data-ru="Академические исследования">Akademik Araştırma</div>
-            <div style="font-size:11px;color:#3a5a6a;line-height:1.5;" data-tr="TÜBİTAK projeleri, SSRN/Elsevier yayınları, ampirik finansal analiz" data-en="TÜBİTAK projects, SSRN/Elsevier publications, empirical financial analysis" data-uz="TÜBİTAK loyihalari, SSRN/Elsevier nashrlari" data-zh="TÜBİTAK项目、SSRN/Elsevier出版物" data-ru="Проекты TÜBİTAK, публикации SSRN/Elsevier">TÜBİTAK projeleri, SSRN/Elsevier yayınları, ampirik finansal analiz</div>
-          </div>
-        </div>
-      </div>
-
+      <ol class="pubs" id="pubs"></ol>
+      <p class="pubs__more">
+        <a class="link" data-href="scholar" data-i18n="scholar">Google Scholar profili</a>
+        <a class="link" data-href="orcid">ORCID</a>
+        <a class="link" data-href="arkhedemiaAuthor" data-i18n="author_page">Arkhedemia yazar sayfası</a>
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCE -->
-<section id="deneyim">
-  <div class="section-inner reveal">
-    <div class="section-label" data-tr="02 — Deneyim" data-en="02 — Experience" data-uz="02 — Tajriba" data-zh="02 — 经历" data-ru="02 — Опыт" data-tr="02 — Deneyim" data-en="02 — Experience" data-uz="02 — Tajriba" data-zh="02 — 经历" data-ru="02 — Опыт">02 — Deneyim</div>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-date" data-tr="Eyl 2025 —" data-en="Sep 2025 —" data-uz="Sep 2025 —" data-zh="2025年9月 —" data-ru="Сен 2025 —">Eyl 2025 —<br data-tr="Devam ediyor" data-en="Present" data-uz="Davom etmoqda" data-zh="至今" data-ru="По настоящее время">Devam ediyor</div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <div class="exp-logo"><img src="logo-kigili.png" alt="Kigılı"></div>
-            <div>
-          <div class="exp-title" data-tr="Organizasyonel Gelişim/Veri Analitiği Uzmanı" data-en="Organizational Development Specialist" data-uz="Tashkiliy Rivojlanish Mutaxassisi" data-zh="组织发展专家" data-ru="Специалист по организационному развитию">Organizasyonel Gelişim/Veri Analitiği Uzmanı</div>
-          <div class="exp-company" data-tr="Kigılı · İstanbul" data-en="Kigılı · Istanbul" data-uz="Kigılı · Istanbul" data-zh="Kigılı · 伊斯坦布尔" data-ru="Kigılı · Стамбул">Kigılı · İstanbul</div>
-            </div>
-          </div>
-          <div class="exp-desc" data-tr="Performans yönetimi sistemlerinin tasarımı ve yönetimi, KPI mimarisi ve hedef-metrik hizalaması, Power BI ile kurumsal raporlama altyapısının geliştirilmesi." data-en="Design and management of performance management systems, KPI architecture and goal-metric alignment, development of corporate reporting infrastructure with Power BI." data-uz="Ishlash boshqaruvi tizimlarini loyihalash, KPI arxitekturasi, Power BI yordamida korporativ hisobot infratuzilmasini rivojlantirish." data-zh="绩效管理系统的设计与管理，KPI架构，使用Power BI开发企业报告基础设施。" data-ru="Проектирование систем управления эффективностью, архитектура KPI, разработка корпоративной отчётности в Power BI.">Performans yönetimi sistemlerinin tasarımı ve yönetimi, KPI mimarisi ve hedef-metrik hizalaması, Power BI ile kurumsal raporlama altyapısının geliştirilmesi, yetkinlik bazlı değerlendirme ve skorlama modellerinin kurulması.</div>
-        </div>
+  <!-- PROJECTS -->
+  <section class="sec" id="projeler" aria-labelledby="h-projects">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 id="h-projects" class="h2" data-i18n="h_projects">Projeler</h2>
+        <p class="sec__sub" data-i18n="sub_projects">Herkesin kullanabileceği uygulamalar ve yer aldığım araştırma projeleri.</p>
       </div>
-      <div class="exp-item">
-        <div class="exp-date" data-tr="Kas 2022 —" data-en="Nov 2022 —" data-uz="Nov 2022 —" data-zh="2022年11月 —" data-ru="Ноя 2022 —">Kas 2022 —<br data-tr="Ağu 2025" data-en="Aug 2025" data-uz="Avg 2025" data-zh="2025年8月" data-ru="Авг 2025">Ağu 2025</div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <div class="exp-logo"><img src="logo-sautek.png" alt="SAUTEK"></div>
-            <div>
-          <div class="exp-title" data-tr="Uzman Veri Analisti" data-en="Senior Data Analyst" data-uz="Katta Ma'lumotlar Analitiki" data-zh="高级数据分析师" data-ru="Старший аналитик данных">Uzman Veri Analisti</div>
-          <div class="exp-company" data-tr="SAUTEK · Sakarya Üniversitesi" data-en="SAUTEK · Sakarya University" data-uz="SAUTEK · Sakarya Universiteti" data-zh="SAUTEK · 萨卡里亚大学" data-ru="SAUTEK · Университет Сакарья">SAUTEK · Sakarya Üniversitesi</div>
-            </div>
-          </div>
-          <div class="exp-desc" data-tr="Kurumsal veri yönetimi ve analitik raporlama süreçleri, TÜBİTAK projelerinde istatistiksel analiz ve ekonometrik modelleme, panel veri ve zaman serisi analizleri." data-en="Corporate data management and analytical reporting, statistical analysis and econometric modeling in TÜBİTAK projects, panel data and time series analyses." data-uz="Korporativ ma'lumotlarni boshqarish, TÜBİTAK loyihalarida statistik tahlil va ekonometrik modellashtirish." data-zh="企业数据管理和分析报告，TÜBİTAK项目中的统计分析和计量经济建模。" data-ru="Управление корпоративными данными, статистический анализ и эконометрическое моделирование в проектах TÜBİTAK.">Kurumsal veri yönetimi ve analitik raporlama süreçlerinin yürütülmesi, TÜBİTAK projelerinde istatistiksel analiz ve ekonometrik modelleme, panel veri ve zaman serisi analizleri, otomatik raporlama altyapısının tasarımı.</div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date" data-tr="Ağu 2019 —" data-en="Aug 2019 —" data-uz="Avg 2019 —" data-zh="2019年8月 —" data-ru="Авг 2019 —">Ağu 2019 —<br data-tr="Haz 2021" data-en="Jun 2021" data-uz="Iyn 2021" data-zh="2021年6月" data-ru="Июн 2021">Haz 2021</div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <div class="exp-logo"><img src="logo-kuveytturk.png" alt="Kuveyt Türk"></div>
-            <div>
-          <div class="exp-title" data-tr="Müşteri Temsilcisi Yetkilisi" data-en="Customer Relations Officer" data-uz="Mijozlar bilan Munosabatlar Xodimi" data-zh="客户关系专员" data-ru="Специалист по работе с клиентами">Müşteri Temsilcisi Yetkilisi</div>
-          <div class="exp-company" data-tr="Kuveyt Türk Katılım Bankası · Ankara" data-en="Kuveyt Türk Participation Bank · Ankara" data-uz="Kuveyt Türk Ishtirok Banki · Ankara" data-zh="科威特土耳其参与银行 · 安卡拉" data-ru="Участный банк Кувейт Тюрк · Анкара">Kuveyt Türk Katılım Bankası · Ankara</div>
-            </div>
-          </div>
-          <div class="exp-desc" data-tr="Bireysel ve kurumsal müşterilere bankacılık hizmetleri sunumu, portföy yönetimi ve müşteri ilişkileri." data-en="Providing banking services to individual and corporate clients, portfolio management and customer relations." data-uz="Jismoniy va yuridik shaxslarga bank xizmatlarini ko'rsatish, portfel boshqaruvi." data-zh="为个人和企业客户提供银行服务，投资组合管理。" data-ru="Предоставление банковских услуг физическим и юридическим лицам, управление портфелем.">Bireysel ve kurumsal müşterilere bankacılık hizmetleri sunumu, portföy yönetimi ve müşteri ilişkileri.</div>
-        </div>
+      <div class="projects" id="projects"></div>
+      <div class="panel" style="margin-top:var(--gap)">
+        <h3 class="h3" data-i18n="h_research">Araştırma projeleri</h3>
+        <ul class="research" id="research"></ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PUBLICATIONS -->
-<section class="pubs" id="yayinlar">
-  <div class="section-inner reveal">
-    <div class="section-label" data-tr="03 — Akademik Yayınlar" data-en="03 — Academic Publications" data-tr="03 — Akademik Yayınlar" data-en="03 — Publications" data-uz="03 — Akademik Nashrlar" data-zh="03 — 学术出版物" data-ru="03 — Публикации">03 — Akademik Yayınlar</div>
-    <div style="margin-bottom: 28px;">
-      <a href="https://scholar.google.com/citations?user=fi-3L8cAAAAJ" target="_blank" class="btn btn-outline" style="font-size:11px; letter-spacing:2px;" data-tr="Google Scholar'da Görüntüle ↗" data-en="View on Google Scholar ↗" data-uz="Google Scholar'da ko'rish ↗" data-zh="在Google Scholar查看 ↗" data-ru="Открыть в Google Scholar ↗" data-tr="Google Scholar'da Görüntüle ↗" data-en="View on Google Scholar ↗" data-uz="Google Scholar'da ko'rish ↗" data-zh="在Google Scholar查看 ↗" data-ru="Открыть в Google Scholar ↗">Google Scholar'da Görüntüle ↗</a>
-    </div>
-    <div class="pub-grid">
-      <a class="pub-card" href="https://drive.google.com/file/d/1vZ2FilsiISyZeQTBUQiewqzFLYK_9HNj/view" target="_blank" style="text-decoration:none;">
-        <div class="pub-tag">Arkhedemia · 2026</div>
-        <div class="pub-title">Halk Algısı ve Ticari Kopukluk: Güney Kore-Japonya Üzerine Bir Ekonometrik Analiz</div>
-        <div class="pub-source">Arkhedemia Dergisi · 2026 ↗</div>
-      </a>
-      <a class="pub-card" href="https://drive.google.com/file/d/1EBg5kKS-Z_P0xtBq59_xk7lbamldZlmn/view" target="_blank" style="text-decoration:none;">
-        <div class="pub-tag">Arkhedemia · 2026</div>
-        <div class="pub-title">İK Yönetiminde Pozisyon Bazlı Aday Değerlendirme: Fuzzy AHP ve ÇKKV Yöntemleri ile Bootstrap Destekli Bir Model Önerisi</div>
-        <div class="pub-source">Arkhedemia Dergisi · 2026 ↗</div>
-      </a>
-      <a class="pub-card" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5272905" target="_blank" style="text-decoration:none;">
-        <div class="pub-tag">SSRN · Elsevier · 2025</div>
-        <div class="pub-title">How Did Foreign and Domestic Institutional Changes Impact Investor Risk Perception in the Late Ottoman Period?</div>
-        <div class="pub-source">SSRN - Elsevier · 29 Mayıs 2025 ↗</div>
-      </a>
-      <a class="pub-card" href="https://drive.google.com/file/d/1XlAn7BdW27_ptSaYAAmEQ06WKpP2oBmZ/view" target="_blank" style="text-decoration:none;">
-        <div class="pub-tag">Arkhedemia · 2025</div>
-        <div class="pub-title">Ekonomik Büyümenin Yoksulluk Üzerine Etkisi</div>
-        <div class="pub-source">Arkhedemia Dergisi · 25 Nisan 2025 ↗</div>
-      </a>
-      <a class="pub-card" href="https://drive.google.com/file/d/1_dbiwSOvAJDUkzYhmREi6fJiCyjqoVrM/view" target="_blank" style="text-decoration:none;">
-        <div class="pub-tag">Arkhedemia · 2025</div>
-        <div class="pub-title">Mülkiyet Hakları ile Ekonomik Büyümenin Ampirik İlişkisi</div>
-        <div class="pub-source">Arkhedemia Dergisi · 25 Mart 2025 ↗</div>
-      </a>
-      <a class="pub-card" href="https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=usXiZIM9Lp0wk-YzRoaT-zrgAe9BlOk2l7jsGC409JooRd0c7vX7vCJbhmPRO4ME" target="_blank" style="text-decoration:none;">
-        <div class="pub-tag">Sakarya Üniversitesi · 2024</div>
-        <div class="pub-title">Kurumsal Değişim ve Reform Uygulamalarının Politik Sorunlar Paralelinde Etkisi (Yüksek Lisans Tezi)</div>
-        <div class="pub-source">Sakarya Üniversitesi · 8 Ağustos 2024 ↗</div>
-      </a>
-      <div class="pub-card">
-        <div class="pub-tag">Sakarya İktisat · 2023</div>
-        <div class="pub-title">Sakarya Üniversitesinde Öğrenim Gören Balkan Ülkeleri Uyruklu Öğrencilerin Sosyo-Kültürel ve Ekonomik Durumu</div>
-        <div class="pub-source">Sakarya İktisat Dergisi · 1 Haziran 2023</div>
+  <!-- CONTACT -->
+  <section class="sec" id="iletisim" aria-labelledby="h-contact">
+    <div class="wrap">
+      <div class="contact__card">
+        <div>
+          <h2 id="h-contact" class="h2" data-i18n="h_contact">İletişim</h2>
+          <p class="sec__sub" data-i18n="sub_contact">Veri analizi, ekonometrik modelleme ya da İK analitiği üzerine iş birliği için yazabilirsiniz.</p>
+          <a class="btn js-mail" href="#iletisim" data-i18n="cta_mail">E-posta gönder</a>
+        </div>
+        <ul class="contact__list">
+          <li><span data-i18n="c_mail">E-posta</span><a class="js-mail" href="#iletisim"><span class="js-mail-text"></span></a></li>
+          <li><span>LinkedIn</span><a data-href="linkedin">msabridogruyol99</a></li>
+          <li><span>GitHub</span><a data-href="github">msabridogruyol</a></li>
+          <li><span>Google Scholar</span><a data-href="scholar" data-i18n="c_scholar">Akademik profil</a></li>
+          <li><span>ORCID</span><a data-href="orcid">0000-0002-9382-1689</a></li>
+          <li><span>CV</span><a href="cv.pdf" download data-i18n="cta_cv">CV'yi indir (PDF)</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- PROJECTS -->
-<section id="projeler">
-  <div class="section-inner reveal">
-    <div class="section-label"
-         data-tr="04 — Projeler"
-         data-en="04 — Projects"
-         data-uz="04 — Loyihalar"
-         data-zh="04 — 项目"
-         data-ru="04 — Проекты">
-      04 — Projeler
-    </div>
-
-    <div class="proj-grid">
-      <a class="proj-card" href="https://draxywkhqpb6kfs5nhmwgm.streamlit.app/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div class="proj-num">01</div>
-        <div class="proj-title"
-             data-tr="İstatistik Analiz Paketi ↗"
-             data-en="Statistical Analysis Package ↗"
-             data-uz="Statistik Tahlil Paketi ↗"
-             data-zh="统计分析工具包 ↗"
-             data-ru="Пакет статистического анализа ↗">
-          İstatistik Analiz Paketi ↗
-        </div>
-        <div class="proj-desc"
-             data-tr="Tanımlayıcı istatistik, hipotez testleri, regresyon ve dağılım analizlerini içeren Streamlit tabanlı istatistik uygulaması."
-             data-en="A Streamlit-based statistics app featuring descriptive statistics, hypothesis tests, regression, and distribution analysis."
-             data-uz="Tavsifiy statistika, gipoteza testlari, regressiya va taqsimot tahlillarini o‘z ichiga olgan Streamlit ilovasi."
-             data-zh="基于 Streamlit 的统计分析应用，包含描述统计、假设检验、回归和分布分析。"
-             data-ru="Приложение на Streamlit для статистического анализа: описательная статистика, гипотезы, регрессия и распределения.">
-          Tanımlayıcı istatistik, hipotez testleri, regresyon ve dağılım analizlerini içeren Streamlit tabanlı istatistik uygulaması.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">İstatistik</span>
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">Streamlit</span>
-        </div>
-      </a>
-
-      <a class="proj-card" href="https://ekonometrik-modeller-k4ubshuq4jd3ketm7ebsqw.streamlit.app/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-        <div class="proj-num">02</div>
-        <div class="proj-title"
-             data-tr="Ekonometrik Test Paketi ↗"
-             data-en="Econometric Test Package ↗"
-             data-uz="Ekonometrik Test Paketi ↗"
-             data-zh="计量经济测试工具包 ↗"
-             data-ru="Пакет эконометрических тестов ↗">
-          Ekonometrik Test Paketi ↗
-        </div>
-        <div class="proj-desc"
-             data-tr="Durağanlık, nedensellik, eşbütünleşme ve otomatik yorumlama modüllerini içeren Streamlit tabanlı ekonometrik analiz uygulaması."
-             data-en="A Streamlit-based econometric analysis app featuring stationarity, causality, cointegration, and automated interpretation modules."
-             data-uz="Stasionarlik, sababiylik, kointegratsiya va avtomatik sharhlash modullarini o‘z ichiga olgan Streamlit ilovasi."
-             data-zh="基于 Streamlit 的计量经济分析应用，包含平稳性、因果关系、协整和自动解释模块。"
-             data-ru="Приложение на Streamlit для эконометрического анализа: стационарность, причинность, коинтеграция и автоматическая интерпретация.">
-          Durağanlık, nedensellik, eşbütünleşme ve otomatik yorumlama modüllerini içeren Streamlit tabanlı ekonometrik analiz uygulaması.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Ekonometri</span>
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">Streamlit</span>
-        </div>
-      </a>
-
-      <a class="proj-card" href="veri-koprusu.html" style="text-decoration:none;">
-        <div class="proj-num">03</div>
-        <div class="proj-title"
-             data-tr="Veri Köprüsü Gösterge Paneli ↗"
-             data-en="Data Bridge Dashboard ↗"
-             data-uz="Ma'lumotlar Ko'prisi Paneli ↗"
-             data-zh="数据桥梁仪表板 ↗"
-             data-ru="Панель мониторинга Veri Köprüsü ↗">
-          Veri Köprüsü Gösterge Paneli ↗
-        </div>
-        <div class="proj-desc"
-             data-tr="Türkiye geneli ve il bazlı açık veri kaynaklarını tek bir platformda birleştiren interaktif gösterge paneli."
-             data-en="An interactive dashboard combining national and provincial open data sources into a single platform."
-             data-uz="Milliy va viloyat ochiq ma'lumotlarni bitta platformada birlashtiruvchi interaktiv panel."
-             data-zh="将全国和省级开放数据整合到单一平台的交互式仪表板。"
-             data-ru="Интерактивная панель мониторинга, объединяющая открытые данные по всей стране.">
-          Türkiye geneli ve il bazlı açık veri kaynaklarını tek bir platformda birleştiren interaktif gösterge paneli. Power BI ve özel veri entegrasyonu ile geliştirildi.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Power BI</span>
-          <span class="proj-tag">Veri Entegrasyonu</span>
-          <span class="proj-tag">Dashboard</span>
-        </div>
-      </a>
-
-      <div class="proj-card">
-        <div class="proj-num">04</div>
-        <div class="proj-title"
-             data-tr="TÜBİTAK 1001 — Kahramanmaraş Konteyner Kentleri"
-             data-en="TÜBİTAK 1001 — Kahramanmaraş Container Cities"
-             data-uz="TÜBİTAK 1001 — Kahramanmaraş konteyner shaharlari"
-             data-zh="TÜBİTAK 1001 — 卡赫拉曼马拉什集装箱城市"
-             data-ru="TÜBİTAK 1001 — Контейнерные города Кахраманмараш">
-          TÜBİTAK 1001 — Kahramanmaraş Konteyner Kentleri
-        </div>
-        <div class="proj-desc"
-             data-tr="Sürdürülebilir Afet Yönetimi Planlamasında İnsani Güvenliğin İnşası: Kahramanmaraş Konteyner Kentleri Örneği."
-             data-en="Building Human Security in Sustainable Disaster Management Planning: The Case of Kahramanmaraş Container Cities."
-             data-uz="Barqaror ofat boshqaruvi rejalashtirish: Kahramanmaraş konteyner shaharlari misoli."
-             data-zh="可持续灾害管理规划中的人类安全建设：卡赫拉曼马拉什集装箱城市案例。"
-             data-ru="Построение человеческой безопасности в устойчивом планировании управления бедствиями: пример Кахраманмараш.">
-          Sürdürülebilir Afet Yönetimi Planlamasında İnsani Güvenliğin İnşası: Kahramanmaraş Konteyner Kentleri Örneği. May 2024 – May 2025.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">TÜBİTAK</span>
-          <span class="proj-tag">Afet Yönetimi</span>
-          <span class="proj-tag">Saha Araştırması</span>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-num">05</div>
-        <div class="proj-title"
-             data-tr="TÜBİTAK 3005 — Osmanlı Finansal Piyasaları"
-             data-en="TÜBİTAK 3005 — Ottoman Financial Markets"
-             data-uz="TÜBİTAK 3005 — Usmonli Moliyaviy Bozorlari"
-             data-zh="TÜBİTAK 3005 — 奥斯曼金融市场"
-             data-ru="TÜBİTAK 3005 — Османские финансовые рынки">
-          TÜBİTAK 3005 — Osmanlı Finansal Piyasaları
-        </div>
-        <div class="proj-desc"
-             data-tr="Politik Risklerin Türkiye Ekonomisine Yansımaları: Reel ve Finansal Piyasalara Etkileri, 1925-1980."
-             data-en="Reflections of Political Risks on the Turkish Economy: Effects on Real and Financial Markets, 1925-1980."
-             data-uz="Siyosiy xatarlarning Turkiya iqtisodiyotiga ta'siri: Real va moliyaviy bozorlarga ta'sir, 1925-1980."
-             data-zh="政治风险对土耳其经济的影响：对实体和金融市场的影响，1925-1980年。"
-             data-ru="Отражение политических рисков на экономику Турции, 1925-1980.">
-          Politik Risklerin Türkiye Ekonomisine Yansımaları: Reel ve Finansal Piyasalara Etkileri, 1925-1980. Ekonometrik modelleme ve tarihsel veri analizi.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">TÜBİTAK</span>
-          <span class="proj-tag">Ekonometri</span>
-          <span class="proj-tag">Zaman Serisi</span>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-num">06</div>
-        <div class="proj-title"
-             data-tr="Kigılı İK Analytics Dashboard"
-             data-en="Kigılı HR Analytics Dashboard"
-             data-uz="Kigılı HR Analitika Paneli"
-             data-zh="Kigılı人力资源分析仪表板"
-             data-ru="Панель HR-аналитики Kigılı">
-          Kigılı İK Analytics Dashboard
-        </div>
-        <div class="proj-desc"
-             data-tr="Perakende sektörü için çok sayfalı İK analitiği ve personel yönetimi dashboardu."
-             data-en="A multi-page HR analytics and personnel management dashboard for the retail sector."
-             data-uz="Chakana savdo sektori uchun ko'p sahifali HR analitika paneli."
-             data-zh="零售行业多页HR分析和人员管理仪表板。"
-             data-ru="Многостраничная панель HR-аналитики для розничного сектора.">
-          Perakende sektörü için çok sayfalı İK analitiği ve personel yönetimi dashboardu. Demografik profil, turnover analizi, performans KPI'ları ve organizasyon haritası içermektedir.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Power BI</span>
-          <span class="proj-tag">İK Analitiği</span>
-          <span class="proj-tag">KPI</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- VOLUNTEER -->
-<section id="gonullu">
-  <div class="section-inner reveal">
-    <div class="section-label" data-tr="05 — Gönüllü Çalışmalar" data-en="05 — Volunteer Work" data-uz="05 — Ko'ngillilik" data-zh="05 — 志愿工作" data-ru="05 — Волонтёрство">05 — Gönüllü Çalışmalar</div>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-date" data-tr="Şub 2025 —" data-en="Feb 2025 —" data-uz="Fev 2025 —" data-zh="2025年2月 —" data-ru="Фев 2025 —">Şub 2025 —<br><span data-tr="Devam ediyor" data-en="Present" data-uz="Davom etmoqda" data-zh="至今" data-ru="По настоящее время">Devam ediyor</span></div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <div class="exp-logo" style="background:#fff;">
-              <img src="logo-arkhedemia.png" alt="Arkhedemia" style="width:36px;height:36px;object-fit:contain;">
-            </div>
-            <div>
-              <div class="exp-title" data-tr="İş Geliştirme Kurucu Ortak" data-en="Business Development Co-founder" data-uz="Biznes Rivojlantirish Hammuassisi" data-zh="业务发展联合创始人" data-ru="Сооснователь по развитию бизнеса">İş Geliştirme Kurucu Ortak</div>
-              <div class="exp-company"><a href="https://sites.google.com/view/arkhedemia/ana-sayfa" target="_blank" style="color:#4fc3f7;text-decoration:none;letter-spacing:1.5px;font-size:12px;font-weight:500;">ARKHEDEMİA DERGİSİ ↗</a></div>
-            </div>
-          </div>
-          <div class="exp-desc" data-tr="Ekonomi, sosyal bilimler ve politika alanlarında hakemli akademik yayın yapan Arkhedemia Dergisi'nin kurucu ortağı olarak iş geliştirme ve büyüme stratejilerini yönetiyorum." data-en="As co-founder of Arkhedemia Journal, a peer-reviewed academic publication in economics, social sciences and policy, I manage business development and growth strategies." data-uz="Arkhedemia jurnalining hammuassisi sifatida biznes rivojlantirish va o'sish strategiyalarini boshqaraman." data-zh="作为Arkhedemia期刊的联合创始人，负责管理业务发展和增长战略。" data-ru="Как сооснователь журнала Arkhedemia, управляю стратегией развития бизнеса и роста.">Ekonomi, sosyal bilimler ve politika alanlarında hakemli akademik yayın yapan Arkhedemia Dergisi'nin kurucu ortağı olarak iş geliştirme ve büyüme stratejilerini yönetiyorum.</div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date" data-tr="Oca 2022 —" data-en="Jan 2022 —" data-uz="Yan 2022 —" data-zh="2022年1月 —" data-ru="Янв 2022 —">Oca 2022 —<br><span data-tr="Ağu 2022" data-en="Aug 2022" data-uz="Avg 2022" data-zh="2022年8月" data-ru="Авг 2022">Ağu 2022</span></div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <div class="exp-logo" style="background:#0a0a0a;">
-              <img src="logo-vebet.png" alt="VEBET" style="width:36px;height:36px;object-fit:contain;">
-            </div>
-            <div>
-              <div class="exp-title" data-tr="Kurucu Başkan Yardımcısı" data-en="Founding Vice President" data-uz="Asoschi Vitse-prezident" data-zh="创始副主席" data-ru="Основатель и вице-президент">Kurucu Başkan Yardımcısı</div>
-              <div class="exp-company"><a href="https://veribilimveekonometri.com" target="_blank" style="color:#4fc3f7;text-decoration:none;letter-spacing:1.5px;font-size:12px;font-weight:500;">VERİ BİLİMİ VE EKONOMETRİ TOPLULUĞU ↗</a></div>
-            </div>
-          </div>
-          <div class="exp-desc" data-tr="Ankara Hacı Bayram Veli Üniversitesi bünyesinde kurulan Veri Bilimi ve Ekonometri Topluluğu'nun (VEBET) kurucu başkan yardımcısı olarak topluluğun yapılanması ve akademik etkinliklerinin organizasyonunda görev aldım." data-en="As founding vice president of the Data Science and Econometrics Society (VEBET) at Ankara Hacı Bayram Veli University, I contributed to the society's establishment and organization of academic events." data-uz="Gazi Universitetidagi Ma'lumotlar Fanlari va Ekonometrika Jamiyatining (VEBET) asoschi vitse-prezidenti sifatida xizmat qildim." data-zh="作为加齐大学数据科学与计量经济学协会(VEBET)的创始副主席，参与协会建设和学术活动组织。" data-ru="Как основатель и вице-президент Общества науки о данных и эконометрики (VEBET) в Университете Гази, участвовал в создании организации и проведении академических мероприятий.">Ankara Hacı Bayram Veli Üniversitesi bünyesinde kurulan Veri Bilimi ve Ekonometri Topluluğu'nun (VEBET) kurucu başkan yardımcısı olarak topluluğun yapılanması ve akademik etkinliklerinin organizasyonunda görev aldım.</div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date" data-tr="2019 —" data-en="2019 —" data-uz="2019 —" data-zh="2019 —" data-ru="2019 —">2019 —<br><span data-tr="2021" data-en="2021" data-uz="2021" data-zh="2021" data-ru="2021">2021</span></div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <div class="exp-logo" style="background:#fff;">
-              <img src="logo-riders.png" alt="AHBVÜ Riders" style="width:36px;height:36px;object-fit:contain;">
-            </div>
-            <div>
-              <div class="exp-title" data-tr="Kurucu Başkan" data-en="Founding President" data-uz="Asoschi Prezident" data-zh="创始主席" data-ru="Основатель и президент">Kurucu Başkan</div>
-              <div class="exp-company" style="color:#4fc3f7;letter-spacing:1.5px;font-size:12px;font-weight:500;" data-tr="AHBVÜ RIDERS MOTOSİKLET TOPLULUĞU" data-en="AHBVÜ RIDERS MOTORCYCLE SOCIETY" data-uz="AHBVÜ RIDERS MOTOTSIKL JAMIYATI" data-zh="AHBVÜ骑手摩托车协会" data-ru="AHBVÜ RIDERS МОТОЦИКЛЕТНОЕ ОБЩЕСТВО">AHBVÜ RIDERS MOTOSİKLET TOPLULUĞU</div>
-            </div>
-          </div>
-          <div class="exp-desc" data-tr="Ankara Hacı Bayram Veli Üniversitesi bünyesinde kurulan Riders Motosiklet Topluluğu'nun kurucu başkanı olarak topluluğun yapılanması, üye kazanımı ve etkinlik organizasyonlarında öncü rol üstlendim." data-en="As founding president of the Riders Motorcycle Society established at Ankara Hacı Bayram Veli University, I led the organization's establishment, member recruitment and event planning." data-uz="Ankara Hoji Bayram Veli Universitetida tashkil etilgan Riders Mototsikl Jamiyatining asoschi prezidenti sifatida tashkilotni yaratishda yetakchi rol o'ynadim." data-zh="作为在安卡拉哈吉拜拉姆维利大学成立的骑手摩托车协会的创始主席，主导了组织的建立、会员招募和活动策划。" data-ru="Как основатель мотоциклетного общества Riders в Университете Анкары Хаджи Байрам Вели, руководил созданием организации и организацией мероприятий.">Ankara Hacı Bayram Veli Üniversitesi bünyesinde kurulan Riders Motosiklet Topluluğu'nun kurucu başkanı olarak topluluğun yapılanması, üye kazanımı ve etkinlik organizasyonlarında öncü rol üstlendim.</div>
-        </div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date" data-tr="Gönüllü" data-en="Volunteer" data-uz="Ko'ngillilik" data-zh="志愿" data-ru="Волонтёр">Gönüllü</div>
-        <div class="exp-content">
-          <div class="exp-header">
-            <div class="exp-logo" style="background:#fff;">
-              <img src="logo-boldav.png" alt="Bol-Dav" style="width:36px;height:36px;object-fit:contain;">
-            </div>
-            <div>
-              <div class="exp-title" data-tr="Gönüllü" data-en="Volunteer" data-uz="Ko'ngillilik" data-zh="志愿者" data-ru="Волонтёр">Gönüllü</div>
-              <div class="exp-company"><a href="http://www.boldav.org.tr/" target="_blank" style="color:#4fc3f7;text-decoration:none;letter-spacing:1.5px;font-size:12px;font-weight:500;">BOLVADİNLİLER DAYANIŞMA VAKFI ↗</a></div>
-            </div>
-          </div>
-          <div class="exp-desc" data-tr="Bolvadinliler Dayanışma Vakfı (Bol-Dav) ile ortaklaşa Afyonkarahisar iline ait demografik, ekonomik ve sosyal verileri Power BI ile görselleştiren interaktif veri portalı geliştirildi. Açık veri kaynaklarından derlenen veriler harita ve grafik formatında sunuldu." data-en="In collaboration with Bolvadinliler Solidarity Foundation (Bol-Dav), developed an interactive Power BI data portal visualizing demographic, economic and social data of Afyonkarahisar province using open data sources." data-uz="Bol-Dav bilan hamkorlikda Afyonkarahisar viloyati uchun Power BI ma'lumotlar portali ishlab chiqildi." data-zh="与Bol-Dav基金会合作，开发了阿菲永卡拉希萨尔省Power BI数据门户，通过地图和图表展示人口、经济和社会数据。" data-ru="В сотрудничестве с фондом Bol-Dav разработан интерактивный портал данных Power BI по провинции Афьонкарахисар с визуализацией демографических, экономических и социальных данных.">Bolvadinliler Dayanışma Vakfı (Bol-Dav) ile ortaklaşa Afyonkarahisar iline ait demografik, ekonomik ve sosyal verileri Power BI ile görselleştiren interaktif veri portalı geliştirildi. Açık veri kaynaklarından derlenen veriler harita ve grafik formatında sunuldu.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="iletisim">
-  <div class="section-inner reveal">
-    <div class="contact-grid">
-      <div class="contact-text">
-        <div class="section-label"
-             data-tr="06 — İletişim"
-             data-en="06 — Contact"
-             data-uz="06 — Aloqa"
-             data-zh="06 — 联系"
-             data-ru="06 — Контакт">
-          06 — İletişim
-        </div>
-
-        <h2 class="section-title"
-            data-tr="Birlikte çalışalım."
-            data-en="Let's work together."
-            data-uz="Birga ishlaylik."
-            data-zh="让我们合作吧。"
-            data-ru="Давайте работать вместе.">
-          Birlikte çalışalım.
-        </h2>
-
-        <p data-tr="Veri analizi, ekonometrik modelleme veya organizasyonel gelişim konularında iş birliği için ulaşabilirsiniz."
-           data-en="Feel free to reach out for collaboration on data analysis, econometric modeling, or organizational development."
-           data-uz="Ma'lumotlar tahlili, ekonometrik modellashtirish yoki tashkiliy rivojlanish bo‘yicha hamkorlik uchun bog‘lanishingiz mumkin."
-           data-zh="欢迎就数据分析、计量经济建模或组织发展合作与我联系。"
-           data-ru="Свяжитесь со мной для сотрудничества по анализу данных, эконометрическому моделированию или организационному развитию.">
-          Veri analizi, ekonometrik modelleme veya organizasyonel gelişim konularında iş birliği için ulaşabilirsiniz.
-        </p>
-
-        <a href="#"
-           onclick="window.location='mail'+'to:info@msabridogruyol.com'; return false;"
-           class="btn btn-filled"
-           data-tr="E-posta Gönder"
-           data-en="Send Email"
-           data-uz="Xat yuborish"
-           data-zh="发送邮件"
-           data-ru="Написать письмо">
-          E-posta Gönder
-        </a>
-      </div>
-
-      <div class="contact-links">
-        <a href="#"
-           onclick="window.location='mail'+'to:info@msabridogruyol.com'; return false;"
-           class="contact-link">
-          <div class="contact-link-icon">@</div>
-          <div class="contact-link-info">
-            <div class="contact-link-label"
-                 data-tr="E-posta"
-                 data-en="Email"
-                 data-uz="Elektron pochta"
-                 data-zh="电子邮件"
-                 data-ru="Эл. почта">
-              E-posta
-            </div>
-            <div class="contact-link-val">info@msabridogruyol.com</div>
-          </div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/msabridogruyol99"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="contact-link">
-          <div class="contact-link-icon">in</div>
-          <div class="contact-link-info">
-            <div class="contact-link-label"
-                 data-tr="LinkedIn"
-                 data-en="LinkedIn"
-                 data-uz="LinkedIn"
-                 data-zh="领英"
-                 data-ru="LinkedIn">
-              LinkedIn
-            </div>
-            <div class="contact-link-val">msabridogruyol99</div>
-          </div>
-        </a>
-
-        <a href="https://github.com/msabridogruyol"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="contact-link">
-          <div class="contact-link-icon">gh</div>
-          <div class="contact-link-info">
-            <div class="contact-link-label"
-                 data-tr="GitHub"
-                 data-en="GitHub"
-                 data-uz="GitHub"
-                 data-zh="GitHub"
-                 data-ru="GitHub">
-              GitHub
-            </div>
-            <div class="contact-link-val">msabridogruyol</div>
-          </div>
-        </a>
-
-        <a href="https://scholar.google.com/citations?user=fi-3L8cAAAAJ"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="contact-link">
-          <div class="contact-link-icon">gs</div>
-          <div class="contact-link-info">
-            <div class="contact-link-label"
-                 data-tr="Google Scholar"
-                 data-en="Google Scholar"
-                 data-uz="Google Scholar"
-                 data-zh="谷歌学术"
-                 data-ru="Google Scholar">
-              Google Scholar
-            </div>
-            <div class="contact-link-val"
-                 data-tr="Akademik profil"
-                 data-en="Academic profile"
-                 data-uz="Akademik profil"
-                 data-zh="学术档案"
-                 data-ru="Академический профиль">
-              Akademik profil
-            </div>
-          </div>
-        </a>
-
-        <a href="https://orcid.org/0000-0002-9382-1689"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="contact-link">
-          <div class="contact-link-icon" style="font-size:10px;font-weight:700;color:#a6ce39;">iD</div>
-          <div class="contact-link-info">
-            <div class="contact-link-label"
-                 data-tr="ORCID"
-                 data-en="ORCID"
-                 data-uz="ORCID"
-                 data-zh="ORCID"
-                 data-ru="ORCID">
-              ORCID
-            </div>
-            <div class="contact-link-val">0000-0002-9382-1689</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-copy" data-tr="© 2025 Mustafa Sabri Doğruyol" data-en="© 2025 Mustafa Sabri Doğruyol" data-uz="© 2025 Mustafa Sabri Doğruyol" data-zh="© 2025 Mustafa Sabri Doğruyol" data-ru="© 2025 Mustafa Sabri Doğruyol">© 2025 Mustafa Sabri Doğruyol</div>
-  <div class="footer-links">
-    <a href="#hakkimda" data-tr="Hakkımda" data-en="About" data-uz="Haqimda" data-zh="关于我" data-ru="Обо мне">Hakkımda</a>
-    <a href="#deneyim" data-tr="Deneyim" data-en="Experience" data-uz="Tajriba" data-zh="经历" data-ru="Опыт">Deneyim</a>
-    <a href="#yayinlar" data-tr="Yayınlar" data-en="Publications" data-uz="Nashrlar" data-zh="出版物" data-ru="Публикации">Yayınlar</a>
-    <a href="#projeler" data-tr="Projeler" data-en="Projects" data-uz="Loyihalar" data-zh="项目" data-ru="Проекты">Projeler</a>
+<footer class="foot">
+  <div class="wrap foot__in">
+    <span>© <span id="year"></span> Mustafa Sabri Doğruyol</span>
+    <a href="#top" data-i18n="back_top">Başa dön</a>
   </div>
 </footer>
 
-<script>
-// ── PARTICLES ──────────────────────────────────────────────
-(function() {
-  const canvas = document.getElementById('particle-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
-  const N = 60, MAX_DIST = 120;
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-
-  function Particle() {
-    this.x = Math.random() * W;
-    this.y = Math.random() * H;
-    this.vx = (Math.random() - 0.5) * 0.4;
-    this.vy = (Math.random() - 0.5) * 0.4;
-    this.r = Math.random() * 2 + 1;
-  }
-
-  function init() {
-    resize();
-    particles = Array.from({length: N}, () => new Particle());
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    const col = document.body.classList.contains('light') ? '42,122,170' : '79,195,247';
-    particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > W) p.vx *= -1;
-      if (p.y < 0 || p.y > H) p.vy *= -1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${col},0.6)`;
-      ctx.fill();
-    });
-    for (let i = 0; i < N; i++) {
-      for (let j = i + 1; j < N; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if (d < MAX_DIST) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(${col},${0.15 * (1 - d/MAX_DIST)})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
-  init();
-  draw();
-})();
-
-// ── THEME TOGGLE ───────────────────────────────────────────
-const themeBtn = document.getElementById('theme-btn');
-function applyTheme(t) {
-  document.body.classList.toggle('light', t === 'light');
-  if (themeBtn) themeBtn.textContent = t === 'light' ? '☽' : '☀';
-  localStorage.setItem('theme', t);
-}
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    applyTheme(document.body.classList.contains('light') ? 'dark' : 'light');
-  });
-}
-const savedTheme = localStorage.getItem('theme') || 'dark';
-applyTheme(savedTheme);
-
-// ── HAMBURGER MENU ─────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
-    });
-  });
-}
-
-// ── SCROLL REVEAL ──────────────────────────────────────────
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ── 3D TILT ───────────────────────────────────────────────
-function initTilt() {
-  document.querySelectorAll('.tool-card-sk').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top - r.height / 2;
-      const rotY = (x / r.width) * 18;
-      const rotX = -(y / r.height) * 18;
-      card.style.transform = `perspective(300px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.06)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(300px) rotateX(0) rotateY(0) scale(1)';
-    });
-  });
-}
-window.addEventListener('DOMContentLoaded', initTilt);
-
-// ── LANGUAGE ───────────────────────────────────────────────
-function setLang(lang) {
-  // lang-content blokları göster/gizle
-  document.querySelectorAll('.lang-content').forEach(el => {
-    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
-  });
-  // data-tr elementleri (textContent ile güncelle)
-  document.querySelectorAll('[data-tr]').forEach(el => {
-    const val = el.dataset[lang] || el.dataset.en;
-    if (!val) return;
-    if (el.children.length === 0) {
-      el.textContent = val;
-    }
-  });
-  ['tr','en','uz','zh','ru'].forEach(l => {
-    const btn = document.getElementById('btn-' + l);
-    if (btn) btn.classList.toggle('active', l === lang);
-  });
-  document.documentElement.lang = lang;
-  localStorage.setItem('lang', lang);
-}
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('lang');
-  if (saved && saved !== 'tr') setLang(saved);
-
-  // Skill bar animasyonu — scroll ile tetikle
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-            bar.classList.add('animated');
-          });
-        }, 200);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  const skillsSection = document.querySelector('.skills-list');
-  if (skillsSection) observer.observe(skillsSection);
-});
-</script>
+<noscript><p class="noscript">Bu sayfanın içeriği JavaScript ile yüklenir. Özgeçmiş için <a href="cv.pdf">cv.pdf</a> dosyasını açabilirsiniz.</p></noscript>
+<script src="data.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>

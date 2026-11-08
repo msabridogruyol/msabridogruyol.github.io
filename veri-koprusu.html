@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veri Köprüsü Gösterge Paneli | Mustafa Sabri Doğruyol</title>
+<meta name="description" content="Türkiye geneli ve il bazlı açık kamu verilerini tek panelde birleştiren interaktif Power BI gösterge paneli.">
+<link rel="canonical" href="https://msabridogruyol.com/veri-koprusu.html">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<style>
+  .vk-head{padding:clamp(2rem,5vw,3.5rem) 0 1.5rem}
+  .vk-head h1{font-size:var(--s4);letter-spacing:-.025em}
+  .vk-head p{color:var(--ink-2);margin-top:.75rem;max-width:40em}
+  .vk-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.5rem;font-family:var(--display)}
+  .vk-meta dt{font-size:.85rem;color:var(--ink-2)}
+  .vk-meta dd{margin:0;font-weight:600}
+  .vk-tabs{display:flex;gap:.4rem;margin:0 0 1rem}
+  .vk-frame{position:relative;aspect-ratio:16/10;background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+  .vk-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vk-load{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);color:var(--ink-2)}
+  .vk-load[hidden]{display:none}
+  @media (max-width:620px){.vk-frame{aspect-ratio:3/4}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar__in">
+    <a class="mark" href="index.html"><span class="mark__dot" aria-hidden="true">MS</span><span class="mark__name">M. Sabri Doğruyol</span></a>
+    <nav class="nav" style="display:flex" aria-label="Site">
+      <a href="index.html#projeler">Tüm projeler</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="vk-head">
+    <h1>Veri Köprüsü gösterge paneli</h1>
+    <p>Türkiye geneli ve il bazlı açık kamu verilerini tek panelde birleştiren interaktif analitik ortam. Afyonkarahisar paneli Bolvadinliler Dayanışma Vakfı (Bol-Dav) ile birlikte hazırlandı.</p>
+    <dl class="vk-meta">
+      <div><dt>Araç</dt><dd>Power BI</dd></div>
+      <div><dt>Kapsam</dt><dd>81 il</dd></div>
+      <div><dt>Yıl</dt><dd>2025</dd></div>
+    </dl>
+  </div>
+
+  <div class="vk-tabs filters" role="group" aria-label="Panel seçimi">
+    <button type="button" data-i="0" aria-pressed="true">Türkiye geneli</button>
+    <button type="button" data-i="1" aria-pressed="false">Afyonkarahisar</button>
+  </div>
+  <div class="vk-frame">
+    <div class="vk-load" id="load">Panel yükleniyor…</div>
+    <iframe id="pbi" title="Veri Köprüsü Power BI paneli" allowfullscreen
+      src="https://app.powerbi.com/view?embedImagePlaceholder=true&pageName=b8f50e469915dbc92586&r=eyJrIjoiOTIxYWExMmMtOTMzNC00NWZhLTgxNjItMDZmZTk0MmIzMjhlIiwidCI6IjJiMWM4OTc4LThiYTUtNDM2OS04ZjhlLTJjNmY3OGMyMmY4NiIsImMiOjl9"></iframe>
+  </div>
+  <p style="margin:1.5rem 0 4rem"><a class="link" href="index.html#projeler">Diğer projelere dön</a></p>
+</main>
+
+<footer class="foot"><div class="wrap foot__in"><span>© <span id="y"></span> Mustafa Sabri Doğruyol</span><a href="index.html">Ana sayfa</a></div></footer>
+<script>
+  var R=[
+    "https://app.powerbi.com/view?embedImagePlaceholder=true&pageName=b8f50e469915dbc92586&r=eyJrIjoiOTIxYWExMmMtOTMzNC00NWZhLTgxNjItMDZmZTk0MmIzMjhlIiwidCI6IjJiMWM4OTc4LThiYTUtNDM2OS04ZjhlLTJjNmY3OGMyMmY4NiIsImMiOjl9",
+    "https://app.powerbi.com/view?embedImagePlaceholder=true&r=eyJrIjoiOGQwNjhiNDMtMDAyYS00YzViLTg1ZjAtZTVjYzdiMzY5YTRlIiwidCI6IjJiMWM4OTc4LThiYTUtNDM2OS04ZjhlLTJjNmY3OGMyMmY4NiIsImMiOjl9"
+  ];
+  var f=document.getElementById('pbi'),l=document.getElementById('load');
+  f.addEventListener('load',function(){l.hidden=true;});
+  document.querySelector('.vk-tabs').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b);});
+    l.hidden=false;f.src=R[+b.dataset.i];
+  });
+  document.getElementById('y').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
