@@ -90,12 +90,14 @@
   <section class="hero" id="top">
     <div class="wrap hero__grid">
       <div class="hero__text">
-        <p class="status" data-bind="hero.status"></p>
-        <h1 class="hero__name"><span>Mustafa Sabri</span><span>Doğruyol</span></h1>
-        <div class="hero__who">
-          <img class="hero__photo" src="img/profil.webp" width="58" height="58" alt="Mustafa Sabri Doğruyol">
-          <p class="hero__role" data-bind="hero.role"></p>
+        <div class="hero__id">
+          <div class="hero__photo-wrap"><img class="hero__photo" src="img/profil.webp" width="168" height="168" alt="Mustafa Sabri Doğruyol"></div>
+          <div class="hero__id-txt">
+            <p class="status" data-bind="hero.status"></p>
+            <p class="hero__role" data-bind="hero.role"></p>
+          </div>
         </div>
+        <h1 class="hero__name"><span>Mustafa Sabri</span><span>Doğruyol</span></h1>
         <p class="hero__lead" data-bind="hero.lead"></p>
         <div class="hero__actions">
           <a class="btn btn--solid" href="#yayinlar" data-i18n="cta_pubs">Yayınlarım</a>
