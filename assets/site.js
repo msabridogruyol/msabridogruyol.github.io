@@ -76,9 +76,13 @@
     $('tools').innerHTML = S.about.toolGroups.map(function (g) {
       return '<div><dt>' + esc(t(g.label)) + '</dt><dd>' + g.items.map(esc).join(', ') + '</dd></div>';
     }).join('');
-    $('areas').innerHTML = S.about.areas.map(function (a) {
-      return '<article class="area" role="listitem"><div class="area__top"><h3>' + esc(t(a.label)) + '</h3><span class="area__n">' + esc(t(a.n)) + '</span></div><p>' + esc(t(a.desc)) + '</p></article>';
-    }).join('');
+    var areaCards = function (hidden) {
+      return S.about.areas.map(function (a) {
+        return '<article class="area"' + (hidden ? ' aria-hidden="true"' : ' role="listitem"') + '><div class="area__top"><h3>' + esc(t(a.label)) + '</h3><span class="area__n">' + esc(t(a.n)) + '</span></div><p>' + esc(t(a.desc)) + '</p></article>';
+      }).join('');
+    };
+    // Sonsuz kayma için kartlar iki kez yazılır; ikinci kopya ekran okuyuculardan gizlenir
+    $('areas').innerHTML = '<div class="areas__track" role="list">' + areaCards(false) + areaCards(true) + '</div>';
     var latest = S.publications.filter(function (p) { return p.href; })[0];
     if (latest) { $('band-title').textContent = latest.title; $('band-venue').textContent = t(latest.venue); $('band-link').href = latest.href; }
     $('edu').innerHTML = S.education.map(function (e) {

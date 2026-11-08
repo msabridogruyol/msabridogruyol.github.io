@@ -119,7 +119,7 @@ window.SITE = {
     },
     {
       key: "arkhebook",
-      logo: "img/arkhebook.svg",
+      logo: "img/arkhebook.png",
       name: "Arkhebook",
       role: { tr: "Geliştirici ve tasarımcı · Android", en: "Developer and designer · Android" },
       desc: {
