@@ -120,6 +120,15 @@
   var SECTION_NAMES = { top: 'Açılış', hakkimda: 'Hakkımda', deneyim: 'Deneyim', girisimler: 'Arkhedemia & Arkhebook', yayinlar: 'Yayınlar', projeler: 'Projeler', iletisim: 'İletişim' };
   var PAGE_NAMES = { '/': 'Ana sayfa', '/index.html': 'Ana sayfa', '/veri-koprusu.html': 'Veri Köprüsü', '/gizlilik.html': 'Gizlilik' };
   function secName(s) { return SECTION_NAMES[s] || s || '—'; }
+  // Rızasız ziyaretlerde konum yok; saat diliminden yaklaşık ülke
+  var TZ_COUNTRY = { 'Europe/Istanbul': 'Türkiye', 'Asia/Istanbul': 'Türkiye', 'Europe/Berlin': 'Almanya', 'Europe/London': 'Birleşik Krallık', 'Europe/Amsterdam': 'Hollanda', 'Europe/Paris': 'Fransa', 'Europe/Vienna': 'Avusturya', 'Europe/Zurich': 'İsviçre', 'Europe/Brussels': 'Belçika', 'Europe/Stockholm': 'İsveç', 'Europe/Rome': 'İtalya', 'Europe/Madrid': 'İspanya', 'Europe/Athens': 'Yunanistan', 'Europe/Sofia': 'Bulgaristan', 'Europe/Moscow': 'Rusya', 'Europe/Kiev': 'Ukrayna', 'Europe/Kyiv': 'Ukrayna', 'Asia/Baku': 'Azerbaycan', 'Asia/Tashkent': 'Özbekistan', 'Asia/Almaty': 'Kazakistan', 'Asia/Dubai': 'BAE', 'Asia/Riyadh': 'Suudi Arabistan', 'Asia/Qatar': 'Katar', 'Asia/Tokyo': 'Japonya', 'Asia/Seoul': 'Güney Kore', 'Asia/Shanghai': 'Çin', 'America/New_York': 'ABD', 'America/Chicago': 'ABD', 'America/Denver': 'ABD', 'America/Los_Angeles': 'ABD', 'America/Toronto': 'Kanada', 'Australia/Sydney': 'Avustralya', 'Europe/Nicosia': 'Kıbrıs', 'Asia/Nicosia': 'Kıbrıs', 'Asia/Famagusta': 'Kıbrıs' };
+  function approxCountry(v) { return v.tz ? (TZ_COUNTRY[v.tz] || v.tz) : null; }
+  function ex(v) { return v.extra && typeof v.extra === 'object' ? v.extra : {}; }
+  function langName(l) {
+    var n = { tr: 'Türkçe', en: 'İngilizce', de: 'Almanca', fr: 'Fransızca', ru: 'Rusça', ar: 'Arapça', uz: 'Özbekçe', az: 'Azerbaycanca', zh: 'Çince', es: 'İspanyolca', it: 'İtalyanca', nl: 'Felemenkçe', ko: 'Korece', ja: 'Japonca' };
+    var b = l.slice(0, 2).toLowerCase(); return n[b] || l;
+  }
+  function locKey(v) { return v.city ? v.city + (v.country ? ', ' + v.country : '') : (v.country || (approxCountry(v) ? approxCountry(v) + ' (saat dilimi)' : null)); }
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function fmtDate(d) { return pad(d.getDate()) + '.' + pad(d.getMonth() + 1) + '.' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()); }
@@ -165,16 +174,16 @@
   function renderAnalytics() {
     var vs = scoped(), full = vs.filter(function (v) { return v.consent; });
     var uniq = {}; full.forEach(function (v) { if (v.visitor_id) uniq[v.visitor_id] = 1; });
-    var durs = full.map(function (v) { return v.duration_sec; }).filter(function (d) { return d > 0; });
+    var durs = vs.map(function (v) { return v.duration_sec; }).filter(function (d) { return d > 0; });
     var avg = durs.length ? durs.reduce(function (a, b) { return a + b; }, 0) / durs.length : 0;
     var returning = full.filter(function (v) { return v.visit_no > 1; }).length;
-    var clicks = 0; full.forEach(function (v) { (A.byVisit[v.id] || []).forEach(function (e) { if (e.type === 'click') clicks++; }); });
+    var clicks = 0; vs.forEach(function (v) { (A.byVisit[v.id] || []).forEach(function (e) { if (e.type === 'click') clicks++; }); });
     var kp = [
-      ['Ziyaret', nf(vs.length), 'Tüm sayfa açılışları'],
-      ['Tekil ziyaretçi', nf(Object.keys(uniq).length), 'İzin verenler arasında'],
+      ['Ziyaret', nf(vs.length), nf(clicks) + ' tıklama'],
       ['Ortalama süre', fmtDur(avg), durs.length + ' ölçülen oturum'],
-      ['Geri dönen', full.length ? Math.round(returning / full.length * 100) + '%' : '—', nf(returning) + ' oturum'],
-      ['İzin oranı', vs.length ? Math.round(full.length / vs.length * 100) + '%' : '—', nf(clicks) + ' tıklama kaydı']
+      ['Tekil ziyaretçi', nf(Object.keys(uniq).length), 'İzin verenler arasında'],
+      ['Geri dönen', full.length ? Math.round(returning / full.length * 100) + '%' : '—', 'İzin verenler arasında'],
+      ['İzin oranı', vs.length ? Math.round(full.length / vs.length * 100) + '%' : '—', nf(full.length) + ' ziyaret konum paylaştı']
     ];
     $('kpis').innerHTML = kp.map(function (k) { return '<div class="kpi"><p class="kpi__l">' + k[0] + '</p><p class="kpi__v">' + k[1] + '</p><p class="kpi__s">' + esc(k[2]) + '</p></div>'; }).join('');
 
@@ -183,18 +192,20 @@
     else vf.hidden = true;
 
     renderTrend(vs);
-    bars('b-city', count(full, function (v) { return v.city ? v.city + (v.country ? ', ' + v.country : '') : (v.country || null); }), 'ziyaret');
-    bars('b-ref', count(full, function (v) { return v.utm_source ? 'utm: ' + v.utm_source : (v.referrer ? v.referrer.split('/')[0].replace(/^www\./, '') : 'Doğrudan giriş'); }), 'ziyaret');
-    bars('b-device', count(full, function (v) { return v.device; }), 'ziyaret');
-    bars('b-os', count(full, function (v) { return v.os; }), 'ziyaret');
-    bars('b-browser', count(full, function (v) { return v.browser; }), 'ziyaret');
+    bars('b-city', count(vs, locKey), 'ziyaret');
+    bars('b-ref', count(vs, function (v) { return v.utm_source ? 'utm: ' + v.utm_source : (v.referrer ? v.referrer.split('/')[0].replace(/^www\./, '') : 'Doğrudan giriş'); }), 'ziyaret');
+    bars('b-org', count(full, function (v) { return ex(v).org; }), 'ziyaret');
+    bars('b-lang', count(vs, function (v) { return v.lang ? langName(v.lang) : null; }), 'ziyaret');
+    bars('b-device', count(vs, function (v) { return v.device; }), 'ziyaret');
+    bars('b-os', count(vs, function (v) { return v.os; }), 'ziyaret');
+    bars('b-browser', count(vs, function (v) { return v.browser; }), 'ziyaret');
 
-    var ids = {}; full.forEach(function (v) { ids[v.id] = 1; });
+    var ids = {}; vs.forEach(function (v) { ids[v.id] = 1; });
     var evs = A.events.filter(function (e) { return ids[e.visit_id]; });
     bars('b-clicks', count(evs.filter(function (e) { return e.type === 'click'; }), function (e) { return e.label || e.target; }), 'tıklama');
 
     var secTot = {}, secN = {};
-    full.forEach(function (v) { sectionsOf(v).forEach(function (s) { secTot[s[0]] = (secTot[s[0]] || 0) + s[1]; secN[s[0]] = (secN[s[0]] || 0) + 1; }); });
+    vs.forEach(function (v) { sectionsOf(v).forEach(function (s) { secTot[s[0]] = (secTot[s[0]] || 0) + s[1]; secN[s[0]] = (secN[s[0]] || 0) + 1; }); });
     var secRows = Object.keys(secTot).map(function (k) { return [secName(k), secTot[k] / secN[k], secN[k]]; }).sort(function (a, b) { return b[1] - a[1]; });
     bars('b-sections', secRows, null, function (r) { return fmtDur(r[1]); }, function (r) { return r[2] + ' oturumda görüldü'; });
 
@@ -269,16 +280,17 @@
       var clicks = evs.filter(function (e) { return e.type === 'click'; }).length;
       var who = v.consent
         ? '<button type="button" class="vlink" data-visitor="' + esc(v.visitor_id) + '">Ziyaretçi ' + esc(shortId(v.visitor_id)) + '</button><div class="dim">' + (v.visit_no > 1 ? v.visit_no + '. ziyaret' : 'İlk ziyaret') + '</div>'
-        : '<span class="tag">İzin yok</span>';
-      var loc = v.city ? esc(v.city) + '<div class="dim">' + esc([v.region, v.country].filter(Boolean).join(', ')) + '</div>' : (v.country ? esc(v.country) : '<span class="dim">—</span>');
+        : '<span class="tag">Anonim</span><div class="dim">konum izni yok</div>';
+      var loc = v.city ? esc(v.city) + '<div class="dim">' + esc([v.region, v.country].filter(Boolean).join(', ')) + '</div>' + (ex(v).org ? '<div class="dim">' + esc(ex(v).org) + '</div>' : '')
+        : (v.country ? esc(v.country) : (approxCountry(v) ? esc(approxCountry(v)) + '<div class="dim">saat dilimine göre</div>' : '<span class="dim">—</span>'));
       var page = PAGE_NAMES[v.page] || v.page || '';
       return '<tr class="row" tabindex="0" data-id="' + esc(v.id) + '" aria-expanded="false">' +
         '<td class="when">' + fmtDate(new Date(v.started_at)) + '<div class="dim">' + esc(page) + '</div></td>' +
         '<td>' + who + '</td><td>' + loc + '</td>' +
-        '<td>' + (v.consent ? esc(platform(v)) + '<div class="dim">' + esc([v.screen, v.lang].filter(Boolean).join(', ')) + '</div>' : '<span class="dim">' + esc(v.lang || '—') + '</span>') + '</td>' +
-        '<td>' + (v.consent ? esc(source(v)) : '<span class="dim">—</span>') + '</td>' +
-        '<td class="num">' + (v.consent ? fmtDur(v.duration_sec) : '—') + '</td>' +
-        '<td class="num">' + (v.consent ? clicks : '—') + '</td></tr>';
+        '<td>' + (platform(v) ? esc(platform(v)) : '<span class="dim">—</span>') + '<div class="dim">' + esc([ex(v).model, ex(v).os_version, v.screen, v.lang].filter(Boolean).join(', ')) + '</div></td>' +
+        '<td>' + esc(source(v)) + '</td>' +
+        '<td class="num">' + fmtDur(v.duration_sec) + '</td>' +
+        '<td class="num">' + clicks + '</td></tr>';
     }).join('');
     var note = $('sessions-note');
     note.innerHTML = vs.length > shown.length
@@ -303,8 +315,7 @@
     var v = A.visits.filter(function (x) { return x.id === tr.dataset.id; })[0];
     var evs = (A.byVisit[v.id] || []).slice().sort(function (a, b) { return (a.t_offset || 0) - (b.t_offset || 0); });
     var start = new Date(v.started_at), html;
-    if (!v.consent) html = '<p class="muted small">Ziyaretçi ayrıntılı istatistiklere izin vermedi; yalnızca ziyaret zamanı kaydedildi.</p>';
-    else {
+    {
       var clicks = evs.filter(function (e) { return e.type === 'click'; });
       var secs = sectionsOf(v);
       html = '<div class="timeline2"><span class="t">' + fmtTime(start) + '</span><span class="o">0:00</span><span class="e"><b>Sayfayı açtı</b> (' + esc(PAGE_NAMES[v.page] || v.page) + ')' + (v.referrer ? ', ' + esc(v.referrer) + ' üzerinden' : '') + '</span>';
@@ -317,6 +328,13 @@
       html += '<span class="t">' + fmtTime(end) + '</span><span class="o">+' + Math.floor(v.duration_sec / 60) + ':' + pad(v.duration_sec % 60) + '</span><span class="e"><b>Son etkinlik</b>, sayfada aktif geçen süre ' + fmtDur(v.duration_sec) + '</span></div>';
       if (!clicks.length) html += '<p class="muted small" style="margin-top:.6rem">Bu oturumda tıklama yok.</p>';
       if (secs.length) html += '<div class="secs">' + secs.map(function (s) { return '<span>' + esc(secName(s[0])) + ': ' + fmtDur(s[1]) + '</span>'; }).join('') + '</div>';
+      var x = ex(v), facts = [
+        ['Kurum / İSS', x.org], ['Cihaz modeli', x.model], ['İşletim sistemi', x.os_version || v.os], ['Tarayıcı', v.browser ? v.browser + (x.browser_version ? ' ' + x.browser_version : '') : ''],
+        ['Ekran', v.screen ? v.screen + (x.pixel_ratio && x.pixel_ratio !== 1 ? ' (' + x.pixel_ratio + 'x)' : '') : ''], ['Bağlantı', x.connection], ['Tema', x.theme],
+        ['Diller', x.languages || v.lang], ['Saat dilimi', v.tz], ['Dokunmatik', x.touch == null ? '' : (x.touch ? 'Evet' : 'Hayır')]
+      ].filter(function (f) { return f[1]; });
+      html += '<dl class="facts">' + facts.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join('') + '</dl>';
+      if (!v.consent) html += '<p class="muted small" style="margin-top:.6rem">Ziyaretçi konum ve cihaz ayrıntılarına izin vermedi.</p>';
     }
     var d = document.createElement('tr'); d.className = 'detail';
     d.innerHTML = '<td colspan="7">' + html + '</td>';
@@ -335,10 +353,12 @@
 
   $('csv').addEventListener('click', function () {
     var cols = ['started_at', 'consent', 'visitor_id', 'visit_no', 'page', 'city', 'region', 'country', 'device', 'os', 'browser', 'screen', 'lang', 'tz', 'referrer', 'utm_source', 'duration_sec'];
-    var lines = [cols.concat('clicks').join(';')];
+    var xcols = ['org', 'model', 'os_version', 'browser_version', 'connection', 'theme', 'languages'];
+    var lines = [cols.concat(xcols, 'clicks').join(';')];
     scoped().forEach(function (v) {
       var c = (A.byVisit[v.id] || []).filter(function (e) { return e.type === 'click'; }).length;
-      lines.push(cols.map(function (k) { var s = v[k] == null ? '' : String(v[k]); return /[;"\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).concat(c).join(';'));
+      var cell = function (val) { var s = val == null ? '' : String(val); return /[;"\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+      lines.push(cols.map(function (k) { return cell(v[k]); }).concat(xcols.map(function (k) { return cell(ex(v)[k]); }), c).join(';'));
     });
     download('ziyaretler-' + new Date().toISOString().slice(0, 10) + '.csv', '﻿' + lines.join('\n'), 'text/csv');
   });

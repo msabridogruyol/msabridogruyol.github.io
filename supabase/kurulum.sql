@@ -30,7 +30,9 @@ create policy "admins_self_read" on public.admins
 
 -- ---------------------------------------------------------------------
 -- Ziyaretler (bir satır = bir sayfa oturumu)
--- IP adresi saklanmaz; yalnızca şehir/ülke düzeyinde konum tutulur.
+-- Rızasız: kişiyi tanımlamayan oturum verisi (cihaz türü, tarayıcı, tıklama, süre).
+-- Rıza ile: ziyaretçi numarası, şehir düzeyinde konum, ekran çözünürlüğü.
+-- IP adresi hiçbir durumda saklanmaz.
 -- ---------------------------------------------------------------------
 create table if not exists public.visits (
   id           uuid primary key,
@@ -52,9 +54,11 @@ create table if not exists public.visits (
   region       text check (char_length(region) <= 80),
   city         text check (char_length(city) <= 80),
   tz           text check (char_length(tz) <= 60),
-  sections     jsonb not null default '{}'::jsonb      -- bölüm adı -> görüntülenme süresi (sn)
+  sections     jsonb not null default '{}'::jsonb,     -- bölüm adı -> görüntülenme süresi (sn)
+  extra        jsonb not null default '{}'::jsonb      -- rıza ile: kurum/İSS, cihaz modeli, sürümler vb.
 );
 alter table public.visits add column if not exists sections jsonb not null default '{}'::jsonb;
+alter table public.visits add column if not exists extra jsonb not null default '{}'::jsonb;
 create index if not exists visits_started_idx on public.visits (started_at desc);
 create index if not exists visits_visitor_idx on public.visits (visitor_id);
 alter table public.visits enable row level security;
@@ -67,11 +71,12 @@ begin
   new.last_seen := now();
   new.duration_sec := 0;
   new.sections := '{}'::jsonb;
-  if not new.consent then
-    new.visitor_id := null; new.visit_no := null;
-    new.country := null; new.region := null; new.city := null;
-    new.referrer := null; new.utm_source := null; new.screen := null;
-  end if;
+  -- Kayıt her zaman rızasız açılır; rızaya bağlı alanlar yalnızca upgrade_visit ile dolar
+  new.consent := false;
+  new.visitor_id := null; new.visit_no := null;
+  new.country := null; new.region := null; new.city := null;
+  new.screen := null;
+  new.extra := '{}'::jsonb;
   return new;
 end $$;
 drop trigger if exists visits_bi on public.visits;
@@ -79,7 +84,7 @@ create trigger visits_bi before insert on public.visits
   for each row execute function public.visits_before_insert();
 
 -- ---------------------------------------------------------------------
--- Olaylar (tıklama, bölümde geçirilen süre) — yalnızca rıza ile
+-- Olaylar (tıklamalar) — geçici oturum numarasına bağlı, kişiyi tanımlamaz
 -- ---------------------------------------------------------------------
 create table if not exists public.events (
   id         bigint generated always as identity primary key,
@@ -101,7 +106,7 @@ returns trigger language plpgsql security definer set search_path = public as $$
 begin
   new.ts := now();
   if not exists (select 1 from public.visits v
-                 where v.id = new.visit_id and v.consent
+                 where v.id = new.visit_id
                    and v.started_at > now() - interval '1 day') then
     raise exception 'invalid visit';
   end if;
@@ -123,12 +128,37 @@ as $$
   update public.visits
      set duration_sec = greatest(duration_sec, least(greatest(p_duration, 0), 21600)),
          sections = case
-                      when consent and p_sections is not null
+                      when p_sections is not null
                        and jsonb_typeof(p_sections) = 'object'
                        and length(p_sections::text) <= 2000
                       then p_sections else sections end,
          last_seen = now()
    where id = p_id and started_at > now() - interval '1 day';
+$$;
+
+-- Ziyaretçi rıza verince aynı oturumu konum ve ziyaretçi numarasıyla zenginleştir
+drop function if exists public.upgrade_visit(uuid, uuid, int, text, text, text, text);
+create or replace function public.upgrade_visit(
+  p_id uuid, p_visitor uuid, p_visit_no int,
+  p_country text, p_region text, p_city text, p_screen text,
+  p_extra jsonb default null)
+returns void
+language sql
+security definer
+set search_path = public
+as $$
+  update public.visits
+     set consent = true,
+         visitor_id = p_visitor,
+         visit_no = case when p_visit_no between 1 and 100000 then p_visit_no end,
+         country = left(p_country, 60),
+         region = left(p_region, 80),
+         city = left(p_city, 80),
+         screen = left(p_screen, 20),
+         extra = case when p_extra is not null and jsonb_typeof(p_extra) = 'object'
+                       and length(p_extra::text) <= 1500 then p_extra else '{}'::jsonb end,
+         last_seen = now()
+   where id = p_id and not consent and started_at > now() - interval '1 day';
 $$;
 
 -- ---------------------------------------------------------------------
@@ -153,6 +183,7 @@ grant select on public.site_content to anon, authenticated;
 grant insert, update on public.site_content to authenticated;
 grant select on public.admins to authenticated;
 grant execute on function public.touch_visit(uuid, int, jsonb) to anon, authenticated;
+grant execute on function public.upgrade_visit(uuid, uuid, int, text, text, text, text, jsonb) to anon, authenticated;
 grant execute on function public.is_admin() to anon, authenticated;
 
 drop policy if exists "visits_insert" on public.visits;

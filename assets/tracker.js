@@ -1,7 +1,12 @@
 /* Ziyaret istatistikleri ve KVKK rıza bandı
-   - Rıza verilmeden: yalnızca tarih ve sayfa (sayaç) kaydedilir.
-   - Rıza ile: anonim ziyaretçi kimliği, şehir/ülke, cihaz, kaynak, tıklamalar ve bölüm süreleri.
-   - IP adresi saklanmaz. */
+   - Herkesten (rızasız, kişiyi tanımlamayan): tarih, sayfa, geldiği site, dil, cihaz türü,
+     işletim sistemi, tarayıcı, saat dilimi, tıklamalar, sayfada ve bölümlerde geçen süre.
+     Bunlar yalnızca sayfa açıkken var olan geçici bir oturum numarasına bağlanır;
+     tarayıcıya hiçbir şey yazılmaz.
+   - Rıza ile ek olarak: tarayıcıda saklanan ziyaretçi numarası, şehir düzeyinde konum
+     ve internet sağlayıcısı/kurum (GeoJS servisi üzerinden), ekran çözünürlüğü,
+     cihaz modeli, işletim sistemi ve tarayıcı sürümü, tema, bağlantı türü, diller.
+   - IP adresi hiçbir durumda saklanmaz. */
 (function () {
   'use strict';
   var C = window.SUPABASE || {};
@@ -10,11 +15,11 @@
 
   var T = {
     tr: {
-      text: 'Ziyaret istatistikleri için şehir düzeyinde konum, cihaz bilgisi ve sayfa içi tıklamaları anonim olarak kaydetmek istiyorum. IP adresiniz saklanmaz.',
+      text: 'Sitede kişisel veri içermeyen anonim istatistikler tutuluyor. İzin verirseniz şehir düzeyinde konum, internet sağlayıcısı, cihaz ayrıntıları ve tekrar ziyaret bilgisi de kaydedilir; IP adresiniz saklanmaz.',
       more: 'Gizlilik', yes: 'Kabul et', no: 'Reddet', aria: 'Çerez ve istatistik tercihi'
     },
     en: {
-      text: 'I would like to record anonymous visit statistics: city-level location, device information and clicks on this page. Your IP address is not stored.',
+      text: 'This site keeps anonymous statistics without personal data. If you agree, city-level location, internet provider, device details and return-visit information are also recorded; your IP address is not stored.',
       more: 'Privacy', yes: 'Accept', no: 'Decline', aria: 'Cookie and statistics preference'
     }
   };
@@ -67,8 +72,34 @@
     var timer = setTimeout(function () { ctrl && ctrl.abort(); }, 2500);
     return fetch('https://get.geojs.io/v1/ip/geo.json', { signal: ctrl && ctrl.signal })
       .then(function (r) { return r.json(); })
-      .then(function (g) { clearTimeout(timer); return { country: g.country || null, region: g.region || null, city: g.city || null }; })
+      .then(function (g) { clearTimeout(timer); return { country: g.country || null, region: g.region || null, city: g.city || null, org: (g.organization_name || '').slice(0, 120) || null }; })
       .catch(function () { return {}; });
+  }
+
+  // Rıza ile: tarayıcının paylaştığı ek cihaz bilgileri
+  function extraInfo() {
+    var ua = navigator.userAgent, x = {};
+    var m;
+    if ((m = ua.match(/Android ([\d.]+)/))) x.os_version = 'Android ' + m[1];
+    else if ((m = ua.match(/(?:iPhone|CPU) OS ([\d_]+)/))) x.os_version = 'iOS ' + m[1].replace(/_/g, '.');
+    else if ((m = ua.match(/Mac OS X ([\d_]+)/))) x.os_version = 'macOS ' + m[1].replace(/_/g, '.');
+    else if (/Windows NT 10/.test(ua)) x.os_version = 'Windows 10/11';
+    if ((m = ua.match(/(Edg|OPR|SamsungBrowser|YaBrowser|Firefox|FxiOS|CriOS|Chrome|Version)\/([\d.]+)/))) x.browser_version = m[2].split('.').slice(0, 2).join('.');
+    if ((m = ua.match(/Android [\d.]+; ([^;)]+)\)/)) && m[1] !== 'K') x.model = m[1].trim();
+    try { x.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'koyu' : 'açık'; } catch (e) {}
+    var c = navigator.connection; if (c && c.effectiveType) x.connection = (c.type && c.type !== 'unknown' ? c.type + ', ' : '') + c.effectiveType;
+    if (navigator.languages && navigator.languages.length) x.languages = navigator.languages.slice(0, 4).join(', ');
+    x.touch = navigator.maxTouchPoints > 0;
+    x.pixel_ratio = Math.round((window.devicePixelRatio || 1) * 100) / 100;
+    var hi = navigator.userAgentData && navigator.userAgentData.getHighEntropyValues
+      ? navigator.userAgentData.getHighEntropyValues(['model', 'platformVersion']).then(function (h) {
+          if (h.model) x.model = h.model;
+          if (h.platform === 'Windows' && h.platformVersion) x.os_version = parseInt(h.platformVersion, 10) >= 13 ? 'Windows 11' : 'Windows 10';
+          else if (h.platformVersion && !x.os_version) x.os_version = (h.platform || '') + ' ' + h.platformVersion.split('.').slice(0, 2).join('.');
+          return x;
+        }).catch(function () { return x; })
+      : Promise.resolve(x);
+    return hi;
   }
 
   /* ---------- Oturum ---------- */
@@ -76,36 +107,42 @@
   function secs() { return Math.round((S.visibleMs + (S.visibleSince ? Date.now() - S.visibleSince : 0)) / 1000); }
   function offset() { return Math.min(86400, Math.round((Date.now() - S.start) / 1000)); }
 
-  function startMinimal(keepalive) {
+  // Herkes için: kişiyi tanımlamayan oturum kaydı, sayfa açılır açılmaz
+  function startBase() {
     if (S.mode) return;
-    S.mode = 'min';
-    S.ready = post('visits', { id: S.id, consent: false, page: location.pathname.slice(0, 200), lang: (navigator.language || '').slice(0, 20) }, keepalive).catch(function () {});
-  }
-
-  function startFull() {
-    if (S.mode) return;
-    S.mode = 'full';
-    var vid = ls('vid'); if (!vid) { vid = uuid(); ls('vid', vid); }
-    var n = (parseInt(ls('vno'), 10) || 0) + 1; ls('vno', String(n));
+    S.mode = 'base';
     var q = new URLSearchParams(location.search);
-    var base = Object.assign({
-      id: S.id, visitor_id: vid, visit_no: n, consent: true,
+    var row = Object.assign({
+      id: S.id, consent: false,
       page: location.pathname.slice(0, 200),
       referrer: referrer(),
       utm_source: (q.get('utm_source') || '').slice(0, 100) || null,
       lang: (navigator.language || '').slice(0, 20),
-      screen: (screen.width + 'x' + screen.height).slice(0, 20),
       tz: (Intl.DateTimeFormat().resolvedOptions().timeZone || '').slice(0, 60)
     }, device());
-    S.pending = base;
-    S.ready = geo().then(function (g) {
-      if (S.pending !== base) return; // sayfa kapanırken zaten gönderildi
-      S.pending = null;
-      return post('visits', Object.assign(base, g));
-    }).then(function () { S.ok = true; flush(false); }).catch(function () {});
+    S.ready = post('visits', row).then(function () { S.ok = true; flush(false); if (S.wantUpgrade) upgrade(); }).catch(function () {});
     watchSections();
     document.addEventListener('click', onClick, true);
     S.timer = setInterval(function () { if (document.visibilityState === 'visible') { flush(false); touch(false); } }, 10000);
+  }
+
+  // Rıza ile: aynı oturumu ziyaretçi numarası ve konumla zenginleştir
+  function upgrade() {
+    if (S.upgraded) return;
+    if (!S.ok) { S.wantUpgrade = true; return; }
+    S.upgraded = true;
+    var vid = ls('vid'); if (!vid) { vid = uuid(); ls('vid', vid); }
+    var n = (parseInt(ls('vno'), 10) || 0) + 1; ls('vno', String(n));
+    Promise.all([geo(), extraInfo()]).then(function (r) {
+      var g = r[0], x = r[1];
+      if (g.org) x.org = g.org;
+      return post('rpc/upgrade_visit', {
+        p_id: S.id, p_visitor: vid, p_visit_no: n,
+        p_country: g.country || null, p_region: g.region || null, p_city: g.city || null,
+        p_screen: (screen.width + 'x' + screen.height).slice(0, 20),
+        p_extra: x
+      });
+    }).catch(function () {});
   }
 
   function touch(keepalive) {
@@ -182,9 +219,7 @@
   addEventListener('pagehide', leave);
 
   function leave() {
-    if (!S.mode) { if (ls('consent') !== 'no' && ls('consent') !== 'yes') startMinimal(true); return; }
-    if (S.mode !== 'full') return;
-    if (S.pending) { var b = S.pending; S.pending = null; post('visits', b, true).then(function () { S.ok = true; }).catch(function () {}); S.ok = true; }
+    if (!S.mode) return;
     flush(true); touch(true);
   }
 
@@ -198,18 +233,18 @@
     el.innerHTML = '<p>' + t.text + ' <a href="gizlilik.html">' + t.more + '</a></p>' +
       '<div class="consent__acts"><button type="button" class="consent__no">' + t.no + '</button><button type="button" class="consent__yes">' + t.yes + '</button></div>';
     document.body.appendChild(el);
-    el.querySelector('.consent__yes').addEventListener('click', function () { ls('consent', 'yes'); el.remove(); startFull(); });
-    el.querySelector('.consent__no').addEventListener('click', function () { ls('consent', 'no'); el.remove(); startMinimal(false); });
+    el.querySelector('.consent__yes').addEventListener('click', function () { ls('consent', 'yes'); el.remove(); upgrade(); });
+    el.querySelector('.consent__no').addEventListener('click', function () { ls('consent', 'no'); ls('vid', null); ls('vno', null); el.remove(); });
   }
 
   // Gizlilik sayfasından tercihi sıfırlamak için
   window.resetConsent = function () { ls('consent', null); ls('vid', null); ls('vno', null); location.reload(); };
 
   function init() {
+    startBase();
     var c = ls('consent');
-    if (c === 'yes') startFull();
-    else if (c === 'no') startMinimal(false);
-    else banner();
+    if (c === 'yes') upgrade();
+    else if (c !== 'no') banner();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

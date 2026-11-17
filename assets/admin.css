@@ -47,7 +47,7 @@
 .kpi__s{font-size:.8rem;color:var(--ink-2);margin-top:.2rem}
 
 .grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:var(--gap);align-items:start}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.grid3{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
 .card{padding:1.25rem 1.4rem;border-radius:22px}
 .card__h{font-size:1rem;letter-spacing:-.01em;margin:0 0 1rem}
 .card__row{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem}
@@ -156,3 +156,6 @@
 
 #ed-body{display:flex;flex-direction:column;gap:1rem}
 .more{display:flex;justify-content:center;margin-top:1rem}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.6rem 1.2rem;margin:1rem 0 0;padding-top:.9rem;border-top:1px solid var(--rule)}
+.facts dt{font:600 .75rem/1.2 var(--sans);color:var(--ink-2)}
+.facts dd{margin:.15rem 0 0;font-size:.88rem;font-weight:600}

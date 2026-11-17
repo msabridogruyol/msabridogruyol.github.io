@@ -15,6 +15,8 @@ Yönetim paneli ve ziyaret analizleri için gereken tek seferlik adımlar.
 2. Bu klasördeki `kurulum.sql` dosyasının tamamını yapıştırın ve **Run** deyin.
 3. Çıktıda "Success. No rows returned" görmelisiniz.
 
+> **Güncelleme:** `kurulum.sql` dosyasının yeni bir sürümünü aldığınızda aynı şekilde tamamını yeniden çalıştırın. Dosya tekrar çalıştırılmaya uygundur; mevcut ziyaret kayıtları ve içerik silinmez.
+
 ## 3. Yönetici hesabını oluştur
 
 1. **Authentication** > **Users** > **Add user** > **Create new user**.

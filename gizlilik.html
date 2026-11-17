@@ -35,30 +35,29 @@
 <main class="wrap">
   <article class="legal panel" style="margin-top:2rem">
     <h1>Gizlilik ve KVKK aydınlatma metni</h1>
-    <p class="upd">Son güncelleme: 14 Kasım 2026</p>
+    <p class="upd">Son güncelleme: 17 Kasım 2026</p>
 
     <h2>Veri sorumlusu</h2>
     <p>Mustafa Sabri Doğruyol. İletişim: <a class="link js-mail" href="#">e-posta</a></p>
 
     <h2>Hangi veriler işlenir</h2>
-    <p><strong>Rıza vermediğinizde</strong> yalnızca ziyaret tarihi, ziyaret edilen sayfa ve tarayıcı dili kaydedilir. Bu kayıt sizi tanımlayan bir bilgi içermez.</p>
-    <p><strong>Rıza verdiğinizde</strong> ayrıca şunlar kaydedilir:</p>
+    <p><strong>Tüm ziyaretlerde</strong> sizi tanımlamayan şu bilgiler kaydedilir: ziyaret tarihi ve saati, açılan sayfa, siteye gelinen adres, tarayıcı dili, saat dilimi, cihaz türü, işletim sistemi ve tarayıcı adı, sayfada tıklanan bağlantı ve butonlar, sayfada ve bölümlerde geçirilen süre. Bu bilgiler yalnızca sayfa açıkken var olan geçici bir oturum numarasına bağlanır. Tarayıcınıza bu amaçla hiçbir şey kaydedilmez ve farklı ziyaretleriniz birbiriyle ilişkilendirilmez.</p>
+    <p><strong>İzin verdiğinizde</strong> ayrıca şunlar kaydedilir:</p>
     <ul>
       <li>Tarayıcınızda saklanan rastgele bir ziyaretçi numarası ve kaçıncı ziyaretiniz olduğu</li>
-      <li>Şehir, bölge ve ülke düzeyinde yaklaşık konum</li>
-      <li>Cihaz türü, işletim sistemi, tarayıcı, ekran çözünürlüğü ve saat dilimi</li>
-      <li>Siteye hangi adresten geldiğiniz</li>
-      <li>Sayfada tıkladığınız bağlantı ve butonlar, sayfada ve bölümlerde geçirdiğiniz süre</li>
+      <li>Şehir, bölge ve ülke düzeyinde yaklaşık konum ile bağlandığınız internet sağlayıcısının ya da kurum ağının adı</li>
+      <li>Ekran çözünürlüğü, cihaz modeli, işletim sistemi ve tarayıcı sürümü</li>
+      <li>Koyu/açık tema tercihi, bağlantı türü (ör. 4G, WiFi), tarayıcıda tanımlı diller, dokunmatik ekran bilgisi</li>
     </ul>
-    <p>Adınız, e-posta adresiniz ya da IP adresiniz kaydedilmez.</p>
+    <p>Adınız, e-posta adresiniz ya da IP adresiniz hiçbir durumda kaydedilmez.</p>
 
     <h2>Amaç ve hukuki sebep</h2>
-    <p>Veriler, sitenin nasıl kullanıldığını anlamak ve içeriği geliştirmek amacıyla işlenir. Ayrıntılı istatistiklerin hukuki sebebi 6698 sayılı KVKK'nın 5. maddesi kapsamında açık rızanızdır. Rızanızı istediğiniz zaman bu sayfadan geri alabilirsiniz.</p>
+    <p>Veriler, sitenin nasıl kullanıldığını anlamak ve içeriği geliştirmek amacıyla işlenir. İzne bağlı bilgilerin işlenmesinin hukuki sebebi 6698 sayılı KVKK'nın 5. maddesi kapsamında açık rızanızdır. Rızanızı istediğiniz zaman bu sayfadan geri alabilirsiniz; bu durumda yalnızca kimliği belirsiz istatistikler tutulmaya devam eder.</p>
 
     <h2>Aktarım</h2>
     <ul>
       <li><strong>Supabase:</strong> İstatistikler, veritabanı hizmet sağlayıcısı Supabase Inc. altyapısında saklanır. Sunucular yurt dışında bulunabilir; bu aktarım açık rızanıza dayanır.</li>
-      <li><strong>GeoJS:</strong> Yaklaşık konumu belirlemek için tarayıcınız get.geojs.io servisine bağlanır. Bu servis yalnızca şehir ve ülke bilgisini döndürür; IP adresiniz bu sitenin veritabanına yazılmaz.</li>
+      <li><strong>GeoJS:</strong> Yalnızca izin verdiğinizde, yaklaşık konumu belirlemek için tarayıcınız get.geojs.io servisine bağlanır. Bu servis şehir, ülke ve internet sağlayıcısı bilgisini döndürür; IP adresiniz bu sitenin veritabanına yazılmaz.</li>
     </ul>
 
     <h2>Saklama süresi</h2>
@@ -80,7 +79,7 @@
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
   var c = null; try { c = localStorage.getItem('consent'); } catch (e) {}
-  document.getElementById('pref-state').textContent = c === 'yes' ? 'Şu anki tercihiniz: ayrıntılı istatistiklere izin verdiniz.' : c === 'no' ? 'Şu anki tercihiniz: ayrıntılı istatistikleri reddettiniz.' : 'Henüz bir tercih yapmadınız.';
+  document.getElementById('pref-state').textContent = c === 'yes' ? 'Şu anki tercihiniz: konum ve tekrar ziyaret bilgisine izin verdiniz.' : c === 'no' ? 'Şu anki tercihiniz: yalnızca anonim istatistikler.' : 'Henüz bir tercih yapmadınız.';
   document.getElementById('pref-reset').addEventListener('click', function () {
     try { localStorage.removeItem('consent'); localStorage.removeItem('vid'); localStorage.removeItem('vno'); } catch (e) {}
     location.href = 'index.html';
