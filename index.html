@@ -108,10 +108,9 @@
       <div class="plot-stage">
         <figure class="plot" aria-labelledby="plot-cap">
           <div class="plot__head" aria-hidden="true">OLS</div>
-          <svg id="plot" viewBox="0 0 560 420" role="img" aria-label="Rastgele örnek veriye uydurulmuş doğrusal regresyon grafiği"></svg>
+          <svg id="plot" viewBox="0 0 560 420" role="img" aria-label="Doğrusal regresyon grafiği"></svg>
           <figcaption id="plot-cap" class="plot__cap">
             <span class="plot__eq" id="plot-eq"></span>
-            <span class="plot__note" data-i18n="plot_note">Her yüklemede yeni bir örneklem; doğru, en küçük kareler ile tarayıcıda hesaplanır.</span>
           </figcaption>
         </figure>
       </div>
@@ -196,7 +195,6 @@
     <div class="wrap">
       <div class="sec__head">
         <h2 id="h-projects" class="h2" data-i18n="h_projects">Projeler</h2>
-        <p class="sec__sub" data-i18n="sub_projects">Herkesin kullanabileceği uygulamalar ve yer aldığım araştırma projeleri.</p>
       </div>
       <div class="projects" id="projects"></div>
       <div class="panel" style="margin-top:var(--gap)">
@@ -231,12 +229,18 @@
 <footer class="foot">
   <div class="wrap foot__in">
     <span>© <span id="year"></span> Mustafa Sabri Doğruyol</span>
-    <a href="#top" data-i18n="back_top">Başa dön</a>
+    <span class="foot__links">
+      <a href="gizlilik.html" data-i18n="privacy">Gizlilik</a>
+      <a href="#top" data-i18n="back_top">Başa dön</a>
+      <a class="foot__admin" href="admin.html" rel="nofollow" data-i18n="admin">Yönetici</a>
+    </span>
   </div>
 </footer>
 
 <noscript><p class="noscript">Bu sayfanın içeriği JavaScript ile yüklenir. Özgeçmiş için <a href="cv.pdf">cv.pdf</a> dosyasını açabilirsiniz.</p></noscript>
+<script src="assets/config.js"></script>
 <script src="data.js"></script>
 <script src="assets/site.js"></script>
+<script src="assets/tracker.js"></script>
 </body>
 </html>

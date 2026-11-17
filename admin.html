@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Yönetim paneli | M. Sabri Doğruyol</title>
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/admin.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+</head>
+<body class="adm">
+
+<!-- Giriş -->
+<main class="login" id="login" hidden>
+  <form class="login__card panel" id="login-form" novalidate>
+    <a class="mark" href="index.html"><span class="mark__dot" aria-hidden="true">MS</span><span>M. Sabri Doğruyol</span></a>
+    <h1>Yönetici girişi</h1>
+    <label class="fld"><span>E-posta</span><input type="email" name="email" autocomplete="username" required></label>
+    <label class="fld"><span>Şifre</span><input type="password" name="password" autocomplete="current-password" required></label>
+    <p class="login__err" id="login-err" role="alert"></p>
+    <button class="btn btn--solid" type="submit" id="login-btn">Giriş yap</button>
+    <a class="login__back" href="index.html">Siteye dön</a>
+  </form>
+</main>
+
+<!-- Kurulum eksik -->
+<main class="login" id="setup" hidden>
+  <div class="login__card panel">
+    <h1>Supabase bağlantısı yok</h1>
+    <p class="muted"><code>assets/config.js</code> dosyasına Supabase proje adresini ve anon (publishable) anahtarını girin. Ayrıntılar <code>supabase/KURULUM.md</code> dosyasında.</p>
+    <a class="btn" href="index.html">Siteye dön</a>
+  </div>
+</main>
+
+<!-- Panel -->
+<div class="app" id="app" hidden>
+  <header class="app__bar">
+    <a class="mark" href="index.html" target="_blank" rel="noopener"><span class="mark__dot" aria-hidden="true">MS</span><span class="mark__name">Yönetim paneli</span></a>
+    <nav class="tabs" role="tablist" aria-label="Panel">
+      <button role="tab" type="button" id="tab-analytics" aria-selected="true" aria-controls="view-analytics">Analiz</button>
+      <button role="tab" type="button" id="tab-content" aria-selected="false" aria-controls="view-content">İçerik</button>
+    </nav>
+    <div class="app__user">
+      <span class="muted" id="who"></span>
+      <button class="tool" id="theme" type="button" aria-label="Temayı değiştir"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
+      <button class="btn btn--sm" type="button" id="logout">Çıkış</button>
+    </div>
+  </header>
+
+  <!-- ANALİZ -->
+  <section class="view" id="view-analytics" role="tabpanel" aria-labelledby="tab-analytics">
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="Zaman aralığı" id="range">
+        <button type="button" data-days="1">Bugün</button>
+        <button type="button" data-days="7" aria-pressed="true">7 gün</button>
+        <button type="button" data-days="30">30 gün</button>
+        <button type="button" data-days="90">90 gün</button>
+        <button type="button" data-days="365">12 ay</button>
+      </div>
+      <div class="toolbar__right">
+        <span class="chip" id="visitor-filter" hidden></span>
+        <button class="btn btn--sm" type="button" id="refresh">Yenile</button>
+        <button class="btn btn--sm" type="button" id="csv">CSV indir</button>
+      </div>
+    </div>
+
+    <p class="state" id="a-state" role="status"></p>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="grid2">
+      <article class="panel card">
+        <h2 class="card__h" id="trend-title">Günlük ziyaret</h2>
+        <div class="trend" id="trend"></div>
+      </article>
+      <article class="panel card">
+        <h2 class="card__h">Bölümlerde ortalama süre</h2>
+        <div id="b-sections" class="bars"></div>
+      </article>
+    </div>
+
+    <div class="grid3">
+      <article class="panel card"><h2 class="card__h">Konum</h2><div id="b-city" class="bars"></div></article>
+      <article class="panel card"><h2 class="card__h">Kaynak</h2><div id="b-ref" class="bars"></div></article>
+      <article class="panel card"><h2 class="card__h">En çok tıklananlar</h2><div id="b-clicks" class="bars"></div></article>
+      <article class="panel card"><h2 class="card__h">Cihaz</h2><div id="b-device" class="bars"></div></article>
+      <article class="panel card"><h2 class="card__h">İşletim sistemi</h2><div id="b-os" class="bars"></div></article>
+      <article class="panel card"><h2 class="card__h">Tarayıcı</h2><div id="b-browser" class="bars"></div></article>
+    </div>
+
+    <article class="panel card">
+      <div class="card__row">
+        <h2 class="card__h">Ziyaretler</h2>
+        <label class="search"><span class="sr">Ara</span><input type="search" id="q" placeholder="Şehir, tarayıcı, kaynak ara"></label>
+      </div>
+      <div class="tablewrap">
+        <table class="sessions">
+          <thead><tr><th>Tarih</th><th>Ziyaretçi</th><th>Konum</th><th>Platform</th><th>Kaynak</th><th class="num">Süre</th><th class="num">Tıklama</th></tr></thead>
+          <tbody id="sessions"></tbody>
+        </table>
+      </div>
+      <p class="muted small" id="sessions-note"></p>
+    </article>
+
+    <div class="danger">
+      <p class="muted small">Gizlilik metnine göre kayıtlar en fazla 12 ay saklanır.</p>
+      <button class="btn btn--sm" type="button" id="purge">12 aydan eski kayıtları sil</button>
+    </div>
+  </section>
+
+  <!-- İÇERİK -->
+  <section class="view" id="view-content" role="tabpanel" aria-labelledby="tab-content" hidden>
+    <div class="editor">
+      <aside class="editor__nav" id="ed-nav" aria-label="İçerik bölümleri"></aside>
+      <div class="editor__main">
+        <div class="publishbar">
+          <p class="publishbar__state" id="ed-state">Değişiklik yok</p>
+          <div class="publishbar__acts">
+            <button class="btn btn--sm" type="button" id="ed-download">data.js indir</button>
+            <button class="btn btn--sm" type="button" id="ed-discard" disabled>Değişiklikleri geri al</button>
+            <button class="btn btn--sm btn--wine" type="button" id="ed-publish" disabled>Yayınla</button>
+          </div>
+        </div>
+        <div id="ed-body"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="assets/config.js"></script>
+<script src="data.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>

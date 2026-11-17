@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gizlilik ve KVKK Aydınlatma Metni | Mustafa Sabri Doğruyol</title>
+<meta name="description" content="msabridogruyol.com ziyaret istatistikleri için kişisel verilerin işlenmesine ilişkin aydınlatma metni.">
+<link rel="canonical" href="https://msabridogruyol.com/gizlilik.html">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<style>
+  .legal{max-width:760px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem) 0 4rem}
+  .legal h1{font-size:var(--s4);letter-spacing:-.04em}
+  .legal .upd{color:var(--ink-2);margin-top:.6rem}
+  .legal h2{font-size:1.2rem;margin:2.2rem 0 .6rem;letter-spacing:-.02em}
+  .legal p,.legal li{color:var(--ink-2)}
+  .legal ul{list-style:disc;padding-left:1.3rem;display:grid;gap:.35rem}
+  .legal strong{color:var(--ink)}
+  .legal .pref{margin-top:2.5rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+  .legal .pref p{margin:0}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar__in">
+    <a class="mark" href="index.html"><span class="mark__dot" aria-hidden="true">MS</span><span class="mark__name">M. Sabri Doğruyol</span></a>
+    <nav class="nav" style="display:flex" aria-label="Site"><a href="index.html">Ana sayfa</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="legal panel" style="margin-top:2rem">
+    <h1>Gizlilik ve KVKK aydınlatma metni</h1>
+    <p class="upd">Son güncelleme: 14 Kasım 2026</p>
+
+    <h2>Veri sorumlusu</h2>
+    <p>Mustafa Sabri Doğruyol. İletişim: <a class="link js-mail" href="#">e-posta</a></p>
+
+    <h2>Hangi veriler işlenir</h2>
+    <p><strong>Rıza vermediğinizde</strong> yalnızca ziyaret tarihi, ziyaret edilen sayfa ve tarayıcı dili kaydedilir. Bu kayıt sizi tanımlayan bir bilgi içermez.</p>
+    <p><strong>Rıza verdiğinizde</strong> ayrıca şunlar kaydedilir:</p>
+    <ul>
+      <li>Tarayıcınızda saklanan rastgele bir ziyaretçi numarası ve kaçıncı ziyaretiniz olduğu</li>
+      <li>Şehir, bölge ve ülke düzeyinde yaklaşık konum</li>
+      <li>Cihaz türü, işletim sistemi, tarayıcı, ekran çözünürlüğü ve saat dilimi</li>
+      <li>Siteye hangi adresten geldiğiniz</li>
+      <li>Sayfada tıkladığınız bağlantı ve butonlar, sayfada ve bölümlerde geçirdiğiniz süre</li>
+    </ul>
+    <p>Adınız, e-posta adresiniz ya da IP adresiniz kaydedilmez.</p>
+
+    <h2>Amaç ve hukuki sebep</h2>
+    <p>Veriler, sitenin nasıl kullanıldığını anlamak ve içeriği geliştirmek amacıyla işlenir. Ayrıntılı istatistiklerin hukuki sebebi 6698 sayılı KVKK'nın 5. maddesi kapsamında açık rızanızdır. Rızanızı istediğiniz zaman bu sayfadan geri alabilirsiniz.</p>
+
+    <h2>Aktarım</h2>
+    <ul>
+      <li><strong>Supabase:</strong> İstatistikler, veritabanı hizmet sağlayıcısı Supabase Inc. altyapısında saklanır. Sunucular yurt dışında bulunabilir; bu aktarım açık rızanıza dayanır.</li>
+      <li><strong>GeoJS:</strong> Yaklaşık konumu belirlemek için tarayıcınız get.geojs.io servisine bağlanır. Bu servis yalnızca şehir ve ülke bilgisini döndürür; IP adresiniz bu sitenin veritabanına yazılmaz.</li>
+    </ul>
+
+    <h2>Saklama süresi</h2>
+    <p>İstatistik kayıtları en fazla 12 ay saklanır ve bu sürenin sonunda silinir.</p>
+
+    <h2>Haklarınız</h2>
+    <p>KVKK'nın 11. maddesi uyarınca verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini ya da silinmesini isteme ve işlemeye itiraz etme haklarına sahipsiniz. Talepleriniz için e-posta ile ulaşabilirsiniz.</p>
+
+    <div class="pref">
+      <p id="pref-state"></p>
+      <button class="btn btn--sm" type="button" id="pref-reset">Tercihimi değiştir</button>
+    </div>
+  </article>
+</main>
+
+<footer class="foot"><div class="wrap foot__in"><span>© <span id="y"></span> Mustafa Sabri Doğruyol</span><a href="index.html">Ana sayfa</a></div></footer>
+<script src="assets/config.js"></script>
+<script src="data.js"></script>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  var c = null; try { c = localStorage.getItem('consent'); } catch (e) {}
+  document.getElementById('pref-state').textContent = c === 'yes' ? 'Şu anki tercihiniz: ayrıntılı istatistiklere izin verdiniz.' : c === 'no' ? 'Şu anki tercihiniz: ayrıntılı istatistikleri reddettiniz.' : 'Henüz bir tercih yapmadınız.';
+  document.getElementById('pref-reset').addEventListener('click', function () {
+    try { localStorage.removeItem('consent'); localStorage.removeItem('vid'); localStorage.removeItem('vno'); } catch (e) {}
+    location.href = 'index.html';
+  });
+  document.querySelectorAll('.js-mail').forEach(function (a) {
+    var m = (window.SITE && window.SITE.email) || '';
+    a.textContent = m; a.addEventListener('click', function (e) { e.preventDefault(); location.href = 'mai' + 'lto:' + m; });
+  });
+</script>
+</body>
+</html>

@@ -323,3 +323,19 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media print{
   .bar,.band,.plot-stage,.filters,.hero__actions,.areas{display:none}
 }
+
+/* ===== Rıza bandı ===== */
+.consent{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:80;width:min(760px,calc(100% - 24px));display:flex;align-items:center;gap:1rem 1.25rem;background:var(--surface);color:var(--ink);border:1px solid var(--rule);border-radius:20px;padding:1rem 1rem 1rem 1.25rem;box-shadow:var(--shadow-lg);font-size:.9rem;line-height:1.5}
+.consent p{flex:1;margin:0;color:var(--ink-2)}
+.consent a{color:var(--wine-ink);font-weight:700}
+.consent__acts{display:flex;gap:.5rem;flex:none}
+.consent button{appearance:none;border:1.5px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:999px;min-height:42px;padding:0 1.1rem;font:700 .9rem/1 var(--sans);cursor:pointer}
+.consent button:hover{border-color:var(--ink)}
+.consent .consent__yes{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.consent .consent__yes:hover{background:var(--wine);border-color:var(--wine);color:#fff}
+@media (max-width:640px){.consent{flex-direction:column;align-items:stretch}.consent__acts button{flex:1}}
+
+/* Alt bilgi bağlantıları */
+.foot__links{display:flex;gap:1.25rem;align-items:center}
+.foot__admin{font-size:.78rem;opacity:.55}
+.foot__admin:hover{opacity:1}

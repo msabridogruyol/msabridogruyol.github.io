@@ -23,8 +23,8 @@ window.SITE = {
     status: { tr: "Kigılı'da İK ve veri analitiği", en: "HR and data analytics at Kigılı" },
     role: { tr: "Veri analisti ve ekonometrist", en: "Data analyst and econometrician" },
     lead: {
-      tr: "Ham veriyi karar alınabilir bilgiye çeviriyorum. Kigılı'da İK ve satış analitiği altyapısı kuruyor, akademide ekonometrik modelleme çalışıyor, boş zamanımda Arkhedemia Dergisi'ni ve Arkhebook uygulamasını geliştiriyorum.",
-      en: "I turn raw data into information people can decide on. I build HR and sales analytics at Kigılı, do econometric research, and in my spare time develop Arkhedemia Journal and the Arkhebook app."
+      tr: "Kigılı İnsan Kaynakları'nda İK ve satış analitiği altyapısı kuruyorum. Ekonometrik modelleme üzerine akademik çalışmalar yürütüyorum; Arkhedemia Dergisi'nin kurucu ortağıyım ve Arkhebook uygulamasını geliştirdim.",
+      en: "I build HR and sales analytics infrastructure at Kigılı Human Resources. I do academic research in econometric modelling, co-founded Arkhedemia Journal and developed the Arkhebook app."
     }
   },
 
@@ -37,10 +37,6 @@ window.SITE = {
       {
         tr: "Kigılı İnsan Kaynakları'nda çoklu veri kaynaklarını birleştiren analitik altyapıyı tasarlıyorum: performans ölçüm sistemleri, prim ve maliyet simülasyonları, mağaza karneleri, nine-box matrisi ve Power BI yönetim panelleri. Öncesinde SAUTEK'te Sakarya Üniversitesi'nin akademik performans ölçüm altyapısını kurdum ve iki TÜBİTAK projesinde bursiyer olarak yer aldım.",
         en: "At Kigılı HR I design the analytics layer that joins multiple data sources: performance measurement, bonus and cost simulations, store scorecards, a nine-box matrix and Power BI management dashboards. Before that, at SAUTEK, I built Sakarya University's academic performance measurement infrastructure and worked as a scholar on two TÜBİTAK projects."
-      },
-      {
-        tr: "Kurduğum sistemlerin sürdürülebilir, ölçülebilir ve karar verenler için anlaşılır olmasına önem veriyorum. Manuel süreçleri otomatikleştirmek ve veriyi standart hale getirmek işimin ayrılmaz parçası.",
-        en: "I care that the systems I build are sustainable, measurable and readable by the people who decide. Automating manual work and standardising data are a core part of the job."
       }
     ],
     toolGroups: [

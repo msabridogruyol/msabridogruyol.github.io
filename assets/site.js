@@ -1,25 +1,46 @@
 (function () {
   'use strict';
+  // İçerik: önce tarayıcı önbelleği ya da data.js, ardından Supabase'deki güncel sürüm
+  function merge(remote) {
+    var out = Object.assign({}, window.SITE, remote || {});
+    out.links = Object.assign({}, window.SITE.links, (remote && remote.links) || {});
+    return out;
+  }
   var S = window.SITE;
+  try { var cached = JSON.parse(localStorage.getItem('site_content') || 'null'); if (cached && cached.publications) S = merge(cached); } catch (e) {}
+
+  function loadRemote() {
+    var C = window.SUPABASE || {};
+    if (!C.url || !C.key || !window.fetch) return;
+    var h = { apikey: C.key }; if (/^eyJ/.test(C.key)) h.Authorization = 'Bearer ' + C.key;
+    fetch(C.url.replace(/\/+$/, '') + '/rest/v1/site_content?select=data&id=eq.1', { headers: h })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (rows) {
+        if (!rows || !rows[0] || !rows[0].data || !rows[0].data.publications) return;
+        var next = merge(rows[0].data);
+        try { localStorage.setItem('site_content', JSON.stringify(rows[0].data)); } catch (e) {}
+        if (JSON.stringify(next) !== JSON.stringify(S)) { S = next; render(); }
+      })
+      .catch(function () {});
+  }
   var UI = {
     tr: {
       skip: 'İçeriğe geç', nav_about: 'Hakkımda', nav_exp: 'Deneyim', nav_ventures: 'Arkhedemia & Arkhebook',
       nav_pubs: 'Yayınlar', nav_projects: 'Projeler', nav_contact: 'İletişim',
       cta_pubs: 'Yayınlarım', cta_projects: 'Projelerim', cta_cv: "CV'yi indir (PDF)", cta_cv_short: "CV'yi indir", cta_mail: 'E-posta gönder',
       band_kicker: 'Son yayın', band_all: 'Tüm yayınlar', band_read: 'Makaleyi oku', h_tools: 'Araçlar',
-      plot_note: 'Her yüklemede yeni bir örneklem; doğru, en küçük kareler ile tarayıcıda hesaplanır.',
       h_about: 'Hakkımda', h_methods: 'Çalıştığım yöntemler', h_edu: 'Eğitim',
       h_exp: 'Deneyim', h_corporate: "Kigılı'da kurduğum sistemlerden bazıları", h_community: 'Topluluk ve gönüllülük',
       h_ventures: 'Arkhedemia ve Arkhebook', sub_ventures: 'Kurucu ortağı olduğum dergi ve onun için geliştirdiğim okuma uygulaması.',
       h_pubs: 'Yayınlar', scholar: 'Google Scholar profili', author_page: 'Arkhedemia yazar sayfası',
-      h_projects: 'Projeler', sub_projects: 'Herkesin kullanabileceği uygulamalar ve yer aldığım araştırma projeleri.',
+      h_projects: 'Projeler',
       h_research: 'Araştırma projeleri',
       h_contact: 'İletişim', sub_contact: 'Veri analizi, ekonometrik modelleme ya da İK analitiği üzerine iş birliği için yazabilirsiniz.',
-      c_mail: 'E-posta', c_scholar: 'Akademik profil', back_top: 'Başa dön',
+      c_mail: 'E-posta', c_scholar: 'Akademik profil', back_top: 'Başa dön', privacy: 'Gizlilik', admin: 'Yönetici',
       f_all: 'Tümü', f_article: 'Makale', f_paper: 'Çalışma makalesi', f_thesis: 'Tez',
       pub_count: function (n, y) { return n + ' yayın, ' + y + ' yılları arasında.'; },
       lang_btn: 'EN', lang_aria: 'Switch to English', theme_aria: 'Temayı değiştir', menu: 'Menü',
-      plot_x: 'x', plot_y: 'y', plot_aria: 'Rastgele örnek veriye uydurulmuş doğrusal regresyon grafiği',
+      plot_x: 'x', plot_y: 'y', plot_aria: 'Doğrusal regresyon grafiği',
       title: 'Mustafa Sabri Doğruyol | Veri Analisti ve Ekonometrist'
     },
     en: {
@@ -27,19 +48,18 @@
       nav_pubs: 'Publications', nav_projects: 'Projects', nav_contact: 'Contact',
       cta_pubs: 'Publications', cta_projects: 'Projects', cta_cv: 'Download CV (PDF)', cta_cv_short: 'Download CV', cta_mail: 'Send an email',
       band_kicker: 'Latest publication', band_all: 'All publications', band_read: 'Read the article', h_tools: 'Tools',
-      plot_note: 'A fresh sample on every load; the line is fitted by least squares in your browser.',
       h_about: 'About', h_methods: 'Methods I work with', h_edu: 'Education',
       h_exp: 'Experience', h_corporate: 'Some of the systems I built at Kigılı', h_community: 'Community and volunteering',
       h_ventures: 'Arkhedemia and Arkhebook', sub_ventures: 'The journal I co-founded, and the reading app I built for it.',
       h_pubs: 'Publications', scholar: 'Google Scholar profile', author_page: 'Arkhedemia author page',
-      h_projects: 'Projects', sub_projects: 'Apps anyone can use, and the research projects I have worked on.',
+      h_projects: 'Projects',
       h_research: 'Research projects',
       h_contact: 'Contact', sub_contact: 'Write to me about data analysis, econometric modelling or HR analytics collaborations.',
-      c_mail: 'Email', c_scholar: 'Academic profile', back_top: 'Back to top',
+      c_mail: 'Email', c_scholar: 'Academic profile', back_top: 'Back to top', privacy: 'Privacy', admin: 'Admin',
       f_all: 'All', f_article: 'Article', f_paper: 'Working paper', f_thesis: 'Thesis',
       pub_count: function (n, y) { return n + ' publications, ' + y + '.'; },
       lang_btn: 'TR', lang_aria: 'Türkçeye geç', theme_aria: 'Toggle theme', menu: 'Menu',
-      plot_x: 'x', plot_y: 'y', plot_aria: 'Linear regression line fitted to a random sample',
+      plot_x: 'x', plot_y: 'y', plot_aria: 'Linear regression chart',
       title: 'Mustafa Sabri Doğruyol | Data Analyst and Econometrician'
     }
   };
@@ -201,6 +221,7 @@
   function init() {
     render();
     plot();
+    loadRemote();
 
     $('lang').addEventListener('click', function () {
       lang = lang === 'tr' ? 'en' : 'tr';
